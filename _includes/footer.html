@@ -1,0 +1,33 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <span class="footer-project-name">{{ site.data.site.title }}</span>
+        <p class="footer-tagline">{{ site.data.site.footer_tagline }}</p>
+      </div>
+
+      <div class="footer-info">
+        <p>{{ site.data.site.lead_institution }}</p>
+        <p>
+          Lead PI: <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.lead_pi }}</a>
+          &mdash; <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>
+        </p>
+        <p class="footer-funding">{{ site.data.site.funding_note }}</p>
+      </div>
+
+      <div class="footer-links">
+        <p class="footer-links-heading">Links</p>
+        <ul class="footer-link-list">
+          {% for link in site.data.site.footer_links %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>{{ site.data.site.copyright }}</p>
+    </div>
+  </div>
+</footer>

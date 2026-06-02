@@ -1,0 +1,17 @@
+title: Open Psychiatry Project
+description: "Open science for mental health — connecting molecular data with real-world impact."
+url: "https://carcruz.github.io"
+baseurl: "/opp-landingpage"
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - vendor/

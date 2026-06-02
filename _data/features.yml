@@ -1,0 +1,20 @@
+- icon: molecule
+  heading: Open molecular data
+  description: >
+    The platform brings together diverse datasets on how genes, cells, and molecules impact
+    mental health conditions. Researchers can explore biomarkers, drug targets, and potential
+    treatments through a single, open interface.
+
+- icon: shield
+  heading: Privacy-preserving data federation
+  description: >
+    Using cutting-edge federated technology (in partnership with Bitfount), researchers can
+    analyse data held across multiple secure UK environments without ever moving or centralising
+    sensitive health or genetic information. Privacy is preserved by design.
+
+- icon: people
+  heading: Co-designed with lived experience
+  description: >
+    People with lived experience of mental illness are central to the project — co-developing
+    the website's design and content. A dedicated accessible interface ensures the platform is
+    genuinely useful for non-specialist users, not just scientists.

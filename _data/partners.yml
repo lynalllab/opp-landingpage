@@ -1,0 +1,32 @@
+# To add a logo: drop the image in assets/images/ and set logo to the filename (e.g. "cam.png")
+- name: University of Cambridge
+  url: https://www.cam.ac.uk
+  logo: ""
+
+- name: "EMBL's European Bioinformatics Institute (EMBL-EBI)"
+  url: https://www.ebi.ac.uk
+  logo: ""
+
+- name: Cambridgeshire and Peterborough NHS Foundation Trust
+  url: https://www.cpft.nhs.uk
+  logo: ""
+
+- name: University of Edinburgh
+  url: https://www.ed.ac.uk
+  logo: ""
+
+- name: Swansea University
+  url: https://www.swansea.ac.uk
+  logo: ""
+
+- name: Health Innovation East
+  url: https://www.healthinnovationeast.co.uk
+  logo: ""
+
+- name: Bitfount
+  url: https://www.bitfount.com
+  logo: ""
+
+- name: Open Targets
+  url: https://www.opentargets.org
+  logo: ""

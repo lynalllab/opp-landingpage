@@ -1,0 +1,75 @@
+<!-- To activate: replace REPLACE_WITH_FORM_ID with your Formspree form ID -->
+<!-- Get a form ID at https://formspree.io — create a free account and add a new form -->
+<form
+  class="contact-form"
+  action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+  method="POST"
+  novalidate
+>
+  <input type="hidden" name="_subject" value="Open Psychiatry Project - Expression of Interest">
+  <input type="hidden" name="_next" value="/thank-you">
+
+  <div class="form-field">
+    <label for="name">Full Name <span aria-hidden="true">*</span></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      autocomplete="name"
+      required
+      aria-required="true"
+    >
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      autocomplete="email"
+      required
+      aria-required="true"
+    >
+  </div>
+
+  <div class="form-field">
+    <label for="affiliation">Institution / Affiliation</label>
+    <input
+      type="text"
+      id="affiliation"
+      name="affiliation"
+      autocomplete="organization"
+    >
+  </div>
+
+  <div class="form-field">
+    <label for="role">I am a&hellip; <span aria-hidden="true">*</span></label>
+    <select
+      id="role"
+      name="role"
+      required
+      aria-required="true"
+    >
+      <option value="">Please select</option>
+      <option value="researcher">Researcher</option>
+      <option value="clinician">Clinician</option>
+      <option value="industry">Industry Partner</option>
+      <option value="lived-experience">Person with Lived Experience</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="message">Message <span class="form-optional">(optional)</span></label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      aria-describedby="message-hint"
+    ></textarea>
+    <span id="message-hint" class="form-hint">Tell us more about your interest in the project.</span>
+  </div>
+
+  <button type="submit" class="btn--submit">Register Interest</button>
+</form>

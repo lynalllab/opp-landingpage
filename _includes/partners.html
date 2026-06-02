@@ -1,0 +1,15 @@
+<div class="partners-grid">
+  {% assign delay_classes = "reveal,reveal reveal--delay-1,reveal reveal--delay-2,reveal reveal--delay-3" | split: "," %}
+  {% for partner in site.data.partners %}
+  {% assign delay_index = forloop.index0 | modulo: 4 %}
+  <div class="partner-card {{ delay_classes[delay_index] }}">
+    <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ partner.name }} (opens in new tab)">
+      {% if partner.logo != "" %}
+        <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" alt="{{ partner.name }} logo" loading="lazy">
+      {% else %}
+        <span class="partner-name">{{ partner.name }}</span>
+      {% endif %}
+    </a>
+  </div>
+  {% endfor %}
+</div>
