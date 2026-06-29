@@ -12,7 +12,7 @@ description: "Thank you for registering your interest in the Open Psychiatry Pro
       </svg>
     </div>
     <h1 id="thankyou-heading">Thank you for registering your interest!</h1>
-    <p>We have received your details and will be in touch soon. We appreciate your support for open science in mental health research.</p>
+    <p>We have received your details and will be in touch soon. We appreciate your support for the open psychiatry project in mental health research.</p>
     <a href="{{ '/' | relative_url }}" class="btn btn--primary">&larr; Back to Home</a>
   </div>
 </section>
