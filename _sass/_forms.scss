@@ -1,0 +1,81 @@
+// ===================================================================
+// FORM
+// Reusable form styling — currently used by _includes/form.html
+// on the Register Interest section, but not tied to it.
+// ===================================================================
+
+.contact-form {
+  display: grid;
+  gap: 1.4rem;
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: $dark;
+  }
+
+  .form-optional { font-weight: 400; color: #7a7090; font-size: 0.85em; }
+  .form-hint     { font-size: 0.82rem; color: #7a7090; }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: $sans;
+    font-size: 1rem;
+    color: $dark;
+    background: $white;
+    border: 1.5px solid rgba($dark, 0.17);
+    border-radius: 3px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: none;
+      border-color: $plum;
+      box-shadow: 0 0 0 3px rgba($plum, 0.1);
+    }
+
+    &::placeholder { color: rgba($dark, 0.28); }
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%231a1220' opacity='.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .btn--submit {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2.25rem;
+    background: $green;
+    color: $white;
+    font-family: $sans;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+
+    &:hover { background: #419f53; transform: translateY(-2px); color: $white; }
+    &:active { transform: translateY(0); }
+  }
+}

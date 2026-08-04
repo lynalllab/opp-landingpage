@@ -1,0 +1,32 @@
+// ===================================================================
+// VARIABLES
+// Shared color/type tokens — used across every partial.
+// ===================================================================
+
+:root {
+  --color-plum:      #89457f;
+  --color-indigo:    #454a89;
+  --color-green:     #56a36b;
+  --color-teal:      #438789;
+  --color-violet:    #8b55a3;
+  --color-white:     #ffffff;
+  --color-off-white: #f7f5f9;
+  --color-dark:      #1a1220;
+}
+
+$plum:      #89457f;
+$indigo:    #454a89;
+$green:     #56a36b;
+$teal:      #438789;
+$violet:    #8b55a3;
+$white:     #ffffff;
+$off-white: #f7f5f9;
+$dark:      #1a1220;
+
+$serif: 'Libre Baskerville', serif;
+$sans:  'Inter', sans-serif;
+
+// Wave SVG data URIs — fill matches the NEXT section's background
+$wave-offwhite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C480,0 960,90 1440,50 L1440,80 L0,80 Z' fill='%23f7f5f9'/%3E%3C/svg%3E");
+$wave-white:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C480,90 960,0 1440,50 L1440,80 L0,80 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+$wave-dark:     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C480,0 960,90 1440,50 L1440,80 L0,80 Z' fill='%231a1220'/%3E%3C/svg%3E");

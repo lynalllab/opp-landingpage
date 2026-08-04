@@ -1,0 +1,70 @@
+// ===================================================================
+// FIND OUT MORE PAGE
+// findout_more.html only. Accordion look-and-feel lives in _accordion.scss —
+// this file only sets this page's layout (max-widths, spacing, copy blocks).
+// ===================================================================
+
+.findout-more {
+  background: $off-white;
+  padding: calc(3.5rem + 80px) 0 5.5rem;
+
+  .findout-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba($plum, 0.3);
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $plum;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    color: $plum;
+    max-width: 820px;
+    margin-bottom: 2rem;
+    font-size: clamp(2rem, 4vw, 2.85rem);
+  }
+
+  .findout-subheading {
+    color: $indigo;
+    margin: 2.75rem 0 1rem;
+  }
+
+  .findout-intro {
+    max-width: 780px;
+
+    p { font-size: 1.05rem; line-height: 1.7; color: #4a3a48; }
+  }
+
+  > .container > p {
+    max-width: 780px;
+    color: #4a3a48;
+  }
+
+  .findout-accordion {
+    max-width: 780px;
+    margin-top: 1.5rem;
+  }
+
+  .findout-callout {
+    max-width: 780px;
+    margin-top: 2.5rem;
+    padding: 1.4rem 1.75rem;
+    background: rgba($teal, 0.07);
+    border-left: 3px solid $teal;
+    border-radius: 0 4px 4px 0;
+
+    p { color: #3d5d5e; margin: 0; }
+    strong { color: $teal; }
+  }
+
+  .findout-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+}

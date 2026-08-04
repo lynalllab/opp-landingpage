@@ -39,10 +39,7 @@ description: "Open science for mental health — connecting molecular data with 
         <span class="hero-stat-value">2</span>
         <span class="hero-stat-label">Lead Institutions</span>
       </div>
-      <div class="hero-stat" role="listitem">
-        <span class="hero-stat-value">100%</span>
-        <span class="hero-stat-label">Open Access</span>
-      </div>
+   
     </div>
 
     <p class="hero-funding"><strong>Funded by</strong> UKRI&rsquo;s Medical Research Council (MRC) and the National Institute for Health and Care Research (NIHR)</p>
@@ -60,6 +57,9 @@ description: "Open science for mental health — connecting molecular data with 
       <p class="about-lead">The Open Psychiatry Project is a &pound;2.3M initiative building the UK&rsquo;s first open, publicly accessible resource for exploring how genes, cells, and molecules influence mental health conditions.</p>
       <p>Led by Dr Mary-Ellen Lynall at the University of Cambridge in partnership with Dr Ellen McDonagh at EMBL-EBI, the project extends the globally used Open Targets Platform &mdash; a major hub for drug and target discovery &mdash; to integrate a wide range of mental-health&ndash;relevant molecular datasets.</p>
       <p>The result will be an interactive website presenting clear, accessible summaries of potential biomarkers, drug targets, and treatments for mental health conditions. The platform is designed for everyone: researchers advancing the science, clinicians seeking new insights, industry partners identifying opportunities, and people with direct lived experience of mental illness.</p>
+      <p>
+      Our goal is to speed up the discovery of better, more personalised treatments for mental health conditions.
+      </p>
       <div class="about-callout reveal reveal--delay-1">
         <p>Mental health biomarker data is currently fragmented across many platforms and secure environments, making it difficult to assess how genes and molecules affect mental health. This project changes that.</p>
       </div>
@@ -117,7 +117,7 @@ description: "Open science for mental health — connecting molecular data with 
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
           </svg>
         </div>
-        <h3>Clinicians</h3>
+        <h3>Health Professionals</h3>
         <p>Discover emerging evidence on genetic and molecular factors that may inform clinical decision-making and patient care.</p>
       </div>
 

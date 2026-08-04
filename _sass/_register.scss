@@ -1,0 +1,21 @@
+// ===================================================================
+// REGISTER INTEREST
+// Home page (index.md) only. Form fields/behavior live in _forms.scss.
+// ===================================================================
+
+.register-interest {
+  position: relative;
+  background: $off-white;
+  padding: 5.5rem 0 5.5rem;
+
+  h2 { color: $plum; margin-bottom: 1rem; }
+
+  .register-inner { max-width: 680px; }
+
+  .register-intro {
+    font-size: 1.05rem;
+    color: #4a4060;
+    margin-bottom: 2.5rem;
+    line-height: 1.68;
+  }
+}

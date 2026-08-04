@@ -1,0 +1,141 @@
+// ===================================================================
+// HERO
+// Home page (index.md) only.
+// ===================================================================
+
+.hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba($violet, 0.45) 0%, transparent 55%),
+    linear-gradient(140deg, $plum 0%, #6a4887 50%, $indigo 100%);
+  color: $white;
+  padding: 7.5rem 0 calc(5.5rem + 80px);
+  overflow: hidden;
+
+  // Subtle large decorative circle top-right
+  &::before {
+    content: '';
+    position: absolute;
+    top: -180px;
+    right: -180px;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    background: rgba($white, 0.035);
+    pointer-events: none;
+  }
+
+  // Wave bottom transition → off-white (About)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: $wave-offwhite no-repeat bottom;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+
+  // Canvas sits behind content
+  canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  // Content sits above canvas
+  .container { position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba($white, 0.32);
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($white, 0.78);
+    margin-bottom: 1.75rem;
+  }
+
+  h1 {
+    color: $white;
+    max-width: 760px;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.18);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    font-weight: 300;
+    color: rgba($white, 0.9);
+    max-width: 580px;
+    margin-bottom: 0.65rem;
+    line-height: 1.55;
+  }
+
+  .hero-sub {
+    font-size: 0.975rem;
+    color: rgba($white, 0.68);
+    max-width: 550px;
+    margin-bottom: 2.75rem;
+    line-height: 1.62;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  // Animated stats row
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba($white, 0.12);
+    padding-top: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0 2.5rem 0 0;
+    margin-right: 2.5rem;
+    border-right: 1px solid rgba($white, 0.12);
+
+    &:last-child {
+      border-right: none;
+      margin-right: 0;
+    }
+  }
+
+  .hero-stat-value {
+    font-family: $serif;
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    color: $white;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-stat-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba($white, 0.5);
+  }
+
+  .hero-funding {
+    font-size: 0.83rem;
+    color: rgba($white, 0.45);
+    margin-top: 1.25rem;
+    strong { color: rgba($white, 0.65); font-weight: 600; }
+  }
+}

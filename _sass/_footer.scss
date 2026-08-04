@@ -1,0 +1,62 @@
+// ===================================================================
+// FOOTER
+// Present on every page via _includes/footer.html.
+// ===================================================================
+
+.site-footer {
+  background: $dark;
+  color: rgba($white, 0.62);
+  padding: 4.5rem 0 2rem;
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 2.25fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-project-name {
+    display: block;
+    font-family: $serif;
+    font-size: 1.4rem;
+    color: $white;
+    margin-bottom: 0.65rem;
+  }
+
+  .footer-tagline { font-size: 0.9rem; color: rgba($white, 0.42); margin: 0; }
+
+  .footer-info p {
+    font-size: 0.875rem;
+    margin-bottom: 0.45rem;
+    color: rgba($white, 0.62);
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .footer-funding { font-size: 0.8rem !important; color: rgba($white, 0.36) !important; margin-top: 0.35rem; }
+
+  a { color: rgba($white, 0.62); text-decoration: none; transition: color 0.2s; &:hover { color: $green; } }
+
+  .footer-links-heading {
+    font-family: $sans;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba($white, 0.36);
+    margin-bottom: 1rem;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    li { margin-bottom: 0.5rem; }
+    a  { font-size: 0.875rem; }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba($white, 0.07);
+    padding-top: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba($white, 0.3);
+    p { margin: 0; }
+  }
+}

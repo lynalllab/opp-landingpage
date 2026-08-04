@@ -1,0 +1,42 @@
+// ===================================================================
+// ABOUT
+// Home page (index.md) only.
+// ===================================================================
+
+.about {
+  position: relative;
+  background: $off-white;
+  padding: 5.5rem 0 calc(4.5rem + 80px);
+
+  // Wave bottom → white (How It Works)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: $wave-white no-repeat bottom;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+
+  h2 { color: $plum; margin-bottom: 1.5rem; }
+
+  .about-inner { max-width: 800px; }
+
+  .about-lead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: #4a3a48;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-callout {
+    margin-top: 2.25rem;
+    padding: 1.4rem 1.75rem;
+    background: rgba($teal, 0.07);
+    border-left: 3px solid $teal;
+    border-radius: 0 4px 4px 0;
+
+    p { font-style: italic; color: #3d5d5e; margin: 0; }
+  }
+}
