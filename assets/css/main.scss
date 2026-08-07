@@ -27,6 +27,10 @@
 // Page-specific — subpages
 @import 'thank-you';
 @import 'findout-more';
+@import 'industry';
+@import 'faqs';
+@import 'work-with-us';
+@import 'team';
 
 // Breakpoint overrides (kept together; each block still scoped to its component)
 @import 'responsive';

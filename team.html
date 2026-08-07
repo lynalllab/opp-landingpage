@@ -1,0 +1,62 @@
+---
+layout: default
+title: Team
+permalink: /team/
+description: "The team behind the Open Psychiatry Project."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TEAM — INTRO
+     Edit: heading and lead paragraph below
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="team-intro" aria-labelledby="team-heading">
+  <div class="container">
+    <h1 id="team-heading">The team</h1>
+    <p class="team-lead">The Open Psychiatry Project is led from the University of Cambridge Department of Psychiatry and delivered with partners across Open Targets, DATAMIND, Generation Scotland and the UK Longitudinal Linkage Collaboration.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TEAM — GRID
+     Edit: people in _data/team.yml — this markup does not need to change
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="team-grid-section" aria-label="Team members">
+  <div class="container team-grid">
+    {% for person in site.data.team %}
+    <article class="team-card">
+      {% if person.photo %}
+        <div class="team-photo">
+          <img src="{{ '/assets/images/team/' | append: person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy" width="400" height="400">
+        </div>
+      {% else %}
+        <div class="team-photo team-photo--empty" aria-hidden="true">portrait needed</div>
+      {% endif %}
+      <div class="team-card-text">
+        <h3>{{ person.name }}</h3>
+        <span class="team-role-label">{{ person.title }}</span>
+        <p class="team-role">{{ person.role }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TEAM — LIVED EXPERIENCE CALLOUT
+     Edit: copy and email below
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="team-lived" aria-labelledby="lived-heading">
+  <div class="container">
+    <div class="team-lived-box">
+      <div class="team-lived-text">
+        <span class="team-role-label">Co-production core team</span>
+        <h2 id="lived-heading">People with lived experience</h2>
+        <p>People with lived experience of mental illness sit in the core team, shaping the questions OPP asks, how data is governed, and how findings are shared.</p>
+      </div>
+      <div class="team-lived-actions">
+        <a class="btn btn--primary" href="mailto:{{ site.data.site.contact_email }}">Get involved</a>
+        <p class="team-lived-note">We are recruiting contributors for the next phase of co-production.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+# Team members, in display order.
+# `photo` is the filename inside assets/images/team/. Leave blank to render
+# the "portrait needed" placeholder instead of a broken image.
+- name: Mary-Ellen Lynall
+  title: Principal lead
+  role: University of Cambridge, Department of Psychiatry
+  photo: mary-ellen-lynall.jpg
+
+- name: Rudolf Cardinal
+  title: Co-lead
+  role: Non-executive director, CPFT; co-investigator for DATAMIND
+  photo: rudolf-cardinal.png
+
+- name: Ellen McDonagh
+  title: Co-lead
+  role: Translational Informatics Director of Open Targets
+  photo: ellen-mcdonagh.png
+
+- name: Andrew McIntosh
+  title: Co-lead
+  role: Director of the UKRI Mental Health Platform; Chief Scientist of DATAMIND
+  photo:
+
+- name: Ann John
+  title: Co-lead
+  role: Co-Director of DATAMIND
+  photo: ann-john.jpeg
+
+- name: Robin Flaig
+  title: Co-lead
+  role: Co-Director, UK Longitudinal Linkage Collaboration; COO, Generation Scotland
+  photo: robin-flaig.png
+
+- name: Birgitta Olofsson
+  title: Programme manager
+  role: University of Cambridge, Department of Psychiatry
+  photo: birgitta-olofsson.jpeg
