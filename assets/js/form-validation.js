@@ -60,8 +60,12 @@
     var max = parseInt(field.getAttribute('data-max-words'), 10);
     var count = wordCount(field.value);
     var counterEl = document.getElementById(field.id + '-count');
-    if (counterEl) counterEl.textContent = count + ' / ' + max + ' words';
-    field.setCustomValidity(count > max ? 'Please keep this under ' + max + ' words (currently ' + count + ').' : '');
+    var isOver = count > max;
+    if (counterEl) {
+      counterEl.textContent = count + ' / ' + max + ' words';
+      counterEl.classList.toggle('is-over', isOver);
+    }
+    field.setCustomValidity(isOver ? 'Please keep this under ' + max + ' words (currently ' + count + ').' : '');
   }
 
   wordLimitFields.forEach(function (field) {
@@ -123,6 +127,24 @@
     });
   });
 
+  // ---- per-step validation, used by form-wizard.js's Continue button ----
+  window.OPPValidateStep = function (step) {
+    var ok = true;
+    Array.prototype.forEach.call(step.querySelectorAll('input, select, textarea'), function (field) {
+      if (validatableFields.indexOf(field) === -1) return;
+      if (!validateField(field)) ok = false;
+    });
+    Array.prototype.forEach.call(step.querySelectorAll('fieldset[data-require-one]'), function (fieldset) {
+      if (!validateRequireOneGroup(fieldset)) ok = false;
+    });
+    if (!ok) {
+      var firstError = step.querySelector('.form-error:not(:empty)');
+      var control = firstError && (firstError.closest('.form-field, fieldset').querySelector('input, select, textarea'));
+      if (control) control.focus({ preventScroll: true });
+    }
+    return ok;
+  };
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -147,7 +169,10 @@
 
     if (!allValid) {
       if (submitError) submitError.textContent = 'Please fix the highlighted fields below.';
-      if (firstInvalid) firstInvalid.focus();
+      if (firstInvalid) {
+        if (window.OPPGoToStep) window.OPPGoToStep(firstInvalid);
+        firstInvalid.focus();
+      }
       return;
     }
 

@@ -14,7 +14,7 @@
 {% if page.url == '/industry/' %}{% assign is_industry = true %}{% endif %}
 
 {% assign menu_active = false %}
-{% if is_team or is_faqs or is_glossary %}{% assign menu_active = true %}{% endif %}
+{% if is_team or is_glossary %}{% assign menu_active = true %}{% endif %}
 <nav class="site-nav" id="site-nav" aria-label="Site navigation">
   <div class="container">
     <div class="nav-inner">
@@ -47,12 +47,12 @@
             <p class="menu-heading" id="mh-read">Read in full</p>
             <ul role="list" aria-labelledby="mh-read">
               <li><a href="{{ '/team/' | relative_url }}"{% if is_team %} class="is-active" aria-current="page"{% endif %}>Team</a></li>
-              <li><a href="{{ '/faqs/' | relative_url }}"{% if is_faqs %} class="is-active" aria-current="page"{% endif %}>FAQs</a></li>
               <li><a href="{{ '/glossary/' | relative_url }}"{% if is_glossary %} class="is-active" aria-current="page"{% endif %}>Glossary</a></li>
             </ul>
             </div>
           </div>
         </li>
+        <li><a href="{{ '/faqs/' | relative_url }}"{% if is_faqs %} class="is-active" aria-current="page"{% endif %}>FAQs</a></li>
         <li><a href="{{ '/more/' | relative_url }}"{% if is_more %} class="is-active" aria-current="page"{% endif %}>Find out more</a></li>
         <li><a href="{{ '/industry/' | relative_url }}"{% if is_industry %} class="is-active" aria-current="page"{% endif %}>For industry</a></li>
 

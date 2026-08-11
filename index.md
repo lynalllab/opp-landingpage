@@ -150,16 +150,70 @@ description: "Open science for mental health — connecting molecular data with 
 
 <!-- ═══════════════════════════════════════════════════════════════
      REGISTER INTEREST
-     Edit: heading and intro paragraph below
+     Edit: heading, intro paragraph and "what we'll ask" summary below
      Edit form fields in _includes/form.html
      Update Formspree endpoint in _includes/form.html
      ═══════════════════════════════════════════════════════════════ -->
 <section class="register-interest" id="register" aria-labelledby="register-heading">
   <div class="container">
-    <div class="register-inner">
-      <h2 id="register-heading" class="reveal">Get Involved</h2>
-      <p class="register-intro reveal reveal--delay-1">We are building this platform for and with the people who will use it. Whether you are a researcher, clinician, industry partner, or someone with lived experience of mental health conditions, we want to hear from you. Register your interest below and we will be in touch.</p>
-      {% include form.html %}
+    <div class="register-layout">
+      <div class="register-intro">
+        <h2 id="register-heading" class="reveal">Get Involved</h2>
+        <p class="register-lead reveal reveal--delay-1">We are building this platform for and with the people who will use it. Whether you are a researcher, clinician, industry partner, or someone with lived experience of mental health conditions, we want to hear from you. Register your interest below and we will be in touch.</p>
+
+        <div class="register-preview reveal reveal--delay-2">
+          <span class="register-preview-label">What we'll ask</span>
+          <ol>
+            <li><span class="register-preview-num">01</span> Your name, email and how you relate to mental health</li>
+            <li><span class="register-preview-num">02</span> Where you are, and a little about your background</li>
+            <li><span class="register-preview-num">03</span> Why you want to contribute &mdash; three short questions</li>
+            <li><span class="register-preview-num">04</span> Which workstream interests you, and consent</li>
+          </ol>
+          <p>About 5 minutes in total. Your answers are saved as you go, so you can come back to it.</p>
+        </div>
+      </div>
+
+      <div class="register-form-col">
+        <div class="form-shell">
+          <div class="form-progress">
+            <div class="form-progress-meta">
+              <span class="form-progress-count" role="status" aria-live="polite">Step 1 of 4</span>
+            </div>
+            <ol>
+              <li>
+                <button type="button" disabled>
+                  <span class="form-progress-bar"></span>
+                  <span class="form-progress-label">You</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" disabled>
+                  <span class="form-progress-bar"></span>
+                  <span class="form-progress-label">About you</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" disabled>
+                  <span class="form-progress-bar"></span>
+                  <span class="form-progress-label">Your interest</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" disabled>
+                  <span class="form-progress-bar"></span>
+                  <span class="form-progress-label">Involvement</span>
+                </button>
+              </li>
+            </ol>
+          </div>
+
+          {% include form.html %}
+        </div>
+
+        <p class="form-fallback-link">
+          <button type="button" class="form-view-toggle" aria-expanded="false" hidden>Prefer one long page? <span class="form-view-toggle-label">Show all questions at once</span> &mdash; the same form, nothing hidden.</button>
+        </p>
+      </div>
     </div>
   </div>
 </section>

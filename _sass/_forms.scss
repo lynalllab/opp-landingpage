@@ -166,7 +166,8 @@ $error: #c0392b;
     }
   }
 
-  .btn--submit {
+  .btn--submit,
+  .btn--continue {
     justify-self: start;
     display: inline-flex;
     align-items: center;
@@ -184,5 +185,187 @@ $error: #c0392b;
 
     &:hover { background: #419f53; transform: translateY(-2px); color: $white; }
     &:active { transform: translateY(0); }
+    &[hidden] { display: none; }   // `display: inline-flex` above otherwise beats [hidden]
+  }
+
+  .btn--continue {
+    background: $teal;
+    &:hover { background: darken($teal, 6%); }
   }
 }
+
+// ===================================================================
+// FORM WIZARD
+// Presentational step shell for the Register Interest form. Reused
+// generically like the rest of _forms.scss, driven by form-wizard.js.
+// ===================================================================
+
+.form-shell {
+  background: $white;
+  border: 1px solid rgba($dark, 0.09);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.form-progress {
+  padding: 1.375rem 2rem 1.25rem;
+  border-bottom: 1px solid rgba($dark, 0.09);
+  display: flex; flex-direction: column; gap: 0.75rem;
+
+  .form-progress-meta {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    font-size: 0.8125rem; color: #8d859c;
+  }
+
+  .form-progress-count { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+
+  button {
+    display: flex; flex-direction: column; gap: 0.4375rem;
+    width: 100%; background: none; border: none; padding: 0;
+    text-align: left; font-family: $sans; cursor: default;
+  }
+
+  .form-progress-bar { height: 4px; border-radius: 2px; background: rgba($dark, 0.12); }
+  .form-progress-label { font-size: 0.78rem; line-height: 1.25; color: #8d859c; }
+
+  li.is-done button,
+  li.is-current button { cursor: pointer; .form-progress-bar { background: $plum; } }
+  li.is-done    .form-progress-label { color: #4a4060; }
+  li.is-current .form-progress-label { color: $dark; font-weight: 600; }
+}
+
+.form-step {
+  border: none; margin: 0; padding: 1.875rem 2rem 2rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+
+  > legend {
+    padding: 0; float: left; width: 100%;      // float+width: legend as a normal block
+    font-family: $serif; font-size: 1.4375rem; color: $dark; margin-bottom: 1.5rem;
+  }
+  &[hidden] { display: none; }
+}
+
+// .form-chips reuses the existing .form-checkbox-group / .form-radio-group
+// fieldsets (role, engagement_experience) as an additional class, so these
+// two blocks are nested under .contact-form to match (and win over) the
+// specificity of the base group rules above.
+.contact-form {
+  // A <legend> is NOT a flex item — the parent's `gap` never applies to it.
+  // Every legend that is followed by a hint needs its own margin.
+  .form-checkbox-group > legend,
+  .form-radio-group    > legend { margin-bottom: 0.625rem; }
+
+  // ---- chips (role, engagement_experience) ---------------------------
+  .form-chips {
+    display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 0.5rem; width: "fit-content";
+
+    label {
+      font-size: 0.875rem; line-height: 1.3;
+      padding: 0.5625rem 1rem; border-radius: 22px;
+      border: 1.5px solid rgba($dark, 0.2); background: $white; color: #4a4060;
+      cursor: pointer; user-select: none;
+
+      input { position: absolute; opacity: 0; width: 0; height: 0; }
+      &:hover { border-color: rgba($plum, 0.5); }
+      &:has(input:checked) { background: $plum; border-color: $plum; color: $white; }
+      &:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba($plum, 0.25); }
+    }
+  }
+
+  // The chip's real checkbox/radio is visually hidden, so the base
+  // has-error outline (which targets the input itself) is invisible here.
+  .form-chips.has-error label { border-color: $error; }
+}
+
+// ---- workstream cards (involvement_tasks) --------------------------
+.form-task-cards {
+  display: flex; flex-direction: column; gap: 1.125rem;
+  border: none; padding: 0; margin: 0;
+
+  > legend {
+    font-size: 0.875rem; font-weight: 700; letter-spacing: 0.02em;
+    color: $dark; padding: 0; margin-bottom: 0.35rem;
+  }
+
+  label {
+    display: flex; gap: 0.875rem; align-items: flex-start;
+    padding: 0.875rem 1rem;
+    border: 1.5px solid rgba($dark, 0.14); border-radius: 6px;
+    background: $white; cursor: pointer;
+
+    input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+    .form-task-box {
+      flex: none; width: 20px; height: 20px; margin-top: 2px;
+      border: 1.5px solid rgba($dark, 0.3); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: $white; font-size: 0.8125rem;
+    }
+
+    .form-task-text { display: flex; flex-direction: column; gap: 0.3125rem; }
+
+    .form-task-heading { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
+    .form-task-title { font-family: $serif; font-size: 1.03rem; line-height: 1.35; color: $dark; }
+    .form-task-when {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap;
+      color: $teal; background: rgba($teal, 0.1); padding: 0.1875rem 0.5625rem; border-radius: 20px;
+    }
+    .form-task-body { font-size: 0.9rem; line-height: 1.55; color: #4a4060; }
+
+    &:has(input:checked) {
+      border-color: $teal; background: rgba($teal, 0.06);
+      .form-task-box { background: $teal; border-color: $teal; &::after { content: "\2713"; } }
+    }
+  }
+
+  &.has-error label { border-color: $error; }
+}
+
+.form-why-we-ask {
+  background: #faf8fb; border: 1px solid rgba($dark, 0.07);
+  border-radius: 6px; padding: 1rem 1.125rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+
+  span { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8d859c; }
+  p { margin: 0; font-size: 0.875rem; line-height: 1.6; color: #4a4060; }
+}
+
+.form-nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  border-top: 1px solid rgba($dark, 0.09);
+  margin: 0 2rem; padding: 1.375rem 0 2rem;
+
+  .form-back {
+    background: none; border: none; padding: 0; cursor: pointer;
+    font-family: $sans; font-size: 0.9375rem; font-weight: 600; color: $plum;
+    &[hidden] { visibility: hidden; display: block; }   // keeps Continue right-aligned
+  }
+  .form-nav-right { display: flex; align-items: center; gap: 1rem; }
+  .form-save-note { font-size: 0.8125rem; color: #8d859c; }
+}
+
+.form-fallback-link { margin: 1.125rem 0 0; font-size: 0.875rem; line-height: 1.6; color: #8d859c; }
+
+.form-view-toggle {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: $sans; font-size: inherit; line-height: inherit; color: inherit; text-align: left;
+
+  .form-view-toggle-label { font-weight: 600; color: $plum; }
+  &:hover .form-view-toggle-label { text-decoration: underline; }
+}
+
+// ---- "show all questions at once" expanded view --------------------
+.form-shell.is-expanded {
+  .form-progress, .form-back, .btn--continue { display: none; }
+  .btn--submit { display: inline-flex; }
+  .form-step {
+    display: flex !important;              // beats the [hidden] attribute
+    border-top: 1px solid rgba($dark, 0.09);
+    &:first-of-type { border-top: none; }
+  }
+  .form-step > legend { color: $indigo; }  // now a section heading, not a step title
+}
+
+.form-word-count.is-over { color: #b9463f; }

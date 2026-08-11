@@ -5,7 +5,11 @@
      driven by the same native Constraint Validation API, plus custom rules for
      "select at least one" checkbox groups and the 200-word free-text caps below
      — see that file. Fields mirror "Final draft interest form.csv"; only
-     Ethnicity is optional there, so every other question is required. -->
+     Ethnicity is optional there, so every other question is required.
+     Steps below (form-step) are presentational only — assets/js/form-wizard.js
+     shows one at a time and validates per step via OPPValidateStep(); with no
+     JS all four fieldsets are simply visible, stacked, and native `required`
+     does the validating. -->
 <form
   class="contact-form"
   action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
@@ -14,234 +18,281 @@
   <input type="hidden" name="_subject" value="Open Psychiatry Project - Expression of Interest">
   <input type="hidden" name="_next" value="/thank-you">
 
-  <div class="form-field">
-    <label for="name">Name <span aria-hidden="true">*</span></label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      autocomplete="name"
-      required
-      aria-required="true"
-      aria-describedby="name-error"
-    >
-    <span id="name-error" class="form-error" role="alert"></span>
-  </div>
+  <fieldset class="form-step">
+    <legend>Who you are</legend>
 
-  <div class="form-field">
-    <label for="email">Email <span aria-hidden="true">*</span></label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      autocomplete="email"
-      required
-      aria-required="true"
-      aria-describedby="email-error"
-    >
-    <span id="email-error" class="form-error" role="alert"></span>
-  </div>
-
-  <div class="form-field-row">
     <div class="form-field">
-      <label for="location">Location <span aria-hidden="true">*</span></label>
-      <select
-        id="location"
-        name="location"
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        autocomplete="name"
         required
         aria-required="true"
-        aria-describedby="location-error"
+        aria-describedby="name-error"
       >
-        <option value="">Please select</option>
-        <option value="England">England</option>
-        <option value="Scotland">Scotland</option>
-        <option value="Wales">Wales</option>
-        <option value="Northern Ireland">Northern Ireland</option>
-      </select>
-      <span id="location-error" class="form-error" role="alert"></span>
+      <span id="name-error" class="form-error" role="alert"></span>
     </div>
 
     <div class="form-field">
-      <label for="age_range">Age <span aria-hidden="true">*</span></label>
-      <select
-        id="age_range"
-        name="age_range"
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        autocomplete="email"
         required
         aria-required="true"
-        aria-describedby="age_range-hint age_range-error"
+        aria-describedby="email-error"
+      >
+      <span id="email-error" class="form-error" role="alert"></span>
+    </div>
+
+    <fieldset id="role" class="form-field form-checkbox-group form-chips" data-require-one aria-describedby="role-hint role-error">
+      <legend>I am <span aria-hidden="true">*</span></legend>
+      <span id="role-hint" class="form-hint">Please tick all that apply.</span>
+      <label>
+        <input type="checkbox" name="role" value="Person with lived experience of a mental health condition">
+        Person with lived experience of a mental health condition
+      </label>
+      <label>
+        <input type="checkbox" name="role" value="Carer or relative for someone with a mental health condition">
+        Carer or relative for someone with a mental health condition
+      </label>
+      <label>
+        <input type="checkbox" name="role" value="Health professional">
+        Health professional
+      </label>
+      <label>
+        <input type="checkbox" name="role" value="Industry or biotech professional">
+        Industry or biotech professional
+      </label>
+      <label>
+        <input type="checkbox" name="role" value="Other">
+        Other
+      </label>
+      <span id="role-error" class="form-error" role="alert"></span>
+    </fieldset>
+  </fieldset>
+
+  <fieldset class="form-step">
+    <legend>About you</legend>
+
+    <div class="form-field-row">
+      <div class="form-field">
+        <label for="location">Location <span aria-hidden="true">*</span></label>
+        <select
+          id="location"
+          name="location"
+          required
+          aria-required="true"
+          aria-describedby="location-error"
+        >
+          <option value="">Please select</option>
+          <option value="England">England</option>
+          <option value="Scotland">Scotland</option>
+          <option value="Wales">Wales</option>
+          <option value="Northern Ireland">Northern Ireland</option>
+        </select>
+        <span id="location-error" class="form-error" role="alert"></span>
+      </div>
+
+      <div class="form-field">
+        <label for="age_range">Age <span aria-hidden="true">*</span></label>
+        <select
+          id="age_range"
+          name="age_range"
+          required
+          aria-required="true"
+          aria-describedby="demographics-why age_range-error"
+        >
+          <option value="">Please select</option>
+          <option value="18-25">18-25</option>
+          <option value="26-45">26-45</option>
+          <option value="46-65">46-65</option>
+          <option value="66-85">66-85</option>
+          <option value=">85">&gt;85</option>
+        </select>
+        <span id="age_range-error" class="form-error" role="alert"></span>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="ethnicity">Ethnicity <span class="form-optional">(optional)</span></label>
+      <select
+        id="ethnicity"
+        name="ethnicity"
+        aria-describedby="demographics-why"
       >
         <option value="">Please select</option>
-        <option value="18-25">18-25</option>
-        <option value="26-45">26-45</option>
-        <option value="46-65">46-65</option>
-        <option value="66-85">66-85</option>
-        <option value=">85">&gt;85</option>
+        <option value="White">White</option>
+        <option value="Mixed or Multiple ethnic groups">Mixed or Multiple ethnic groups</option>
+        <option value="Asian or Asian British">Asian or Asian British</option>
+        <option value="Black, Black British, Caribbean or African">Black, Black British, Caribbean or African</option>
+        <option value="Other ethnic group">Other ethnic group (e.g. Arab)</option>
+        <option value="Prefer not to say">Prefer not to say</option>
       </select>
-      <span id="age_range-hint" class="form-hint">We ask this to make sure people from as many age groups as possible have a chance to help co-produce this resource.</span>
-      <span id="age_range-error" class="form-error" role="alert"></span>
     </div>
-  </div>
 
-  <div class="form-field">
-    <label for="ethnicity">Ethnicity <span class="form-optional">(optional)</span></label>
-    <select
-      id="ethnicity"
-      name="ethnicity"
-      aria-describedby="ethnicity-hint"
-    >
-      <option value="">Please select</option>
-      <option value="White">White</option>
-      <option value="Mixed or Multiple ethnic groups">Mixed or Multiple ethnic groups</option>
-      <option value="Asian or Asian British">Asian or Asian British</option>
-      <option value="Black, Black British, Caribbean or African">Black, Black British, Caribbean or African</option>
-      <option value="Other ethnic group">Other ethnic group (e.g. Arab)</option>
-      <option value="Prefer not to say">Prefer not to say</option>
-    </select>
-    <span id="ethnicity-hint" class="form-hint">We ask this to help ensure equal opportunities and diversity (categories follow the ONS Harmonised Standard).</span>
-  </div>
+    <div id="demographics-why" class="form-why-we-ask">
+      <span>Why we ask</span>
+      <p>We ask about age to make sure people from as many age groups as possible have a chance to help co-produce this resource. Ethnicity helps us ensure equal opportunities and diversity &mdash; the categories follow the ONS Harmonised Standard.</p>
+    </div>
 
-  <fieldset id="role" class="form-field form-checkbox-group" data-require-one aria-describedby="role-hint role-error">
-    <legend>I am <span aria-hidden="true">*</span></legend>
-    <span id="role-hint" class="form-hint">Please tick all that apply.</span>
-    <label class="form-checkbox">
-      <input type="checkbox" name="role" value="Person with lived experience of a mental health condition">
-      Person with lived experience of a mental health condition
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="role" value="Carer or relative for someone with a mental health condition">
-      Carer or relative for someone with a mental health condition
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="role" value="Health professional">
-      Health professional
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="role" value="Industry or biotech professional">
-      Industry or biotech professional
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="role" value="Other">
-      Other
-    </label>
-    <span id="role-error" class="form-error" role="alert"></span>
+    <fieldset id="engagement_experience" class="form-field form-radio-group form-chips" data-require-one aria-describedby="engagement_experience-hint engagement_experience-error">
+      <legend>Do you have previous experience from community engagement or a patient focus group? <span aria-hidden="true">*</span></legend>
+      <span id="engagement_experience-hint" class="form-hint">No previous experience is required to take part &mdash; we ask this to understand who we're hearing from.</span>
+      <label>
+        <input type="radio" name="engagement_experience" value="Yes">
+        Yes
+      </label>
+      <label>
+        <input type="radio" name="engagement_experience" value="No">
+        No
+      </label>
+      <label>
+        <input type="radio" name="engagement_experience" value="Prefer not to say">
+        Prefer not to say
+      </label>
+      <span id="engagement_experience-error" class="form-error" role="alert"></span>
+    </fieldset>
   </fieldset>
 
-  <div class="form-field">
-    <label for="why_contribute">Why would you like to contribute? <span aria-hidden="true">*</span></label>
-    <textarea
-      id="why_contribute"
-      name="why_contribute"
-      rows="4"
-      required
-      aria-required="true"
-      data-max-words="200"
-      aria-describedby="why_contribute-count why_contribute-error"
-    ></textarea>
-    <span id="why_contribute-count" class="form-word-count">0 / 200 words</span>
-    <span id="why_contribute-error" class="form-error" role="alert"></span>
-  </div>
+  <fieldset class="form-step">
+    <legend>Why you want to contribute</legend>
 
-  <div class="form-field">
-    <label for="relevant_knowledge">What knowledge or experience do you have that you think may be helpful to this project? <span aria-hidden="true">*</span></label>
-    <textarea
-      id="relevant_knowledge"
-      name="relevant_knowledge"
-      rows="4"
-      required
-      aria-required="true"
-      data-max-words="200"
-      aria-describedby="relevant_knowledge-count relevant_knowledge-error"
-    ></textarea>
-    <span id="relevant_knowledge-count" class="form-word-count">0 / 200 words</span>
-    <span id="relevant_knowledge-error" class="form-error" role="alert"></span>
-  </div>
-
-  <fieldset id="engagement_experience" class="form-field form-radio-group" data-require-one aria-describedby="engagement_experience-hint engagement_experience-error">
-    <legend>Do you have previous experience from community engagement or a patient focus group? <span aria-hidden="true">*</span></legend>
-    <span id="engagement_experience-hint" class="form-hint">No previous experience is required to take part &mdash; we ask this to understand who we're hearing from.</span>
-    <label class="form-radio">
-      <input type="radio" name="engagement_experience" value="Yes">
-      Yes
-    </label>
-    <label class="form-radio">
-      <input type="radio" name="engagement_experience" value="No">
-      No
-    </label>
-    <label class="form-radio">
-      <input type="radio" name="engagement_experience" value="Prefer not to say">
-      Prefer not to say
-    </label>
-    <span id="engagement_experience-error" class="form-error" role="alert"></span>
-  </fieldset>
-
-  <fieldset id="involvement_tasks" class="form-field form-checkbox-group" data-require-one aria-describedby="involvement_tasks-hint involvement_tasks-error">
-    <legend>How would you like to be involved? <span aria-hidden="true">*</span></legend>
-    <span id="involvement_tasks-hint" class="form-hint">Select one or more.</span>
-    <label class="form-checkbox">
-      <input type="checkbox" name="involvement_tasks" value="Conversations with science (2026-2027)">
-      1. Conversations with science: helping AI to unlock the biology of mental health for public understanding (2026-2027)
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="involvement_tasks" value="Clues in the records (2027-2028)">
-      2. Clues in the records: deciding what matters most in hospital &amp; GP data (2027-2028)
-    </label>
-    <label class="form-checkbox">
-      <input type="checkbox" name="involvement_tasks" value="The Co-Pilot Study (2029)">
-      3. The Co-Pilot Study: leading a team-based mental health analysis, with questions driven by lived experience (2029)
-    </label>
-    <span id="involvement_tasks-error" class="form-error" role="alert"></span>
-  </fieldset>
-
-  <div class="form-field">
-    <label for="additional_skills">Do you have any additional skills you think you could bring to the project? <span aria-hidden="true">*</span></label>
-    <textarea
-      id="additional_skills"
-      name="additional_skills"
-      rows="3"
-      required
-      aria-required="true"
-      data-max-words="200"
-      aria-describedby="additional_skills-hint additional_skills-count additional_skills-error"
-    ></textarea>
-    <span id="additional_skills-hint" class="form-hint">E.g. website design.</span>
-    <span id="additional_skills-count" class="form-word-count">0 / 200 words</span>
-    <span id="additional_skills-error" class="form-error" role="alert"></span>
-  </div>
-
-  <div class="form-field form-checkbox-field">
-    <label class="form-checkbox">
-      <input
-        type="checkbox"
-        id="consent_contact"
-        name="consent_contact"
-        value="yes"
+    <div class="form-field">
+      <label for="why_contribute">Why would you like to contribute? <span aria-hidden="true">*</span></label>
+      <textarea
+        id="why_contribute"
+        name="why_contribute"
+        rows="4"
         required
         aria-required="true"
-        aria-describedby="consent_contact-error"
-      >
-      I consent to be contacted in relation to this project. <span aria-hidden="true">*</span>
-    </label>
-    <span id="consent_contact-error" class="form-error" role="alert"></span>
-  </div>
+        data-max-words="200"
+        aria-describedby="why_contribute-count why_contribute-error"
+      ></textarea>
+      <span id="why_contribute-count" class="form-word-count">0 / 200 words</span>
+      <span id="why_contribute-error" class="form-error" role="alert"></span>
+    </div>
 
-  <div class="form-field form-checkbox-field">
-    <label class="form-checkbox">
-      <input
-        type="checkbox"
-        id="consent_data_storage"
-        name="consent_data_storage"
-        value="yes"
+    <div class="form-field">
+      <label for="relevant_knowledge">What knowledge or experience do you have that you think may be helpful to this project? <span aria-hidden="true">*</span></label>
+      <textarea
+        id="relevant_knowledge"
+        name="relevant_knowledge"
+        rows="4"
         required
         aria-required="true"
-        aria-describedby="consent_data_storage-hint consent_data_storage-error"
-      >
-      I consent for my data (the information in this form) to be stored securely within the University environment. <span aria-hidden="true">*</span>
-    </label>
-    <span id="consent_data_storage-hint" class="form-hint">Both consent boxes are required to register your interest.</span>
-    <span id="consent_data_storage-error" class="form-error" role="alert"></span>
-  </div>
+        data-max-words="200"
+        aria-describedby="relevant_knowledge-count relevant_knowledge-error"
+      ></textarea>
+      <span id="relevant_knowledge-count" class="form-word-count">0 / 200 words</span>
+      <span id="relevant_knowledge-error" class="form-error" role="alert"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="additional_skills">Do you have any additional skills you think you could bring to the project? <span aria-hidden="true">*</span></label>
+      <textarea
+        id="additional_skills"
+        name="additional_skills"
+        rows="3"
+        required
+        aria-required="true"
+        data-max-words="200"
+        aria-describedby="additional_skills-hint additional_skills-count additional_skills-error"
+      ></textarea>
+      <span id="additional_skills-hint" class="form-hint">E.g. website design.</span>
+      <span id="additional_skills-count" class="form-word-count">0 / 200 words</span>
+      <span id="additional_skills-error" class="form-error" role="alert"></span>
+    </div>
+  </fieldset>
+
+  <fieldset class="form-step">
+    <legend>How you would like to be involved</legend>
+
+    <fieldset id="involvement_tasks" class="form-field form-task-cards" data-require-one aria-describedby="involvement_tasks-hint involvement_tasks-error">
+      <legend>How would you like to be involved? <span aria-hidden="true">*</span></legend>
+      <span id="involvement_tasks-hint" class="form-hint">Select one or more.</span>
+      <label>
+        <input type="checkbox" name="involvement_tasks" value="Conversations with science (2026-2027)">
+        <span class="form-task-box"></span>
+        <span class="form-task-text">
+          <span class="form-task-heading">
+            <span class="form-task-title">Conversations with science</span>
+            <span class="form-task-when">2026&ndash;2027</span>
+          </span>
+          <span class="form-task-body">Helping AI to unlock the biology of mental health for public understanding.</span>
+        </span>
+      </label>
+      <label>
+        <input type="checkbox" name="involvement_tasks" value="Clues in the records (2027-2028)">
+        <span class="form-task-box"></span>
+        <span class="form-task-text">
+          <span class="form-task-heading">
+            <span class="form-task-title">Clues in the records</span>
+            <span class="form-task-when">2027&ndash;2028</span>
+          </span>
+          <span class="form-task-body">Deciding what matters most in hospital and GP data.</span>
+        </span>
+      </label>
+      <label>
+        <input type="checkbox" name="involvement_tasks" value="The Co-Pilot Study (2029)">
+        <span class="form-task-box"></span>
+        <span class="form-task-text">
+          <span class="form-task-heading">
+            <span class="form-task-title">The Co-Pilot Study</span>
+            <span class="form-task-when">2029</span>
+          </span>
+          <span class="form-task-body">Leading a team-based mental health analysis, with questions driven by lived experience.</span>
+        </span>
+      </label>
+      <span id="involvement_tasks-error" class="form-error" role="alert"></span>
+    </fieldset>
+
+    <div class="form-field form-checkbox-field">
+      <label class="form-checkbox">
+        <input
+          type="checkbox"
+          id="consent_contact"
+          name="consent_contact"
+          value="yes"
+          required
+          aria-required="true"
+          aria-describedby="consent_contact-error"
+        >
+        I consent to be contacted in relation to this project. <span aria-hidden="true">*</span>
+      </label>
+      <span id="consent_contact-error" class="form-error" role="alert"></span>
+    </div>
+
+    <div class="form-field form-checkbox-field">
+      <label class="form-checkbox">
+        <input
+          type="checkbox"
+          id="consent_data_storage"
+          name="consent_data_storage"
+          value="yes"
+          required
+          aria-required="true"
+          aria-describedby="consent_data_storage-hint consent_data_storage-error"
+        >
+        I consent for my data (the information in this form) to be stored securely within the University environment. <span aria-hidden="true">*</span>
+      </label>
+      <span id="consent_data_storage-hint" class="form-hint">Both consent boxes are required to register your interest.</span>
+      <span id="consent_data_storage-error" class="form-error" role="alert"></span>
+    </div>
+  </fieldset>
 
   <span class="form-submit-error" role="alert" aria-live="assertive"></span>
 
-  <button type="submit" class="btn--submit">Register Interest</button>
+  <div class="form-nav">
+    <button type="button" class="form-back" hidden>&larr; Back</button>
+    <div class="form-nav-right">
+      <span class="form-save-note"></span>
+      <button type="button" class="btn--continue" hidden>Continue &rarr;</button>
+      <button type="submit" class="btn--submit">Register interest</button>
+    </div>
+  </div>
 </form>
