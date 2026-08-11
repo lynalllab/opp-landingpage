@@ -60,6 +60,16 @@
 }
 
 @media (max-width: 900px) {
+  .findout-more {
+    .findout-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .findout-toc {
+      position: static;
+      nav { flex-flow: row wrap; border-left: none; gap: 0.5rem 1.25rem; }
+      a { padding: 0; border-left: none; &.is-active { border-left: none; text-decoration: underline; } }
+      .findout-toc-card { display: none; }   // the CTA repeats at page end
+    }
+  }
+
   .how-it-works .features-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
@@ -75,7 +85,70 @@
     gap: 2rem;
   }
 
-  .site-nav .nav-links { display: none; }
+  .site-nav {
+    .nav-toggle { display: flex; }
+
+    .nav-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: $white;
+      border-top: 1px solid rgba($plum, 0.15);
+      box-shadow: 0 12px 32px rgba($dark, 0.12);
+    }
+
+    &.site-nav--menu-open .nav-panel { display: flex; }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      padding: 0.5rem 0;
+
+      > li { width: 100%; }
+
+      > li > a {
+        display: block;
+        padding: 0.85rem 1.5rem;
+      }
+    }
+
+    .has-menu { width: 100%; }
+
+    .nav-menu-trigger {
+      width: 100%;
+      justify-content: space-between;
+      padding: 0.85rem 1.5rem;
+    }
+
+    .nav-menu {
+      display: none;
+      position: static;
+      transform: none;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background: rgba($off-white, 0.6);
+      padding: 0.5rem 1.5rem 1rem;
+      gap: 1.25rem;
+    }
+
+    .has-menu.is-open .nav-menu { display: flex; }
+
+    .nav-cta {
+      margin: 0.75rem 1.5rem 1.25rem;
+      text-align: center;
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -144,4 +217,15 @@
 @media (max-width: 440px) {
   .audience .audience-grid  { grid-template-columns: 1fr; }
   .partners .partners-grid  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 780px) {
+  .glossary {
+    .glossary-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+    .glossary-rail {
+      position: static;
+      nav { gap: 3px; }               // wraps naturally as a full-width strip
+    }
+    .glossary-suggest { flex-direction: column; align-items: flex-start; }
+  }
 }

@@ -6,25 +6,7 @@
   var toc = document.querySelector('.faqs-toc');
   if (!toc) return;
 
-  var groups = document.querySelectorAll('.faqs-group[id]');
-  var links = toc.querySelectorAll('a[href^="#"]');
-
-  function setActive(id) {
-    links.forEach(function (link) {
-      var isMatch = link.getAttribute('href') === '#' + id;
-      link.classList.toggle('is-active', isMatch);
-    });
-  }
-
-  if (groups.length && links.length && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) setActive(entry.target.id);
-      });
-    }, { rootMargin: '-6rem 0px -65% 0px' });
-
-    groups.forEach(function (group) { observer.observe(group); });
-  }
+  window.initScrollSpy('.faqs-toc a[href^="#"]', { offset: 96 });
 
   // Deep link to a specific question, e.g. /faqs/#faq-what-would-i-do
   var hash = window.location.hash.slice(1);

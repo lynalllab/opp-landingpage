@@ -1,0 +1,89 @@
+# ===================================================================
+# GLOSSARY
+# Single source of truth for glossary.html. Authored alphabetically;
+# the template groups entries by first letter, so order here is just
+# for editors' convenience and doesn't affect the page.
+#
+# `see_also` (optional) must exactly match another entry's `term` —
+# the template slugifies it into an anchor link.
+# ===================================================================
+
+- term: "Biobank"
+  definition: "A large collection of biological samples (like blood or saliva) and the health information that goes with them, gathered from many volunteers so researchers can study how genes and biology relate to disease over time."
+  see_also: "Generation Scotland"
+
+- term: "Biomarker"
+  definition: "A measurable signal in the body — a protein, a molecule, a genetic variant — that tells you something about a condition: who is likely to develop it, how it will progress, or which treatment will work."
+  see_also: "Omics"
+
+- term: "Bitfount"
+  definition: "The federated analysis software OPP uses to run research queries inside secure data environments. It lets a researcher's question travel to the data instead of the data travelling to the researcher."
+  see_also: "Federated analysis"
+
+- term: "Co-production"
+  definition: "Designing research and tools together with the people they're meant to serve, rather than for them. On OPP this means people with lived experience of mental illness help shape what gets built and how, from the start."
+  see_also: "People with Lived Experience (PWLE)"
+
+- term: "Data Access Committee"
+  definition: "The independent group that reviews and approves requests to run analyses through FedOMICS. OPP has two layers of this oversight: a project-wide committee plus each data custodian's own committee."
+  see_also: "Data custodian"
+
+- term: "Data custodian"
+  definition: "The organisation legally responsible for a dataset — for example Generation Scotland, or an NHS trust holding patient records. Nothing happens to that data without the custodian's agreement."
+  see_also: "Trusted Research Environment (TRE)"
+
+- term: "Data federation"
+  definition: "An approach to combining insight from datasets held in different places without moving or pooling the underlying data itself. Analysis runs locally at each site; only summary results travel."
+  see_also: "Federated analysis"
+
+- term: "Drug repurposing"
+  definition: "Finding a new use for a medicine that's already approved for a different condition — faster and cheaper than developing a drug from scratch, because its safety is already established."
+  see_also: "Drug target"
+
+- term: "Drug target"
+  definition: "A specific gene, protein, or biological pathway that a medicine could act on to treat a disease. Identifying strong drug targets is a key step before any new treatment can be developed."
+  see_also: "Open Targets Platform"
+
+- term: "FedOMICS"
+  definition: "OPP's privacy-preserving data federation network, initially linking the Generation Scotland cohort and the Early Intervention Mission/ImmunoMind psychosis cohort using Bitfount's technology."
+  see_also: "Federated analysis"
+
+- term: "Federated analysis"
+  definition: "Running a research question locally, inside each secure environment where data already lives, instead of moving individual-level data anywhere. Only anonymised summary results are returned to the researcher."
+  see_also: "Trusted Research Environment (TRE)"
+
+- term: "Functional genomics"
+  definition: "The study of how genes and biological pathways influence disease, going beyond simply reading a gene sequence to understand what that gene actually does in the body."
+  see_also: "Omics"
+
+- term: "Generation Scotland"
+  definition: "A large Scottish family-based health research cohort, and one of the first datasets connected into FedOMICS."
+  see_also: "Biobank"
+
+- term: "Metabolomics"
+  definition: "The large-scale study of metabolites — the small molecules produced when the body breaks down food, drugs, and its own tissues. Changes in these molecules can signal how a condition is developing."
+  see_also: "Omics"
+
+- term: "Omics"
+  definition: "An umbrella term for technologies that study a biological system at scale — genomics (genes), proteomics (proteins), and metabolomics (metabolites) among them. OPP integrates omics data to improve understanding of mental health conditions."
+  see_also: "Proteomics"
+
+- term: "Open Targets Platform"
+  definition: "An internationally used, open-source platform for drug target discovery, built by EMBL-EBI and industry partners. OPP extends it with mental-health-relevant molecular data."
+  see_also: "Drug target"
+
+- term: "People with Lived Experience (PWLE)"
+  definition: "People who have personally experienced a mental health condition, or who care for someone who has. PWLE co-design OPP's platform and research questions alongside researchers and clinicians."
+  see_also: "Co-production"
+
+- term: "Proteomics"
+  definition: "The large-scale study of proteins — which ones are present, how much of each, and how they change — since proteins carry out most of the work inside cells."
+  see_also: "Omics"
+
+- term: "Real-world data"
+  definition: "Health data generated during everyday care — GP records, hospital admissions, prescriptions — rather than collected in a controlled clinical trial."
+  see_also: "Trusted Research Environment (TRE)"
+
+- term: "Trusted Research Environment (TRE)"
+  definition: "A secure computing space where approved researchers can work with sensitive health data. Nothing enters or leaves without checks. UK health data is spread across dozens of separate TREs, which is why they are hard to study together."
+  see_also: "Federated analysis"

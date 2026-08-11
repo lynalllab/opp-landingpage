@@ -29,6 +29,9 @@
   }
 
   .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     font-family: $serif;
     font-size: 1.1rem;
     color: $plum;
@@ -37,6 +40,51 @@
     flex-shrink: 0;
     transition: color 0.2s;
     &:hover { color: darken($plum, 10%); }
+  }
+
+  .nav-logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .nav-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover { background: rgba($plum, 0.08); }
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: $plum;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle[aria-expanded='true'] {
+    .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   }
 
   .nav-links {

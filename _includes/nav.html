@@ -1,13 +1,34 @@
-{% assign is_team = page.url == '/team/' %}
-{% assign is_faqs = page.url == '/faqs/' %}
-{% assign is_glossary = page.url == '/glossary/' %}
-{% assign is_more = page.url == '/more/' %}
-{% assign is_industry = page.url == '/industry/' %}
-{% assign menu_active = is_team or is_faqs or is_glossary %}
+{% assign is_team = false %}
+{% if page.url == '/team/' %}{% assign is_team = true %}{% endif %}
+
+{% assign is_faqs = false %}
+{% if page.url == '/faqs/' %}{% assign is_faqs = true %}{% endif %}
+
+{% assign is_glossary = false %}
+{% if page.url == '/glossary/' %}{% assign is_glossary = true %}{% endif %}
+
+{% assign is_more = false %}
+{% if page.url == '/more/' %}{% assign is_more = true %}{% endif %}
+
+{% assign is_industry = false %}
+{% if page.url == '/industry/' %}{% assign is_industry = true %}{% endif %}
+
+{% assign menu_active = false %}
+{% if is_team or is_faqs or is_glossary %}{% assign menu_active = true %}{% endif %}
 <nav class="site-nav" id="site-nav" aria-label="Site navigation">
   <div class="container">
     <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="nav-brand">Open Psychiatry Project</a>
+      <a href="{{ '/' | relative_url }}" class="nav-brand">
+        <img src="{{ '/assets/images/logo/opp-mark.png' | relative_url }}" alt="" width="160" height="160" class="nav-logo">
+        <span>Open Psychiatry Project</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav-panel" id="site-nav-panel">
       <ul class="nav-links" role="list">
                 <li class="has-menu">
           <button type="button" class="nav-menu-trigger{% if menu_active %} is-active{% endif %}" aria-expanded="false" aria-controls="menu-project">
@@ -37,6 +58,7 @@
 
       </ul>
       <a href="{{ '/#register' | relative_url }}" class="nav-cta">Register interest</a>
+      </div>
     </div>
   </div>
 </nav>

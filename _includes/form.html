@@ -1,10 +1,12 @@
 <!-- To activate: replace REPLACE_WITH_FORM_ID with your Formspree form ID -->
 <!-- Get a form ID at https://formspree.io — create a free account and add a new form -->
+<!-- Validation: native HTML constraints (required / type) are the no-JS baseline.
+     assets/js/form-validation.js progressively enhances with inline error messages
+     driven by the same native Constraint Validation API — see that file. -->
 <form
   class="contact-form"
   action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
   method="POST"
-  novalidate
 >
   <input type="hidden" name="_subject" value="Open Psychiatry Project - Expression of Interest">
   <input type="hidden" name="_next" value="/thank-you">
@@ -18,7 +20,9 @@
       autocomplete="name"
       required
       aria-required="true"
+      aria-describedby="name-error"
     >
+    <span id="name-error" class="form-error" role="alert"></span>
   </div>
 
   <div class="form-field">
@@ -30,46 +34,141 @@
       autocomplete="email"
       required
       aria-required="true"
+      aria-describedby="email-error"
     >
+    <span id="email-error" class="form-error" role="alert"></span>
   </div>
 
   <div class="form-field">
-    <label for="affiliation">Institution / Affiliation</label>
-    <input
-      type="text"
-      id="affiliation"
-      name="affiliation"
-      autocomplete="organization"
-    >
-  </div>
-
-  <div class="form-field">
-    <label for="role">I am a&hellip; <span aria-hidden="true">*</span></label>
+    <label for="experience_type">Which best describes your experience? <span aria-hidden="true">*</span></label>
     <select
-      id="role"
-      name="role"
+      id="experience_type"
+      name="experience_type"
       required
       aria-required="true"
+      aria-describedby="experience_type-error"
     >
       <option value="">Please select</option>
-      <option value="researcher">Researcher</option>
-      <option value="clinician">Clinician</option>
-      <option value="industry">Industry Partner</option>
-      <option value="lived-experience">Person with Lived Experience</option>
-      <option value="other">Other</option>
+      <option value="personal">Personal diagnosis</option>
+      <option value="carer">Carer or family member</option>
+      <option value="public">General public interest</option>
     </select>
+    <span id="experience_type-error" class="form-error" role="alert"></span>
   </div>
 
   <div class="form-field">
-    <label for="message">Message <span class="form-optional">(optional)</span></label>
+    <label for="conditions">Which condition(s) do you have experience of? <span aria-hidden="true">*</span></label>
+    <input
+      type="text"
+      id="conditions"
+      name="conditions"
+      required
+      aria-required="true"
+      aria-describedby="conditions-hint conditions-error"
+    >
+    <span id="conditions-hint" class="form-hint">E.g. depression, psychosis, dementia, epilepsy.</span>
+    <span id="conditions-error" class="form-error" role="alert"></span>
+  </div>
+
+  <div class="form-field">
+    <label for="message">What draws you to this area of research? <span aria-hidden="true">*</span></label>
     <textarea
       id="message"
       name="message"
       rows="4"
-      aria-describedby="message-hint"
+      required
+      aria-required="true"
+      aria-describedby="message-hint message-error"
     ></textarea>
     <span id="message-hint" class="form-hint">Tell us more about your interest in the project.</span>
+    <span id="message-error" class="form-error" role="alert"></span>
   </div>
+
+  <div class="form-field">
+    <label for="skills">Relevant skills or professional background <span class="form-optional">(optional &mdash; none required)</span></label>
+    <textarea
+      id="skills"
+      name="skills"
+      rows="3"
+    ></textarea>
+  </div>
+
+  <div class="form-field-row">
+    <div class="form-field">
+      <label for="time_commitment">Time you can commit <span aria-hidden="true">*</span></label>
+      <select
+        id="time_commitment"
+        name="time_commitment"
+        required
+        aria-required="true"
+        aria-describedby="time_commitment-error"
+      >
+        <option value="">Please select</option>
+        <option value="occasional">Occasional (as needed)</option>
+        <option value="few-hours-month">A few hours a month</option>
+        <option value="half-day-month">Half a day a month</option>
+        <option value="day-month">A day a month</option>
+      </select>
+      <span id="time_commitment-error" class="form-error" role="alert"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="format">Preferred format <span aria-hidden="true">*</span></label>
+      <select
+        id="format"
+        name="format"
+        required
+        aria-required="true"
+        aria-describedby="format-error"
+      >
+        <option value="">Please select</option>
+        <option value="online">Online</option>
+        <option value="in-person">In-person</option>
+        <option value="either">Either</option>
+      </select>
+      <span id="format-error" class="form-error" role="alert"></span>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="accessibility_needs">Accessibility needs <span class="form-optional">(optional)</span></label>
+    <textarea
+      id="accessibility_needs"
+      name="accessibility_needs"
+      rows="2"
+    ></textarea>
+  </div>
+
+  <fieldset class="form-field form-radio-group">
+    <legend>Do you have prior PPI (patient and public involvement) experience? <span class="form-optional">(not required)</span></legend>
+    <label class="form-radio">
+      <input type="radio" name="prior_ppi_experience" value="yes">
+      Yes
+    </label>
+    <label class="form-radio">
+      <input type="radio" name="prior_ppi_experience" value="no">
+      No
+    </label>
+  </fieldset>
+
+  <div class="form-field form-checkbox-field">
+    <label class="form-checkbox">
+      <input
+        type="checkbox"
+        id="consent"
+        name="consent"
+        value="yes"
+        required
+        aria-required="true"
+        aria-describedby="consent-hint consent-error"
+      >
+      I consent to my details being stored and used to contact me about this and future involvement opportunities. <span aria-hidden="true">*</span>
+    </label>
+    <span id="consent-hint" class="form-hint">Required to register your interest.</span>
+    <span id="consent-error" class="form-error" role="alert"></span>
+  </div>
+
+  <span class="form-submit-error" role="alert" aria-live="assertive"></span>
 
   <button type="submit" class="btn--submit">Register Interest</button>
 </form>

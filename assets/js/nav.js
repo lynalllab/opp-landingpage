@@ -19,6 +19,46 @@
     updateVisibility();
   }
 
+  // Mobile hamburger toggle — shows/hides .nav-panel below the 900px
+  // breakpoint (see _responsive.scss). Closes on outside click, Escape,
+  // link click, or resizing back past the breakpoint.
+  var navToggle = nav.querySelector('.nav-toggle');
+  var navPanel = nav.querySelector('.nav-panel');
+  if (navToggle && navPanel) {
+    var setMenuOpen = function (open) {
+      nav.classList.toggle('site-nav--menu-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+    };
+
+    navToggle.addEventListener('click', function () {
+      setMenuOpen(!nav.classList.contains('site-nav--menu-open'));
+    });
+
+    navPanel.addEventListener('click', function (event) {
+      if (event.target.tagName === 'A') {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!nav.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
   // "About the project" dropdown menu. Opens on hover or click; the
   // click-outside listener is bound to the document, so a click
   // anywhere on the page outside the menu closes it.

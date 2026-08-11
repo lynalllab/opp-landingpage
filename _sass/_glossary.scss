@@ -1,0 +1,131 @@
+// ===================================================================
+// GLOSSARY PAGE
+// glossary.html only. Search + letter rail + full A-Z list (no
+// accordion — definitions are always visible). See _responsive.scss
+// for the sub-780px collapse to a single column.
+// ===================================================================
+
+.glossary {
+  background: $off-white;
+  padding: calc(3.5rem + 80px) 0 5.5rem;
+
+  h1 { color: $plum; margin: 0; font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.14; }
+
+  .glossary-intro {
+    max-width: 640px; margin: 1.25rem 0 0;
+    font-size: 1.125rem; line-height: 1.65; color: #4a3a48;
+    a { font-weight: 600; }
+  }
+
+  // ---- search --------------------------------------------------------
+  .glossary-search {
+    position: relative;
+    margin-top: 2.25rem;
+
+    input {
+      width: 100%; box-sizing: border-box;
+      padding: 0.9375rem 1.125rem 0.9375rem 2.875rem;
+      font-family: $sans; font-size: 1rem; color: $dark;
+      background: $white;
+      border: 1px solid rgba($dark, 0.15);
+      border-radius: 6px;
+      &:focus { outline: none; border-color: $plum; }
+      &::placeholder { color: #8d859c; }
+    }
+
+    &::before {                      // magnifier
+      content: "\2315";
+      position: absolute; left: 1.125rem; top: 50%; transform: translateY(-50%);
+      font-size: 1rem; color: #8d859c; pointer-events: none;
+    }
+  }
+
+  // ---- layout --------------------------------------------------------
+  .glossary-layout {
+    display: grid;
+    grid-template-columns: 126px 1fr;   // 126px = exactly 4 x 26px keys + gaps
+    gap: 2.5rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  // ---- letter rail ---------------------------------------------------
+  .glossary-rail {
+    position: sticky;
+    top: 96px;                          // nav height + breathing room
+    display: flex; flex-direction: column; gap: 0.625rem;
+
+    .glossary-rail-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #8d859c;
+    }
+
+    nav { display: flex; flex-wrap: wrap; gap: 4px; }
+
+    a, span {
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.845rem; font-weight: 600;
+      border-radius: 4px; text-decoration: none;
+    }
+    a    { color: $plum; background: $white; &:hover { background: $lilac; } }
+    span { color: #c9c5be; }            // letters with no entries
+  }
+
+  // ---- list ----------------------------------------------------------
+  .glossary-list { max-width: 780px; display: flex; flex-direction: column; gap: 2.25rem; }
+
+  .glossary-count { margin: 0; font-size: 0.875rem; color: #8d859c; }
+
+  .glossary-group {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    scroll-margin-top: 96px;
+
+    h2 {
+      font-size: 1.5rem; color: $indigo; margin: 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba($dark, 0.12);
+    }
+    &.is-hidden { display: none; }
+  }
+
+  .glossary-term {
+    display: flex; flex-direction: column; gap: 0.4375rem;
+    scroll-margin-top: 96px;
+
+    h3 { font-size: 1.1875rem; line-height: 1.35; color: $dark; margin: 0; }
+    p  { margin: 0; font-size: 1rem; line-height: 1.7; color: #4a4060; text-wrap: pretty; }
+
+    &:target h3 { color: $plum; }       // arriving from an in-page or cross-page link
+    &.is-hidden { display: none; }
+  }
+
+  .glossary-see {
+    font-size: 0.875rem !important; line-height: 1.5 !important; color: #8d859c !important;
+    a { font-weight: 600; }
+  }
+
+  .glossary-empty {
+    background: $white; border: 1px solid rgba($dark, 0.08);
+    border-radius: 6px; padding: 2rem; text-align: center;
+    p { margin: 0; font-size: 1rem; color: $dark; }
+    p + p { margin-top: 0.5rem; font-size: 0.9375rem; line-height: 1.6; color: #4a4060; }
+  }
+
+  .glossary-suggest {
+    background: $lilac; border-radius: 6px;
+    padding: 1.5rem 1.75rem;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+    p { margin: 0; max-width: 420px; font-size: 0.97rem; line-height: 1.6; color: #4a4060; }
+  }
+}
+
+// ---- reusable dotted-underline link for glossary cross-links ---------
+// Used to mark first mentions of jargon on other pages, e.g.
+// <a class="glossary-link" href="{{ '/glossary/#omics' | relative_url }}">omics</a>
+.glossary-link {
+  color: inherit;
+  text-decoration: underline dotted rgba($plum, 0.6);
+  text-underline-offset: 3px;
+  &:hover { color: $plum; text-decoration-style: solid; }
+}

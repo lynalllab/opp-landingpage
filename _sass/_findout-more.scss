@@ -1,70 +1,106 @@
 // ===================================================================
 // FIND OUT MORE PAGE
-// findout_more.html only. Accordion look-and-feel lives in _accordion.scss —
-// this file only sets this page's layout (max-widths, spacing, copy blocks).
+// findout_more.html only. Sticky index rail + open sections (no accordion).
 // ===================================================================
 
 .findout-more {
   background: $off-white;
   padding: calc(3.5rem + 80px) 0 5.5rem;
 
-  .findout-badge {
-    display: inline-block;
-    padding: 0.35rem 0.9rem;
-    border: 1px solid rgba($plum, 0.3);
-    border-radius: 2px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: $plum;
-    margin-bottom: 1.5rem;
+  h1 { color: $plum; max-width: 860px; margin-bottom: 0; font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.14; }
+
+  .findout-standfirst {
+    max-width: 720px; margin: 1.4rem 0 0;
+    font-size: 1.125rem; line-height: 1.65; color: #4a3a48;
   }
 
-  h1 {
-    color: $plum;
-    max-width: 820px;
-    margin-bottom: 2rem;
-    font-size: clamp(2rem, 4vw, 2.85rem);
+  .findout-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3.25rem;
+    align-items: start;
+    margin-top: 2.75rem;
   }
 
-  .findout-subheading {
-    color: $indigo;
-    margin: 2.75rem 0 1rem;
+  // ---- sticky index -------------------------------------------------
+  .findout-toc {
+    position: sticky;
+    top: 96px;                       // nav height + breathing room
+    display: flex; flex-direction: column; gap: 0.875rem;
+
+    .findout-toc-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #8d859c;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 2px; border-left: 1px solid rgba($dark, 0.12); }
+
+    a {
+      font-size: 0.875rem; line-height: 1.4; color: #4a4060;
+      text-decoration: none;
+      padding: 0.44rem 0 0.44rem 0.875rem;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+
+      &:hover { color: $plum; }
+      &.is-active { color: $dark; border-left-color: $plum; }
+    }
+
+    .findout-toc-card {
+      margin-top: 0.625rem; padding: 1rem;
+      background: $lilac; border-radius: 6px;
+
+      p { margin: 0 0 0.5rem; font-size: 0.845rem; line-height: 1.5; color: #4a4060; }
+      a { padding: 0; border: none; font-weight: 600; color: $plum; }
+    }
   }
 
-  .findout-intro {
+  // ---- body ---------------------------------------------------------
+  .findout-body {
     max-width: 780px;
+    display: flex; flex-direction: column; gap: 2.75rem;
 
-    p { font-size: 1.05rem; line-height: 1.7; color: #4a3a48; }
+    h2 {
+      font-size: 1.5rem; color: $indigo; margin: 0;
+      padding-bottom: 0.625rem;
+      border-bottom: 1px solid rgba($dark, 0.12);
+    }
+    h3 { font-size: 1.2rem; color: $dark; margin: 0; }
+    p  { font-size: 1rem; line-height: 1.75; color: #4a4060; margin: 0; text-wrap: pretty; }
+
+    > section { display: flex; flex-direction: column; gap: 0.875rem; scroll-margin-top: 96px; }
   }
 
-  > .container > p {
-    max-width: 780px;
-    color: #4a3a48;
+  .findout-approach {
+    gap: 0.375rem;
+    h2 { border-bottom: none; padding-bottom: 0; }
   }
 
-  .findout-accordion {
-    max-width: 780px;
-    margin-top: 1.5rem;
+  .findout-strand {
+    border-left: 2.5px solid $plum;
+    padding-left: 1.375rem;
+
+    h3 { font-size: 1.3125rem; line-height: 1.35; }
+
+    .findout-strand-eyebrow {
+      font-size: 0.69rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: $teal;
+    }
   }
+
+  #run { gap: 1.625rem; }
+  #run .findout-run-item { display: flex; flex-direction: column; gap: 0.625rem; scroll-margin-top: 96px; }
 
   .findout-callout {
-    max-width: 780px;
-    margin-top: 2.5rem;
-    padding: 1.4rem 1.75rem;
+    margin-top: 0.375rem;
+    padding: 1.375rem 1.625rem;
     background: rgba($teal, 0.07);
     border-left: 3px solid $teal;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 6px 6px 0;
 
-    p { color: #3d5d5e; margin: 0; }
+    p { font-size: 0.97rem; color: #3d5d5e; }
     strong { color: $teal; }
   }
 
-  .findout-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 3rem;
-  }
+  .findout-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.25rem; }
 }
