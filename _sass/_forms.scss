@@ -23,8 +23,9 @@ $error: #c0392b;
     color: $dark;
   }
 
-  .form-optional { font-weight: 400; color: #7a7090; font-size: 0.85em; }
-  .form-hint     { font-size: 0.82rem; color: #7a7090; }
+  .form-optional   { font-weight: 400; color: #7a7090; font-size: 0.85em; }
+  .form-hint       { font-size: 0.82rem; color: #7a7090; }
+  .form-word-count { font-size: 0.78rem; color: #7a7090; text-align: right; }
 
   input[type="text"],
   input[type="email"],
@@ -102,6 +103,7 @@ $error: #c0392b;
   }
 
   .form-radio-group,
+  .form-checkbox-group,
   .form-checkbox-field {
     border: none;
     padding: 0;
@@ -115,11 +117,20 @@ $error: #c0392b;
       padding: 0;
       margin-bottom: 0.35rem;
     }
+
+    .form-hint { display: block; margin-bottom: 0.5rem; }
   }
 
   .form-radio-group {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .form-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
   .form-radio,
@@ -142,10 +153,14 @@ $error: #c0392b;
     }
   }
 
+  .form-checkbox-group.has-error,
+  .form-radio-group.has-error,
   .form-checkbox-field.has-error {
-    .form-checkbox { color: $error; }
+    .form-checkbox,
+    .form-radio { color: $error; }
 
-    input[type="checkbox"] {
+    input[type="checkbox"],
+    input[type="radio"] {
       outline: 2px solid $error;
       outline-offset: 2px;
     }
