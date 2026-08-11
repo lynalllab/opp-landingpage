@@ -1,0 +1,82 @@
+---
+layout: default
+title: Glossary
+permalink: /glossary/
+description: "Plain-language definitions for the technical terms used across the Open Psychiatry Project (OPP)."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GLOSSARY
+     Edit: term list lives in _data/glossary.yml (single source of truth).
+     Layout: search + letter rail + full A-Z list — see _glossary.scss
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="glossary" id="glossary" aria-labelledby="glossary-heading">
+  <div class="container">
+
+    <div class="glossary-header">
+      <h1 id="glossary-heading">Glossary</h1>
+      <p class="glossary-intro">Plain-language definitions for the technical terms used across the Open Psychiatry Project. Missing something? <a href="mailto:{{ site.data.site.contact_email }}">Tell us</a> and we&rsquo;ll add it.</p>
+    </div>
+
+    <div class="glossary-search">
+      <label class="sr-only" for="glossary-search-input">Search glossary terms</label>
+      <input type="text" id="glossary-search-input" autocomplete="off" placeholder="Search terms or definitions&hellip;">
+    </div>
+
+    {% assign terms = site.data.glossary | sort: "term" %}
+    {% assign groups = terms | group_by_exp: "t", "t.term | slice: 0 | upcase" %}
+    {% assign present = groups | map: "name" | join: "" %}
+    {% assign alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: "," %}
+
+    <div class="glossary-layout">
+
+      <aside class="glossary-rail" aria-label="Jump to letter">
+        <span class="glossary-rail-label" aria-hidden="true">Jump to</span>
+        <nav>
+          {% for L in alphabet %}
+            {% if present contains L %}
+              <a href="#letter-{{ L }}">{{ L }}</a>
+            {% else %}
+              <span aria-hidden="true">{{ L }}</span>
+            {% endif %}
+          {% endfor %}
+        </nav>
+      </aside>
+
+      <div class="glossary-list">
+
+        <p class="glossary-count" role="status" aria-live="polite" hidden></p>
+
+        {% for g in groups %}
+          <section class="glossary-group" id="letter-{{ g.name }}">
+            <h2>{{ g.name }}</h2>
+            {% for t in g.items %}
+              {% assign anchor = t.term | slugify %}
+              <article class="glossary-term" id="{{ anchor }}"
+                       data-term="{{ t.term | downcase }}"
+                       data-definition="{{ t.definition | downcase }}">
+                <h3>{{ t.term }}</h3>
+                <p>{{ t.definition }}</p>
+                {% if t.see_also %}
+                  <p class="glossary-see">See also:
+                    <a href="#{{ t.see_also | slugify }}">{{ t.see_also }}</a></p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </section>
+        {% endfor %}
+
+        <div class="glossary-empty" hidden>
+          <p>No terms match <span class="glossary-empty-q"></span>.</p>
+          <p>Try a different word, or <a href="mailto:{{ site.data.site.contact_email }}">suggest one we&rsquo;re missing</a>.</p>
+        </div>
+
+        <div class="glossary-suggest">
+          <p>Can&rsquo;t find a term, or think a definition needs work? Let us know and we&rsquo;ll add it.</p>
+          <a href="mailto:{{ site.data.site.contact_email }}" class="btn btn--primary">Suggest a term &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

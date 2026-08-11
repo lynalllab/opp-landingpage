@@ -1,0 +1,143 @@
+// ===================================================================
+// TEAM PAGE
+// team.html only. Grid is fluid via auto-fit — no breakpoints needed.
+// ===================================================================
+
+.team-intro {
+  background: $white;
+  padding: calc(3.5rem + 80px) 0 clamp(24px, 4vw, 40px);
+
+  h1 {
+    color: $plum;
+    max-width: 720px;
+    margin-bottom: 1.75rem;
+    font-size: clamp(2rem, 4vw, 2.85rem);
+  }
+
+  .team-lead {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #4a3a48;
+  }
+}
+
+.team-grid-section {
+  background: $off-white;
+  padding: clamp(40px, 6vw, 64px) 0 clamp(24px, 4vw, 40px);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(32px, 5vw, 56px) clamp(24px, 3.5vw, 40px);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.team-photo {
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: $lilac;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.team-photo--empty {
+  display: grid;
+  place-items: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  color: $plum;
+  background: repeating-linear-gradient(45deg, $lilac 0 6px, #e8dcf0 6px 12px);
+}
+
+.team-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.team-card h3 {
+  font-family: $serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: $dark;
+}
+
+.team-role-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: $teal;
+}
+
+.team-role {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #6b5f74;
+}
+
+.team-lived {
+  background: $white;
+  padding: clamp(24px, 4vw, 40px) 0 clamp(56px, 9vw, 104px);
+}
+
+.team-lived-box {
+  border: 1px solid rgba($plum, 0.28);
+  border-radius: 4px;
+  padding: clamp(28px, 4.5vw, 48px) clamp(22px, 3.6vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(28px, 4.5vw, 56px);
+}
+
+.team-lived-text {
+  flex: 1 1 380px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    font-family: $serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    color: $plum;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a3a48;
+  }
+}
+
+.team-lived-actions {
+  flex: 0 1 320px;
+  min-width: min(100%, 280px);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.team-lived-note {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #6b5f74;
+}

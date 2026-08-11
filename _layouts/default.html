@@ -8,6 +8,28 @@
     {{ content }}
   </main>
   {% include footer.html %}
-  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  <!-- Shared/reusable across every page -->
+  <script src="{{ '/assets/js/scrollspy.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/nav-scrollspy.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/reveal.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/stat-counters.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/accordion.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/smooth-scroll.js' | relative_url }}" defer></script>
+  <!-- Page-specific -->
+  <script src="{{ '/assets/js/hero-canvas.js' | relative_url }}" defer></script>
+  {% if page.url == '/' %}
+    <script src="{{ '/assets/js/form-validation.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/form-wizard.js' | relative_url }}" defer></script>
+  {% endif %}
+  {% if page.url == '/faqs/' %}
+    <script src="{{ '/assets/js/faqs-toc.js' | relative_url }}" defer></script>
+  {% endif %}
+  {% if page.url == '/more/' %}
+    <script src="{{ '/assets/js/findout-toc.js' | relative_url }}" defer></script>
+  {% endif %}
+  {% if page.url == '/glossary/' %}
+    <script src="{{ '/assets/js/glossary-search.js' | relative_url }}" defer></script>
+  {% endif %}
 </body>
 </html>

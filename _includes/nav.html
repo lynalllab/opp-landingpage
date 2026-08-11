@@ -1,13 +1,64 @@
+{% assign is_team = false %}
+{% if page.url == '/team/' %}{% assign is_team = true %}{% endif %}
+
+{% assign is_faqs = false %}
+{% if page.url == '/faqs/' %}{% assign is_faqs = true %}{% endif %}
+
+{% assign is_glossary = false %}
+{% if page.url == '/glossary/' %}{% assign is_glossary = true %}{% endif %}
+
+{% assign is_more = false %}
+{% if page.url == '/more/' %}{% assign is_more = true %}{% endif %}
+
+{% assign is_industry = false %}
+{% if page.url == '/industry/' %}{% assign is_industry = true %}{% endif %}
+
+{% assign menu_active = false %}
+{% if is_team or is_glossary %}{% assign menu_active = true %}{% endif %}
 <nav class="site-nav" id="site-nav" aria-label="Site navigation">
   <div class="container">
     <div class="nav-inner">
-      <a href="#home" class="nav-brand">Open Psychiatry Project</a>
+      <a href="{{ '/' | relative_url }}" class="nav-brand">
+        <img src="{{ '/assets/images/logo/opp-mark.png' | relative_url }}" alt="" width="160" height="160" class="nav-logo">
+        <span>Open Psychiatry Project</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav-panel" id="site-nav-panel">
       <ul class="nav-links" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#partners">Partners</a></li>
+                <li class="has-menu">
+          <button type="button" class="nav-menu-trigger{% if menu_active %} is-active{% endif %}" aria-expanded="false" aria-controls="menu-project">
+            About
+          </button>
+          <div id="menu-project" class="nav-menu">
+            <div>
+            <p class="menu-heading" id="mh-jump">Jump to a section</p>
+            <ul role="list" aria-labelledby="mh-jump">
+              <li><a href="{{ '/#about' | relative_url }}">Overview</a></li>
+              <li><a href="{{ '/#how-it-works' | relative_url }}">How it works</a></li>
+              <li><a href="{{ '/#partners' | relative_url }}">Partners</a></li>
+            </ul>
+            </div>
+            <div>
+            <p class="menu-heading" id="mh-read">Read in full</p>
+            <ul role="list" aria-labelledby="mh-read">
+              <li><a href="{{ '/team/' | relative_url }}"{% if is_team %} class="is-active" aria-current="page"{% endif %}>Team</a></li>
+              <li><a href="{{ '/glossary/' | relative_url }}"{% if is_glossary %} class="is-active" aria-current="page"{% endif %}>Glossary</a></li>
+            </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="{{ '/faqs/' | relative_url }}"{% if is_faqs %} class="is-active" aria-current="page"{% endif %}>FAQs</a></li>
+        <li><a href="{{ '/more/' | relative_url }}"{% if is_more %} class="is-active" aria-current="page"{% endif %}>Find out more</a></li>
+        <li><a href="{{ '/industry/' | relative_url }}"{% if is_industry %} class="is-active" aria-current="page"{% endif %}>For industry</a></li>
+
       </ul>
-      <a href="#register" class="nav-cta">Register Interest</a>
+      <a href="{{ '/#register' | relative_url }}" class="nav-cta">Register interest</a>
+      </div>
     </div>
   </div>
 </nav>

@@ -1,0 +1,43 @@
+// ===================================================================
+// BUTTONS
+// Reusable across every page/section (.btn--primary, --outline, --outline-light).
+// ===================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.875rem 2rem;
+  font-family: $sans;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  &:hover  { transform: translateY(-2px); }
+  &:active { transform: translateY(0); }
+
+  &--primary {
+    background: $green;
+    color: $white;
+    border-color: $green;
+    &:hover { background: #419f53; border-color: #419f53; color: $white; }
+  }
+
+  &--outline-light {
+    background: transparent;
+    color: $white;
+    border-color: rgba($white, 0.5);
+    &:hover { background: rgba($white, 0.1); border-color: rgba($white, 0.7); color: $white; }
+  }
+
+  &--outline {
+    background: transparent;
+    color: $plum;
+    border-color: rgba($plum, 0.4);
+    &:hover { background: rgba($plum, 0.06); border-color: $plum; color: $plum; }
+  }
+}

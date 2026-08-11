@@ -1,0 +1,100 @@
+---
+layout: default
+title: Find Out More
+permalink: /more/
+description: "The Open Psychiatry Project (OPP): connecting UK mental health data safely and openly."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FIND OUT MORE
+     Edit: copy inside each section below.
+     Layout: sticky index + open sections (no accordion) — see _findout-more.scss
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="findout-more" id="findout-more" aria-labelledby="findout-heading">
+  <div class="container">
+
+    <div class="findout-header">
+      <h1 id="findout-heading">The Open Psychiatry Project (OPP): connecting UK mental health data safely and openly</h1>
+      <p class="findout-standfirst">The OPP aims to improve secure access to these siloed data sets, enhance drug repurposing, increase the opportunity of finding new drug targets as well as increasing the public understanding of the use and significance of mental health biomarkers.</p>
+    </div>
+
+    <div class="findout-layout">
+
+      <aside class="findout-toc" aria-label="On this page">
+        <span class="findout-toc-label" aria-hidden="true">On this page</span>
+        <nav>
+          <a href="#problem">The problem</a>
+          <a href="#platform">The platform</a>
+          <a href="#fedomics">FedOMICS</a>
+          <a href="#delivery">Delivery</a>
+          <a href="#governance">Governance</a>
+          <a href="#access">Data access</a>
+          <a href="#why">Why it matters</a>
+        </nav>
+        <div class="findout-toc-card">
+          <p>Want to hear when the platform opens?</p>
+          <a href="{{ '/#register' | relative_url }}">Register your interest &rarr;</a>
+        </div>
+      </aside>
+
+      <div class="findout-body">
+
+        <section id="problem">
+          <h2>The problem</h2>
+          <p>Psychiatric conditions have a strong genetic and biological basis, and &ldquo;omics&rdquo; technologies (proteomics, metabolomics) could vastly improve diagnosis, prediction, and treatment of mental health conditions. However, relevant datasets are held in dozens of separate secure environments (&ldquo;trusted research environments,&rdquo; or TREs) across the UK, each with different formats and limited discoverability. Existing meta-analyses often fail to account for important environmental factors because health data cannot easily be linked or shared. The result being that predictive models built from genetics and biomarkers remain poorly generalisable and rarely inform clinical translation.</p>
+        </section>
+
+        <div class="findout-approach">
+          <h2>Our approach</h2>
+          <p>OPP tackles this problem through two connected strands of work:</p>
+        </div>
+
+        <section id="platform" class="findout-strand">
+          <span class="findout-strand-eyebrow">Strand 01</span>
+          <h3>An open, interactive web platform</h3>
+          <p>Building on the internationally-used Open Targets Platform, the project will integrate real-world mental health data such as genetic, proteomic, and metabolomic findings from UK cohorts into a single searchable interface. This will allow researchers and industry to explore which genes, proteins, and molecules are implicated in specific conditions, supporting drug target discovery. A parallel &ldquo;second skin&rdquo; layer, co-designed with people with lived experience (PWLE), will make the same information accessible and understandable to patients and the public, including plain-language explanations, and exploratory conversational tools.</p>
+        </section>
+
+        <section id="fedomics" class="findout-strand">
+          <span class="findout-strand-eyebrow">Strand 02</span>
+          <h3>A privacy-preserving data federation network (&ldquo;FedOMICS&rdquo;)</h3>
+          <p>Rather than moving sensitive individual-level data around, OPP will connect existing secure TREs, initially linking the Generation Scotland cohort and the Early Intervention Mission/ImmunoMind psychosis cohort using Bitfount&rsquo;s federated analysis technology. Researchers can submit bespoke queries (e.g., testing whether genetic risk in a particular biological pathway relates to treatment outcomes) that run locally within each secure environment; only non-identifiable summary results are ever returned. Two layers of independent governance (a FedOMICS Data Access Committee plus each data custodian&rsquo;s own committee) oversee every request.</p>
+        </section>
+
+        <section id="run">
+          <h2>How it will be run</h2>
+
+          <div class="findout-run-item" id="delivery">
+            <h3>Delivery</h3>
+            <p>The project is led by a multi-institution team spanning the University of Cambridge, EMBL-EBI/Open Targets, Swansea University, and the University of Edinburgh, drawing on established infrastructure (DATAMIND, the Psychiatric Genomics Consortium, COSGAP containers, CADRE) rather than building from scratch. The award runs for 3 years and during this time the project will be fully delivered.</p>
+          </div>
+
+          <div class="findout-run-item" id="governance">
+            <h3>Governance</h3>
+            <p>Open Psychiatry Project governance is being designed around the same principles used by established UK resources (such as DATAMIND TRE): independent review by a panel that includes people with lived experience, clear approval pathways before any access is granted, internationally recognised security certification, legally binding data-sharing agreements with every contributing dataset, and checks on all outputs before release.</p>
+          </div>
+
+          <div class="findout-run-item" id="access">
+            <h3>Data access</h3>
+            <p>Unlike TRE models where approved researchers work directly with the data, individual-level data will never be accessible to researchers at all. All analyses run via software containers or Bitfount&rsquo;s privacy-preserving federation software, with only non-identifiable summary results returned. Non-sensitive summary data will remain freely available throughout, while the exact process for approving these federated queries is still to be agreed and will be developed with our patient and public involvement community and data custodians.</p>
+          </div>
+        </section>
+
+        <section id="why">
+          <h2>Why it matters</h2>
+          <p>By lowering the barriers between siloed datasets, OPP aims to give researchers meaningfully larger, more diverse samples (improving statistical power for under-represented groups), accelerate identification of viable drug targets, and for the first time give patients themselves a direct route into asking research questions that matter to them. The infrastructure created is intended to outlast the funding period, hosted long-term within Open Targets&rsquo; existing EMBL-EBI infrastructure, and designed as a template that could later extend to other disease areas beyond mental health.</p>
+
+          <div class="findout-callout">
+            <p><strong>In essence.</strong> By combining privacy-preserving data federation with intuitive, co-produced interfaces, the OPP provides a secure gateway that allows patients, academics, and industry to safely analyze diverse datasets and accelerate the development of personalized psychiatric treatments.</p>
+          </div>
+        </section>
+
+        <div class="findout-cta">
+          <a href="{{ '/#register' | relative_url }}" class="btn btn--primary">Register Your Interest &rarr;</a>
+          <a href="{{ '/' | relative_url }}" class="btn btn--outline">&larr; Back to Home</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

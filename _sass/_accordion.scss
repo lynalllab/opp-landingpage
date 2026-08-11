@@ -1,0 +1,95 @@
+// ===================================================================
+// ACCORDION
+// Reusable collapsible component (.findout-accordion / .findout-item).
+// Not scoped to any one page — drop it into any section that needs
+// expandable content (Find Out More, future FAQs, etc).
+// Toggled via .is-open by assets/js/accordion.js.
+// ===================================================================
+
+.findout-accordion {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.findout-item {
+  background: $white;
+  border: 1px solid rgba($dark, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+
+  &.is-open {
+    border-color: rgba($teal, 0.35);
+
+    .findout-item-icon::before { transform: translate(-50%, -50%) rotate(90deg); }
+  }
+
+  .findout-item-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+
+    &:hover .findout-item-title { color: $teal; }
+  }
+
+  .findout-item-title {
+    font-family: $serif;
+    font-size: 1.15rem;
+    color: $dark;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .findout-item-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      background: $teal;
+      transform: translate(-50%, -50%);
+    }
+    &::before { width: 2px; height: 12px; transition: transform 0.25s ease; }
+    &::after  { width: 12px; height: 2px; }
+  }
+
+  .findout-item-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .findout-item-body {
+    overflow: hidden;
+    min-height: 0;
+    padding: 0 1.5rem;
+    transition: padding 0.3s ease;
+
+    p {
+      font-size: 0.975rem;
+      line-height: 1.72;
+      color: #4a4060;
+      margin: 0;
+    }
+  }
+
+  &.is-open {
+    .findout-item-panel { grid-template-rows: 1fr; }
+    .findout-item-body  { padding: 0 1.5rem 1.5rem; }
+  }
+}
