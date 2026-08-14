@@ -145,6 +145,25 @@
     return ok;
   };
 
+  // Silent counterpart to OPPValidateStep: same rules, but reads validity
+  // without writing error messages/aria-invalid/has-error. Lets
+  // form-wizard.js ask "is this step still valid right now?" on every
+  // keystroke to keep the step rail's "done" state honest, without
+  // flashing error UI on steps the user isn't actively working in.
+  window.OPPStepIsValid = function (step) {
+    var ok = true;
+    Array.prototype.forEach.call(step.querySelectorAll('input, select, textarea'), function (field) {
+      if (validatableFields.indexOf(field) === -1) return;
+      if (!field.checkValidity()) ok = false;
+    });
+    Array.prototype.forEach.call(step.querySelectorAll('fieldset[data-require-one]'), function (fieldset) {
+      var inputs = fieldset.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+      var anyChecked = Array.prototype.some.call(inputs, function (input) { return input.checked; });
+      if (!anyChecked) ok = false;
+    });
+    return ok;
+  };
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 

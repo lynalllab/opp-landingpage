@@ -29,24 +29,44 @@
     if (field) field.focus({ preventScroll: true });
   }
 
-  function show(i) {
+  // "Done" only ever meant "furthest reached a step past this one" — it
+  // never re-checked the data. Go back, break a required answer, move on,
+  // and the rail kept showing that step as complete. refreshRail() re-reads
+  // real validity (via the silent OPPStepIsValid) every time it runs, so
+  // the tick reflects what's actually there right now, not just history.
+  function refreshRail() {
+    rail.forEach(function (li, n) {
+      var valid = window.OPPStepIsValid ? window.OPPStepIsValid(steps[n]) : true;
+      li.classList.toggle('is-current', n === current);
+      li.classList.toggle('is-done', n < furthest && valid);
+      var btn = li.querySelector('button');
+      btn.disabled = n > furthest;
+      if (n === current) { btn.setAttribute('aria-current', 'step'); }
+      else { btn.removeAttribute('aria-current'); }
+    });
+    var label = rail[current] && rail[current].querySelector('.form-progress-label');
+    count.textContent = 'Step ' + (current + 1) + ' of ' + steps.length + (label ? ': ' + label.textContent : '');
+  }
+
+  // moveFocus is false only for the very first render on page load — jumping
+  // focus into the form before the user has interacted with anything would
+  // steal both keyboard and screen-reader focus away from wherever the page
+  // actually put them. Every subsequent call (Continue/Back/rail/toggle) is
+  // a direct result of a user action, so moving focus into the new step is
+  // expected there.
+  function show(i, moveFocus) {
     current = i;
     furthest = Math.max(furthest, i);
     steps.forEach(function (s, n) { s.hidden = n !== i; });
-    rail.forEach(function (li, n) {
-      li.classList.toggle('is-current', n === i);
-      li.classList.toggle('is-done', n < furthest);
-      li.querySelector('button').disabled = n > furthest;
-    });
+    refreshRail();
     preview.forEach(function (li, n) {
       li.classList.toggle('is-current', n === i);
       li.classList.toggle('is-done', n < i);
     });
-    count.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
     back.hidden   = i === 0;
     next.hidden   = i === steps.length - 1;
     submit.hidden = i !== steps.length - 1;
-    focusFirst(steps[i]);
+    if (moveFocus !== false) focusFirst(steps[i]);
   }
 
   // ---- draft persistence --------------------------------------------
@@ -79,6 +99,8 @@
 
   form.addEventListener('input', save);
   form.addEventListener('change', save);
+  form.addEventListener('input', refreshRail);
+  form.addEventListener('change', refreshRail);
   form.addEventListener('submit', function () {
     try { localStorage.removeItem(KEY); } catch (e) {}
   });
@@ -111,14 +133,14 @@
     expanded: '<span class="form-view-toggle-label">Back to step-by-step</span> — one section at a time.'
   };
 
-  function setExpanded(on) {
+  function setExpanded(on, moveFocus) {
     shell.classList.toggle('is-expanded', on);
     toggle.setAttribute('aria-expanded', String(on));
     toggle.innerHTML = on ? TOGGLE_TEXT.expanded : TOGGLE_TEXT.collapsed;
     if (on) {
       furthest = steps.length - 1;             // they have now seen everything
     } else {
-      show(current);                            // resume the step they were on
+      show(current, moveFocus);                 // resume the step they were on
     }
     try { localStorage.setItem(VIEW_KEY, on ? 'all' : 'steps'); } catch (e) {}
   }
@@ -131,10 +153,10 @@
   }
 
   restore();
-  show(0);
+  show(0, false);
   if (toggle) {
     var storedView;
     try { storedView = localStorage.getItem(VIEW_KEY); } catch (e) {}
-    setExpanded(storedView === 'all');
+    setExpanded(storedView === 'all', false);
   }
 }());
