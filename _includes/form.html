@@ -14,6 +14,7 @@
   class="contact-form"
   action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
   method="POST"
+  aria-labelledby="register-heading"
 >
   <input type="hidden" name="_subject" value="Open Psychiatry Project - Expression of Interest">
   <input type="hidden" name="_next" value="/thank-you">
@@ -222,6 +223,7 @@
           <span class="form-task-heading">
             <span class="form-task-title">Conversations with science</span>
             <span class="form-task-when">2026&ndash;2027</span>
+            <button type="button" class="form-task-info" data-modal-target="task-modal-conversations" aria-label="More about Conversations with science"><span aria-hidden="true">i</span></button>
           </span>
           <span class="form-task-body">Helping AI to unlock the biology of mental health for public understanding.</span>
         </span>
@@ -233,6 +235,7 @@
           <span class="form-task-heading">
             <span class="form-task-title">Clues in the records</span>
             <span class="form-task-when">2027&ndash;2028</span>
+            <button type="button" class="form-task-info" data-modal-target="task-modal-records" aria-label="More about Clues in the records"><span aria-hidden="true">i</span></button>
           </span>
           <span class="form-task-body">Deciding what matters most in hospital and GP data.</span>
         </span>
@@ -244,12 +247,124 @@
           <span class="form-task-heading">
             <span class="form-task-title">The Co-Pilot Study</span>
             <span class="form-task-when">2029</span>
+            <button type="button" class="form-task-info" data-modal-target="task-modal-copilot" aria-label="More about The Co-Pilot Study"><span aria-hidden="true">i</span></button>
           </span>
           <span class="form-task-body">Leading a team-based mental health analysis, with questions driven by lived experience.</span>
         </span>
       </label>
       <span id="involvement_tasks-error" class="form-error" role="alert"></span>
     </fieldset>
+
+    <!-- Task info modals — content mirrors the "What would I do?" FAQ
+         project blocks (faqs.html / _sass/_faqs.scss), same labels and
+         colors, reused here in a dialog. Wired up by task-modal.js. -->
+    <div class="task-modal" id="task-modal-conversations" hidden>
+      <div class="task-modal-overlay" data-modal-close></div>
+      <div class="task-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="task-modal-conversations-title">
+        <button type="button" class="task-modal-close" data-modal-close aria-label="Close">&times;</button>
+        <div class="task-modal-header">
+          <h3 id="task-modal-conversations-title">Conversations with science</h3>
+          <span class="task-modal-when">2026&ndash;2027</span>
+        </div>
+        <p class="task-modal-tagline">Helping AI to unlock the biology of mental health for public understanding.</p>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Aim</span>
+          <p>We are building an AI-powered conversational search tool (like a ChatGPT specifically for mental health science) to help people instantly explore the biology of psychiatry without needing to understand complex data systems. But an AI is only as smart as the questions we teach it to answer.</p>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Why it matters</span>
+          <div class="task-modal-audience-split">
+            <div class="task-modal-audience task-modal-audience--pwle">
+              <span class="task-modal-audience-label">For PWLE &amp; carers</span>
+              <p>It ensures the AI answers real, human questions (e.g., &ldquo;How does stress alter inflammation in depression?&rdquo;) rather than just clinical jargon.</p>
+            </div>
+            <div class="task-modal-audience task-modal-audience--clinician">
+              <span class="task-modal-audience-label">For clinicians &amp; researchers</span>
+              <p>It helps map out how advanced biological data can be surfaced quickly during patient care or discovery sessions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">What you will do</span>
+          <p>You will help us decide what people actually want to ask about the biology of mental health, test early AI prototypes, and define what a &ldquo;good, trustworthy, and understandable answer&rdquo; looks like.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-modal" id="task-modal-records" hidden>
+      <div class="task-modal-overlay" data-modal-close></div>
+      <div class="task-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="task-modal-records-title">
+        <button type="button" class="task-modal-close" data-modal-close aria-label="Close">&times;</button>
+        <div class="task-modal-header">
+          <h3 id="task-modal-records-title">Clues in the records</h3>
+          <span class="task-modal-when">2027&ndash;2028</span>
+        </div>
+        <p class="task-modal-tagline">Deciding what matters most in hospital and GP data.</p>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Aim</span>
+          <p>Hospital and GP health records are packed with rich, hidden clues about mental health, but the data is messy and disorganized. Instead of trying to clean everything, we want to focus our engineering efforts on cleaning the measurements that matter most to real people and real clinical outcomes.</p>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Why it matters</span>
+          <div class="task-modal-audience-split">
+            <div class="task-modal-audience task-modal-audience--pwle">
+              <span class="task-modal-audience-label">For patients &amp; carers</span>
+              <p>It ensures the platform tracks symptoms and life events that deeply impact day-to-day quality of life (like sleep disruption or emergency admissions), not just standard blood counts.</p>
+            </div>
+            <div class="task-modal-audience task-modal-audience--clinician">
+              <span class="task-modal-audience-label">For clinicians &amp; researchers</span>
+              <p>It builds a clean, standardized blueprint for extracting high-value data patterns from chaotic real-world medical notes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">What you will do</span>
+          <p>You will review types of real-world health data (from prescription histories to hospital admissions) and help prioritize which specific measures are meaningful enough to invest time in unlocking.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-modal" id="task-modal-copilot" hidden>
+      <div class="task-modal-overlay" data-modal-close></div>
+      <div class="task-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="task-modal-copilot-title">
+        <button type="button" class="task-modal-close" data-modal-close aria-label="Close">&times;</button>
+        <div class="task-modal-header">
+          <h3 id="task-modal-copilot-title">The Co-Pilot Study</h3>
+          <span class="task-modal-when">2029</span>
+        </div>
+        <p class="task-modal-tagline">Leading a team-based mental health analysis, with questions driven by lived experience.</p>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Aim</span>
+          <p>Traditionally, professional scientists choose the research questions. In this project, we are flipping the script. A group led by people with lived experience will completely design, control, and run a custom data analysis across multiple secure UK databases using the Open Psychiatry platform.</p>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">Why it matters</span>
+          <div class="task-modal-audience-split">
+            <div class="task-modal-audience task-modal-audience--pwle">
+              <span class="task-modal-audience-label">For PWLE &amp; carers</span>
+              <p>It represents true equity, allowing public participants to transition from passive advisors to the lead investigators who control the science.</p>
+            </div>
+            <div class="task-modal-audience task-modal-audience--clinician">
+              <span class="task-modal-audience-label">For clinicians &amp; researchers</span>
+              <p>It provides a front-row seat to an innovative, completely secure way of doing decentralized, multi-site privacy-preserving research.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-modal-field">
+          <span class="task-modal-label">What you will do</span>
+          <p>You will join a collaborative team to pitch research ideas, design a custom study protocol, and test run the secure analysis on the platform.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="form-field form-checkbox-field">
       <label class="form-checkbox">

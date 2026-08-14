@@ -181,6 +181,14 @@
   .faqs .faq-project {
     padding-left: 1rem;
   }
+
+  .task-modal .task-modal-audience-split {
+    grid-template-columns: 1fr;
+  }
+
+  .task-modal .task-modal-dialog {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 640px) {

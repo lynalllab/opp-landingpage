@@ -15,7 +15,7 @@ description: "Open science for mental health — connecting molecular data with 
     <span class="hero-badge">UKRI MRC &amp; NIHR Funded</span>
     <h1 id="hero-heading">Open Psychiatry Project</h1>
     <p class="hero-tagline">Open science for mental health &mdash; connecting molecular data with real-world impact.</p>
-    <p class="hero-sub">A new UK platform making mental health biomarker data openly accessible for researchers, clinicians, and people with lived experience.</p>
+    <p class="hero-sub">{{ site.data.site.sub_tagline }}</p>
     <div class="hero-actions">
       <a href="#register" class="btn btn--primary">Register Your Interest &rarr;</a>
       <a href="#about" class="btn btn--outline-light">Learn more</a>
