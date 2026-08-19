@@ -9,7 +9,7 @@ Jekyll site for the Open Psychiatry Project, deployed via GitHub Pages.
 All section text lives in **`index.md`**. Open it and find the section you want to edit — each section has a comment block like `<!-- ═══ ABOUT ═══ -->` to help you navigate.
 
 - Edit the heading, paragraphs, and callout text directly in the HTML within `index.md`.
-- **Do not** remove the `{% include ... %}` tags — they pull in the form, feature cards, and partner grid from separate files.
+- **Do not** remove the `{% include ... %}` tags — they pull in the Get Involved pitch, feature cards, and partner grid from separate files.
 
 Site-wide data (project name, contact email, footer links, funding note) is in **`_data/site.yml`**.
 
@@ -57,19 +57,14 @@ The site will be available at `http://localhost:4000`. It rebuilds automatically
 
 Push to the `main` branch. GitHub Pages detects the Jekyll source and builds it automatically — no extra steps needed.
 
-> **Project repo note:** If your repo is at `github.com/org/repo-name` (not a `username.github.io` repo), set `baseurl: "/repo-name"` in `_config.yml` so asset paths resolve correctly. Also update the `_next` redirect URL in `_includes/form.html` to the full absolute URL of the thank-you page (e.g. `https://org.github.io/repo-name/thank-you`).
+> **Project repo note:** If your repo is at `github.com/org/repo-name` (not a `username.github.io` repo), set `baseurl: "/repo-name"` in `_config.yml` so asset paths resolve correctly.
 
 ---
 
-## Activating the contact form (Formspree)
+## The "Register your interest" form
 
-1. Create a free account at [formspree.io](https://formspree.io) and create a new form. Copy the form ID from the endpoint URL (the part after `/f/`).
-2. Open **`_includes/form.html`**.
-3. Replace `REPLACE_WITH_FORM_ID` in the `action` attribute with your form ID:
-   ```html
-   <form action="https://formspree.io/f/abcde123" ...>
-   ```
-4. Update the `_next` hidden input value to the full URL of your thank-you page:
-   ```html
-   <input type="hidden" name="_next" value="https://your-site-url.github.io/thank-you">
-   ```
+The interest form is hosted externally on Qualtrics — this site does not own or style it. The URL lives in one place, **`_data/site.yml`** (`qualtrics_form_url`); every "Register your interest" trigger on the site reads from it and opens it in a modal (see `_includes/register-modal.html` and `assets/js/register-modal.js`).
+
+To point the site at a different form, update `qualtrics_form_url` in `_data/site.yml` — nothing else needs to change.
+
+> **Note:** the "What it asks" summary in `_includes/get-involved-section.html` describes the Qualtrics question set from the outside. If the survey's questions change, re-check those four lines and the "about 5 minutes" estimate against the live form.
