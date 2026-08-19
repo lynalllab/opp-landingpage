@@ -22,3 +22,22 @@
   }
 
 }());
+
+// Timeline section — one-shot entry animation, separate from .reveal
+// (drives a paused CSS animation rather than toggling a class; see
+// _sass/_timeline.scss for why).
+(function () {
+  'use strict';
+  var section = document.querySelector('.timeline');
+  if (!section || !('IntersectionObserver' in window)) return;
+
+  var obs = new IntersectionObserver(function (entries) {
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    section.querySelectorAll('[data-anim]').forEach(function (el) {
+      el.style.animationPlayState = 'running';
+    });
+    obs.disconnect();
+  }, { rootMargin: '0px 0px -18% 0px', threshold: 0 });
+
+  obs.observe(section);
+}());

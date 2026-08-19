@@ -1,0 +1,22 @@
+<!-- Register-interest modal — rendered once per page, opened by any
+     .js-register-open trigger. iframe src is set on first open by
+     assets/js/register-modal.js, not here (see that file for why). -->
+<div class="register-modal" hidden>
+  <div class="register-modal-panel" role="dialog" aria-modal="true" aria-labelledby="register-modal-title" tabindex="-1">
+    <header>
+      <div>
+        <h2 id="register-modal-title">Register your interest</h2>
+        <p>Secure form hosted by the University of Cambridge &middot; about 5 minutes</p>
+      </div>
+      <button type="button" class="register-modal-close" aria-label="Close">&times;</button>
+    </header>
+    <div class="register-modal-body">
+      <p class="register-modal-loading" role="status">Loading the form&hellip;</p>
+      <iframe data-src="{{ site.data.site.qualtrics_form_url }}" title="Register your interest &mdash; Open Psychiatry Project"></iframe>
+    </div>
+    <footer>
+      <a href="{{ site.data.site.qualtrics_form_url }}" target="_blank" rel="noopener">Trouble with the form? Open it in a new tab &#8599;</a>
+      <span>Press Esc to close</span>
+    </footer>
+  </div>
+</div>

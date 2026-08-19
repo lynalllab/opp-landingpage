@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 {% include head.html %}
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -8,6 +8,7 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  {% include register-modal.html %}
   <!-- Shared/reusable across every page -->
   <script src="{{ '/assets/js/scrollspy.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
@@ -16,13 +17,9 @@
   <script src="{{ '/assets/js/stat-counters.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/accordion.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/smooth-scroll.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/register-modal.js' | relative_url }}" defer></script>
   <!-- Page-specific -->
   <script src="{{ '/assets/js/hero-canvas.js' | relative_url }}" defer></script>
-  {% if page.url == '/' %}
-    <script src="{{ '/assets/js/form-validation.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/js/form-wizard.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/js/task-modal.js' | relative_url }}" defer></script>
-  {% endif %}
   {% if page.url == '/faqs/' %}
     <script src="{{ '/assets/js/faqs-toc.js' | relative_url }}" defer></script>
   {% endif %}

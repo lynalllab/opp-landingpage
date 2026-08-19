@@ -1,53 +1,68 @@
 // ===================================================================
-// REGISTER INTEREST
-// Home page (index.md) only. Two-column layout: sticky intro column
-// + stepped form. Form field/step styling lives in _forms.scss.
+// GET INVOLVED (register)
+// Home page (index.md) pitch section for the external Qualtrics form
+// — see _includes/get-involved-section.html. Plus the reusable
+// end-of-page band (_includes/register-band.html) used on every
+// other page. The form itself lives in _modal.scss.
 // ===================================================================
 
-.register-interest {
-  position: relative;
+#register {
   background: $off-white;
   padding: 5.5rem 0 6rem;
 
-  .register-layout {
-    display: grid;
-    grid-template-columns: minmax(300px, 400px) 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .register-layout { display: grid; grid-template-columns: 1.08fr 1fr; gap: 3.5rem; align-items: start; }
 
-  .register-intro {
-    position: sticky;
-    top: 96px;                       // nav height + breathing room
-    display: flex; flex-direction: column; gap: 1.375rem;
-
-    h2 { margin: 0; color: $plum; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.14; }
+  .register-pitch { display: flex; flex-direction: column; gap: 1.375rem;
+    h1 { margin: 0; color: $plum; font-size: clamp(2rem, 4.2vw, 2.875rem); line-height: 1.12; }
     .register-lead { margin: 0; font-size: 1.09rem; line-height: 1.65; color: #4a3a48; text-wrap: pretty; }
   }
 
-  .register-preview {
-    border-top: 1px solid rgba($dark, 0.12);
-    padding-top: 1.25rem;
-    display: flex; flex-direction: column; gap: 0.875rem;
-
-    .register-preview-label {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #8d859c;
-    }
-
-    ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-
-    li {
-      display: flex; gap: 0.75rem; align-items: baseline;
-      font-size: 0.9375rem; line-height: 1.45; color: #8d859c;
-
-      .register-preview-num { flex: none; font-size: 0.8rem; font-weight: 700; }
-      &.is-current { color: $dark; font-weight: 600; }
-      &.is-done    { color: #4a4060; }
-    }
-
-    p { margin: 0.375rem 0 0; font-size: 0.875rem; line-height: 1.6; color: #8d859c; }
+  .register-action { display: flex; flex-direction: column; gap: 0.625rem;
+    .btn--primary { align-self: flex-start; padding: 1rem 1.875rem; font-size: 1.03rem; }
+    .register-action-note { margin: 0; font-size: 0.9rem; line-height: 1.55; color: $muted; }
   }
 
-  .register-form-col { min-width: 0; }   // stops long legends forcing the grid wider
+  .register-preview {
+    background: $white; border: 1px solid rgba($dark, 0.09); border-radius: 8px;
+    padding: 1.75rem 1.875rem; display: flex; flex-direction: column; gap: 1.25rem;
+
+    .register-preview-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: $teal-text;
+    }
+    ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.875rem; }
+    li { display: flex; gap: 0.875rem; align-items: baseline; }
+    .register-preview-num { flex: none; font-size: 0.8rem; font-weight: 700; color: $plum; }
+    li span:last-child { font-size: 0.97rem; line-height: 1.5; color: #4a4060; }
+
+    .register-preview-trust {
+      border-top: 1px solid rgba($dark, 0.09); padding-top: 1.125rem;
+      display: flex; flex-direction: column; gap: 0.6875rem;
+      div { display: flex; gap: 0.6875rem; align-items: baseline; }
+      .register-tick { flex: none; color: $teal-text; }
+      span:last-child { font-size: 0.9rem; line-height: 1.5; color: #4a4060; }
+    }
+  }
+}
+
+// Foot-of-page wrapper for register-band.html on every non-home page
+// (faqs, findout_more, glossary, industry) — gives the card a
+// contained width and matches this site's section padding rhythm.
+.register-band-section {
+  padding: 0 0 5.5rem;
+}
+
+.register-band {
+  background: $lilac; border-radius: 8px;
+  padding: 2rem 2.25rem; margin-top: 5rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
+
+  .register-band-text { display: flex; flex-direction: column; gap: 0.5rem; max-width: 520px;
+    h2 { margin: 0; font-size: 1.5625rem; line-height: 1.25; color: $dark; }
+    p  { margin: 0; font-size: 0.97rem; line-height: 1.6; color: #4a4060; text-wrap: pretty; }
+  }
+  .register-band-action { display: flex; flex-direction: column; gap: 0.5625rem;
+    .btn--primary { white-space: nowrap; }
+    span { font-size: 0.845rem; color: $muted; white-space: nowrap; }
+  }
 }

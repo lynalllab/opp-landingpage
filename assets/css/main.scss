@@ -12,9 +12,10 @@
 @import 'buttons';
 @import 'nav';
 @import 'footer';
-@import 'forms';
 @import 'accordion';
 @import 'reveal';
+@import 'register';
+@import 'modal';
 
 // Page-specific — home (index.md)
 @import 'hero';
@@ -22,8 +23,7 @@
 @import 'how-it-works';
 @import 'partners';
 @import 'audience';
-@import 'register';
-@import 'task-modal';
+@import 'timeline';
 
 // Page-specific — subpages
 @import 'thank-you';
