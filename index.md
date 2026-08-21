@@ -17,7 +17,7 @@ description: "Open science for mental health — connecting molecular data with 
     <p class="hero-tagline">Open science for mental health &mdash; connecting molecular data with real-world impact.</p>
     <p class="hero-sub">{{ site.data.site.sub_tagline }}</p>
     <div class="hero-actions">
-      <a href="#register" class="btn btn--primary">Register Your Interest &rarr;</a>
+      <a href="{{ site.data.site.qualtrics_form_url }}" class="btn btn--primary js-register-open" target="_blank" rel="noopener">Register Your Interest &rarr;</a>
       <a href="#about" class="btn btn--outline-light">Learn more</a>
     </div>
 
