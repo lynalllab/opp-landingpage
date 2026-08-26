@@ -168,6 +168,7 @@ description: "Open science for mental health — connecting molecular data with 
      ═══════════════════════════════════════════════════════════════ -->
 <section id="register" aria-labelledby="register-heading">
   <div class="container">
+    <h2 id="register-heading" class="reveal">Help shape this</h2>
     {% include get-involved-section.html %}
   </div>
 </section>
