@@ -17,7 +17,7 @@
       </div>
 
       <div class="footer-links">
-        <p class="footer-links-heading">Links</p>
+        <p class="footer-links-heading">{{ site.data.site.footer_links_heading }}</p>
         <ul class="footer-link-list">
           {% for link in site.data.site.footer_links %}
           <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>

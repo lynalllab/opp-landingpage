@@ -1,0 +1,25 @@
+# ===================================================================
+# "Get involved" pitch (_includes/get-involved-section.html), shown
+# in the homepage register section. The form itself lives at
+# _data/site.yml: qualtrics_form_url and opens in register-modal.html —
+# nothing here controls its questions.
+# ===================================================================
+
+pitch:
+  heading: "We would love for you to get involved"
+  lead: "We are building this resource for and with the people who will use it. Whether you are a researcher, clinician, industry partner, or someone with lived experience of mental health conditions, we want to hear from you. Register your interest below and we will be in touch."
+  cta: "Register your interest"
+  cta_note: "Opens the University of Cambridge&rsquo;s secure form &middot; about 5 minutes"
+
+preview:
+  label: "What it asks"
+  steps:
+    - "Your name, email and where you are"
+    - "A little about you"
+    - "Why you want to contribute &mdash; three short questions"
+    - "Which workstream interests you"
+    - "Allow us to collect your data and contact you"
+  trust_points:
+    - "Hosted and stored by the University of Cambridge"
+    - "You choose what you hear about, and how often"
+    - "No commitment &mdash; registering interest is not signing up"

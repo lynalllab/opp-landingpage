@@ -1,0 +1,19 @@
+# ===================================================================
+# Industry page (industry.html)
+# Single source of truth for all copy on the /industry/ page.
+# ===================================================================
+
+intro:
+  heading: "Help us shape the future of mental health research and inform drug development"
+  paragraphs:
+    - "We are inviting industry experts to highlight datasets currently missing or inaccessible, including e.g. longitudinal, EHR-linked outcome data across cohorts and cohort-level prevalence and biomarker distribution data."
+    - "OPP will offer a single federated query layer across TREs and access to ancestrally and geographically diverse cohorts but we could offer much more based on what industry tells us."
+    - "By incorporating industry expertise, we aim to build the OPP and implement a tiered access model that sustains the resource."
+
+work_with_us:
+  heading: "Work with us"
+  lead: "Is your company interested in data access, precision mental health, biomarkers, functional-genomics based pipeline de-risking, or side effect prediction? Let us know what your organisation needs."
+  detail: "Book a 20 minute discussion with Dr Birgitta Olofsson, programme manager for OPP."
+  email_label: "Email"
+  booking_label: "Book intro call"
+  booking_label_sr_suffix: " (opens in a new tab)"

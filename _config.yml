@@ -13,5 +13,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - CLAUDE.md
   - .gitignore
   - vendor/

@@ -2,13 +2,16 @@
 <html lang="en" class="no-js">
 {% include head.html %}
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">{{ site.data.site.skip_link_text }}</a>
   {% include nav.html %}
   <main id="main-content">
     {{ content }}
   </main>
   {% include footer.html %}
   {% include register-modal.html %}
+  {% if page.url == '/industry/' %}
+    {% include booking-modal.html %}
+  {% endif %}
   <!-- Shared/reusable across every page -->
   <script src="{{ '/assets/js/scrollspy.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
@@ -28,6 +31,9 @@
   {% endif %}
   {% if page.url == '/glossary/' %}
     <script src="{{ '/assets/js/glossary-search.js' | relative_url }}" defer></script>
+  {% endif %}
+  {% if page.url == '/industry/' %}
+    <script src="{{ '/assets/js/booking-modal.js' | relative_url }}" defer></script>
   {% endif %}
 </body>
 </html>

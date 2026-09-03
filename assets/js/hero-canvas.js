@@ -1,5 +1,5 @@
 // Hero canvas — molecular particle network background.
-// Home page (index.md) only; no-ops on pages without #hero-canvas.
+// Home page (index.html) only; no-ops on pages without #hero-canvas.
 (function () {
   'use strict';
 

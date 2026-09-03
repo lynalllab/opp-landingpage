@@ -5,7 +5,7 @@
   <div class="partner-card {{ delay_classes[delay_index] }}">
     <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ partner.name }} (opens in new tab)">
       {% if partner.logo != "" %}
-        <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" alt="{{ partner.name }} logo" loading="lazy">
+        <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" alt="{{ partner.name }} logo" loading="lazy"{% if partner.logo_invert %} class="partner-logo--invert"{% endif %}{% if partner.logo_scale %} style="--logo-scale: {{ partner.logo_scale }};"{% endif %}>
       {% else %}
         <span class="partner-name">{{ partner.name }}</span>
       {% endif %}

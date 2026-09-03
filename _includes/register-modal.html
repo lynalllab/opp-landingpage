@@ -1,22 +1,23 @@
 <!-- Register-interest modal — rendered once per page, opened by any
      .js-register-open trigger. iframe src is set on first open by
-     assets/js/register-modal.js, not here (see that file for why). -->
+     assets/js/register-modal.js, not here (see that file for why).
+     Copy: _data/register_modal.yml -->
 <div class="register-modal" hidden>
   <div class="register-modal-panel" role="dialog" aria-modal="true" aria-labelledby="register-modal-title" tabindex="-1">
     <header>
       <div>
-        <h2 id="register-modal-title">Register your interest</h2>
-        <p>Secure form hosted by the University of Cambridge &middot; about 5 minutes</p>
+        <h2 id="register-modal-title">{{ site.data.register_modal.title }}</h2>
+        <p>{{ site.data.register_modal.subtitle }}</p>
       </div>
-      <button type="button" class="register-modal-close" aria-label="Close">&times;</button>
+      <button type="button" class="register-modal-close" aria-label="{{ site.data.register_modal.close_label }}">&times;</button>
     </header>
     <div class="register-modal-body">
-      <p class="register-modal-loading" role="status">Loading the form&hellip;</p>
-      <iframe data-src="{{ site.data.site.qualtrics_form_url }}" title="Register your interest &mdash; Open Psychiatry Project"></iframe>
+      <p class="register-modal-loading" role="status">{{ site.data.register_modal.loading_text }}</p>
+      <iframe data-src="{{ site.data.site.qualtrics_form_url }}" title="{{ site.data.register_modal.iframe_title }}"></iframe>
     </div>
     <footer>
-      <a href="{{ site.data.site.qualtrics_form_url }}" target="_blank" rel="noopener">Trouble with the form? Open it in a new tab &#8599;</a>
-      <span>Press Esc to close</span>
+      <a href="{{ site.data.site.qualtrics_form_url }}" target="_blank" rel="noopener">{{ site.data.register_modal.trouble_link_text }}</a>
+      <span>{{ site.data.register_modal.esc_hint }}</span>
     </footer>
   </div>
 </div>

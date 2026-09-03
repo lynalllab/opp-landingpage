@@ -3,11 +3,14 @@ tagline: "Open science for mental health — connecting molecular data with real
 sub_tagline: "The Open Psychiatry Project is enhancing access to target prioritisation and biomarker data for mental health. We are building resources and new data access models for researchers, healthcare professionals, industry and the public."
 lead_institution: "University of Cambridge, Department of Psychiatry"
 lead_pi: "Dr Mary-Ellen Lynall"
-contact_email: openpsychiatryproject@medschl.cam.ac.uk,
+contact_email: openpsychiatryproject@medschl.cam.ac.uk
 qualtrics_form_url: "https://cambridge.eu.qualtrics.com/jfe/form/SV_3wJB8ngOU37H0ou"
+booking_url: "https://outlook.office.com/bookwithme/user/6976b679359645ad9c566685505556eb@cam.ac.uk/meetingtype/p9wiTy5HbkaglJz2D0WZDA2?anonymous&ismsaljsauthenabled&ep=mcard"
 funding_note: "Supported by UKRI MRC and NIHR (award £2,311,368)"
 footer_tagline: "Building open science for mental health."
+footer_links_heading: "Links"
 copyright: "© 2025 Open Psychiatry Project"
+skip_link_text: "Skip to main content"
 
 footer_links:
   - name: Open Targets Platform

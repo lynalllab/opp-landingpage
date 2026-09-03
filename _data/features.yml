@@ -1,8 +1,8 @@
 - icon: molecule
   heading: Open molecular data
   description: >
-    The platform brings together diverse datasets on how genes, cells, and molecules impact
-    mental health conditions. Researchers can explore biomarkers, drug targets, and potential
+    The resource brings together diverse datasets on how genes, cells, and molecules impact
+    mental health conditions. Researchers will be able to explore biomarkers, drug targets, and potential
     treatments through a single, open interface.
 
 - icon: shield
@@ -15,6 +15,7 @@
 - icon: people
   heading: Co-designed with lived experience
   description: >
-    People with lived experience of mental illness are central to the project — co-developing
-    the website's design and content. A dedicated accessible interface ensures the platform is
-    genuinely useful for non-specialist users, not just scientists.
+    People with lived experience of mental illness are central to the project — co-developing the
+    website's design and content, and providing feedback on the other resources. A dedicated
+    accessible interface will ensure the project outputs are genuinely useful for non-specialist
+    users, not just scientists.

@@ -7,16 +7,16 @@ description: "For Industry: help shape the future of mental health research and 
 
 <!-- ═══════════════════════════════════════════════════════════════
      FOR INDUSTRY
-     Edit: intro paragraphs and contact cards below
+     Edit: all copy lives in _data/industry.yml (intro:)
      ═══════════════════════════════════════════════════════════════ -->
 <section class="industry" id="industry" aria-labelledby="industry-heading">
   <div class="container">
-    <h1 id="industry-heading">Help us shape the future of mental health research and inform drug development</h1>
+    <h1 id="industry-heading">{{ site.data.industry.intro.heading }}</h1>
 
     <div class="industry-intro">
-      <p>We are inviting industry experts to highlight datasets currently missing or inaccessible, including e.g. longitudinal, EHR-linked outcome data across cohorts and cohort-level prevalence and biomarker distribution data.</p>
-      <p>OPP will offer a single federated query layer across TREs and access to ancestrally and geographically diverse cohorts but we could offer much more based on what industry tells us.</p>
-      <p>By incorporating industry expertise, we aim to build the OPP and implement a tiered access model that sustains the resource.</p>
+      {% for p in site.data.industry.intro.paragraphs %}
+      <p>{{ p }}</p>
+      {% endfor %}
     </div>
 
 
@@ -25,37 +25,38 @@ description: "For Industry: help shape the future of mental health research and 
 
 <!-- ═══════════════════════════════════════════════════════════════
      WORK WITH US
-     Edit: intro copy, button labels, and the Bookings link below
+     Edit: copy and button labels in _data/industry.yml (work_with_us:)
+     Booking link itself is _data/site.yml: booking_url
      ═══════════════════════════════════════════════════════════════ -->
 <section class="work-with-us" aria-labelledby="work-with-us-heading">
   <div class="container">
     <div class="work-with-us-grid">
 
       <div class="work-with-us-text">
-        <h2 id="work-with-us-heading">Work with us</h2>
-        <p class="work-with-us-lead">Is your company interested in data access, precision mental health, biomarkers, functional-genomics based pipeline de-risking, or side effect prediction? Let us know what your organisation needs.</p>
-        <p class="work-with-us-detail">Book a 20 minute discussion with Dr Birgitta Olofsson, programme manager for OPP.</p>
+        <h2 id="work-with-us-heading">{{ site.data.industry.work_with_us.heading }}</h2>
+        <p class="work-with-us-lead">{{ site.data.industry.work_with_us.lead }}</p>
+        <p class="work-with-us-detail">{{ site.data.industry.work_with_us.detail }}</p>
       </div>
 
       <div class="work-with-us-actions">
-        <a href="mailto:openpsychiatryproject@medschl.cam.ac.uk" class="btn btn--primary work-with-us-btn">
-          <span>Email</span>
+        <a href="mailto:{{ site.data.site.contact_email }}" class="btn btn--primary work-with-us-btn">
+          <span>{{ site.data.industry.work_with_us.email_label }}</span>
           <svg class="work-with-us-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 6h18v12H3z"/>
             <path d="m3 7 9 6 9-6"/>
           </svg>
         </a>
 
-        <!-- Replace with the Microsoft Bookings link -->
-        <a href="REPLACE_WITH_BOOKING_URL" class="btn work-with-us-btn work-with-us-btn--outline" target="_blank" rel="noopener">
-          <span>Book intro call<span class="sr-only"> (opens in a new tab)</span></span>
+        <!-- href is the Microsoft Bookings link (site.data.site.booking_url) — no-JS fallback opens it directly; JS intercepts to open the embedded calendar modal instead -->
+        <a href="{{ site.data.site.booking_url }}" class="btn work-with-us-btn work-with-us-btn--outline js-booking-open" target="_blank" rel="noopener">
+          <span>{{ site.data.industry.work_with_us.booking_label }}<span class="sr-only">{{ site.data.industry.work_with_us.booking_label_sr_suffix }}</span></span>
           <svg class="work-with-us-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 12h14"/>
             <path d="m13 5 7 7-7 7"/>
           </svg>
         </a>
 
-        <p class="work-with-us-email">openpsychiatryproject@medschl.cam.ac.uk</p>
+        <p class="work-with-us-email">{{ site.data.site.contact_email }}</p>
       </div>
 
     </div>

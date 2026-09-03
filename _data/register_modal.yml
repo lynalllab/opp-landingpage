@@ -1,0 +1,12 @@
+# ===================================================================
+# Register-interest modal (_includes/register-modal.html)
+# The form URL itself is _data/site.yml: qualtrics_form_url
+# ===================================================================
+
+title: "Register your interest"
+close_label: "Close"
+subtitle: "Secure form hosted by the University of Cambridge &middot; about 5 minutes"
+loading_text: "Loading the form&hellip;"
+iframe_title: "Register your interest &mdash; Open Psychiatry Project"
+trouble_link_text: "Trouble with the form? Open it in a new tab &#8599;"
+esc_hint: "Press Esc to close"

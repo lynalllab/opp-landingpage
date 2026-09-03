@@ -1,32 +1,39 @@
 # To add a logo: drop the image in assets/images/ and set logo to the filename (e.g. "cam.png")
+# Order is deliberate: Cambridge first, then EMBL-EBI and Open Targets, then CPFT.
 - name: University of Cambridge
   url: https://www.cam.ac.uk
-  logo: ""
+  logo: "cambridge.png"
 
 - name: "EMBL's European Bioinformatics Institute (EMBL-EBI)"
   url: https://www.ebi.ac.uk
-  logo: ""
-
-- name: Cambridgeshire and Peterborough NHS Foundation Trust
-  url: https://www.cpft.nhs.uk
-  logo: ""
-
-- name: University of Edinburgh
-  url: https://www.ed.ac.uk
-  logo: ""
-
-- name: Swansea University
-  url: https://www.swansea.ac.uk
-  logo: ""
-
-- name: Health Innovation East
-  url: https://www.healthinnovationeast.co.uk
-  logo: ""
-
-- name: Bitfount
-  url: https://www.bitfount.com
-  logo: ""
+  logo: "embl-ebi.svg"
+  logo_scale: 0.85
 
 - name: Open Targets
   url: https://www.opentargets.org
-  logo: ""
+  logo: "open-targets.svg"
+
+- name: Cambridgeshire and Peterborough NHS Foundation Trust
+  url: https://www.cpft.nhs.uk
+  logo: "cpft.png"
+
+- name: Swansea University
+  url: https://www.swansea.ac.uk
+  logo: "swansea.png"
+  # Only public asset is a white lockup — invert to black until the marketing toolkit's dark version is sourced.
+  logo_invert: true
+  logo_scale: 1.15
+
+- name: Health Innovation East
+  url: https://www.healthinnovationeast.co.uk
+  logo: "health-innovation-east.png"
+  logo_scale: 1.15
+
+- name: Bitfount
+  url: https://www.bitfount.com
+  logo: "bitfount.svg"
+  logo_scale: 0.85
+
+- name: University of Edinburgh
+  url: https://www.ed.ac.uk
+  logo: "edinburgh.png"

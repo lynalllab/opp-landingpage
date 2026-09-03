@@ -1,0 +1,127 @@
+# ===================================================================
+# FAQs
+# Single source of truth for faqs.html — edit questions and answers
+# here, no HTML needed.
+#
+# Structure: a list of groups. Each group becomes a heading on the
+# page and an entry in the "On this page" index (in the order below).
+#
+#   id:    short-lowercase-with-dashes, used as the section anchor
+#   title: heading shown on the page and in the index
+#   items: the questions in that group, each with:
+#     question: the FAQ question
+#     answer:   the answer. Plain text is fine — leave a blank line
+#               between paragraphs, use [link text](https://example.com)
+#               for a link, and **text** for bold.
+#     id:       optional. Only set this if you want a specific web
+#               address for this question (e.g. faq-will-i-get-paid).
+#               If left out, one is generated from the question.
+#
+# The "What would I do?" question is special: instead of "answer" it
+# has "projects: true", which pulls in the project breakdown from
+# _data/faq_projects.yml (edit that file to change those details).
+# ===================================================================
+
+- id: getting-involved
+  title: Getting involved
+  items:
+    - question: "Why are we doing this co-production?"
+      answer: >
+        We want to design a digital tool that helps the public, researchers, and patients easily
+        explore mental health data. Instead of experts building something in isolation, we want to
+        build it with you so that it actually answers the questions you care about, in plain
+        language that makes sense.
+
+    - question: "Do I need a background in science, coding, or statistics?"
+      answer: >
+        Absolutely not! We need you to help us figure out what questions matter most, what words
+        feel clear, and how the tool should look and feel. However, if you have a background in the
+        above let us know in the interest form and we will try to match you with certain tasks.
+
+    - question: "What would I do?"
+      projects: true
+
+- id: time-payment
+  title: "Time & payment"
+  items:
+    - question: "How much time is required?"
+      answer: >
+        The tasks we would like help with run over discrete time periods. We are recruiting to a
+        network and will call upon people to respond at different times during the project. We
+        estimate that each task would take the form of a half day workshop with 2-3 follow-up
+        meetings.
+
+    - question: "Will I get paid?"
+      answer: >
+        We follow the NIHR guidelines and will offer payment according to the time and preparation
+        needed for each task. For more information, see the
+        [NIHR public contributor reward policy](https://www.nihr.ac.uk/about-us/who-we-are/policies-and-guidelines/public-contributor-reward-policy/payment-public-considering-involvement).
+        We will arrange for a bank transfer to your bank account.
+
+- id: safety-conduct
+  title: "Safety & conduct"
+  items:
+    - question: "How will you make sure the working environment is safe and respectful for people helping to co-produce OPP?"
+      id: faq-safe-respectful-environment
+      answer: >
+        Everyone involved in co-producing the Open Psychiatry Project — staff, researchers and
+        people with lived experience alike — will work to a shared code of conduct, agreed together
+        with our lived experience group. This sets out what respectful, safe collaboration looks
+        like, and applies equally to every member of the team.
+
+    - question: "What happens if someone behaves inappropriately?"
+      answer: >
+        Any concern about someone's behaviour will be taken seriously and acted on straight away.
+        You'll always know who to contact if something happens or doesn't feel right, for example,
+        our PWLE facilitator or a named member of the executive committee. If a breach of the code
+        of conduct is confirmed, the person responsible will be removed from the team or task
+        group.
+
+    - question: "Is what I share in meetings or workshops confidential?"
+      id: faq-confidential
+      answer: >
+        What's discussed within the group stays within the group. You can contribute fully to
+        co-production without disclosing details of your own experience if you'd rather not.
+
+- id: input-impact
+  title: "Your input & impact"
+  items:
+    - question: "How will I know what difference my input made?"
+      answer: >
+        We keep a project-wide impact register that logs the suggestions and ideas that came from
+        people with lived experience and what happened as a result: whether that's a change we
+        made, a change still in progress, or something we weren't able to take forward and why.
+        We'll share this back with the group regularly, so there's always a visible line from what
+        you said to what we did.
+
+    - question: "Is there a way to reflect on what being involved meant to me personally, not just what changed in the project?"
+      answer: >
+        Yes, alongside the project's impact register, we'll offer a short, optional reflection
+        template you can fill in at the end of each task or task group, with a few simple prompts
+        (like what you learned, what felt difficult, and whether you'd want to do it again). It's
+        entirely up to you whether you complete it, and whether you share it with the whole group
+        at the follow-up meeting, just with your facilitator, or keep it private — there's no
+        expectation either way.
+
+- id: data-privacy
+  title: "Data & privacy"
+  items:
+    - question: "What is \"functional genomics\" (Open Targets)?"
+      id: faq-functional-genomics
+      answer: >
+        Genomics looks at how genes and variation in our genes might influence mental health.
+        There are different functional genomics experiments and analyses that help us understand
+        how a genetic variant or gene works and contributes to disease mechanisms. Tools like the
+        Open Targets Platform combine biological research to show which genes or biological
+        pathways might be linked to specific conditions or drug targets. We want to know: what
+        questions would you want to ask a resource like this? (e.g., “Which genes are linked to
+        depression?” or “Are there existing medicines targeting this biological pathway?”)
+
+    - question: "Will researchers be able to see my personal data directly?"
+      answer: >
+        No. Researchers using the Open Psychiatry Project resources will never see or download
+        individual-level data. Instead, a researcher submits a question they want answered, which is
+        run automatically by secure software, either a data container or privacy-preserving federation
+        software (Bitfount), at the location where the data is already stored. Only an anonymised
+        summary result will be sent back to the researcher; the underlying data itself will never leave
+        its secure environment and will never be viewed by anyone running the analysis.

@@ -7,12 +7,12 @@ description: "The team behind the Open Psychiatry Project."
 
 <!-- ═══════════════════════════════════════════════════════════════
      TEAM — INTRO
-     Edit: heading and lead paragraph below
+     Edit: heading and lead paragraph in _data/team_page.yml (intro:)
      ═══════════════════════════════════════════════════════════════ -->
 <section class="team-intro" aria-labelledby="team-heading">
   <div class="container">
-    <h1 id="team-heading">The team</h1>
-    <p class="team-lead">The Open Psychiatry Project is led from the University of Cambridge Department of Psychiatry and delivered with partners across Open Targets, DATAMIND, Generation Scotland and the UK Longitudinal Linkage Collaboration.</p>
+    <h1 id="team-heading">{{ site.data.team_page.intro.heading }}</h1>
+    <p class="team-lead">{{ site.data.team_page.intro.lead }}</p>
   </div>
 </section>
 
@@ -43,19 +43,19 @@ description: "The team behind the Open Psychiatry Project."
 
 <!-- ═══════════════════════════════════════════════════════════════
      TEAM — LIVED EXPERIENCE CALLOUT
-     Edit: copy and email below
+     Edit: copy in _data/team_page.yml (lived_experience:)
      ═══════════════════════════════════════════════════════════════ -->
 <section class="team-lived" aria-labelledby="lived-heading">
   <div class="container">
     <div class="team-lived-box">
       <div class="team-lived-text">
-        <span class="team-role-label">Co-production core team</span>
-        <h2 id="lived-heading">People with lived experience</h2>
-        <p>People with lived experience of mental illness sit in the core team, shaping the questions OPP asks, how data is governed, and how findings are shared.</p>
+        <span class="team-role-label">{{ site.data.team_page.lived_experience.eyebrow }}</span>
+        <h2 id="lived-heading">{{ site.data.team_page.lived_experience.heading }}</h2>
+        <p>{{ site.data.team_page.lived_experience.body }}</p>
       </div>
       <div class="team-lived-actions">
-        <a class="btn btn--primary" href="mailto:{{ site.data.site.contact_email }}">Get involved</a>
-        <p class="team-lived-note">We are recruiting contributors for the next phase of co-production.</p>
+        <a class="btn btn--primary" href="mailto:{{ site.data.site.contact_email }}">{{ site.data.team_page.lived_experience.cta }}</a>
+        <p class="team-lived-note">{{ site.data.team_page.lived_experience.note }}</p>
       </div>
     </div>
   </div>

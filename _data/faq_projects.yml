@@ -1,0 +1,78 @@
+# ===================================================================
+# FAQ project breakdown
+# Feeds the "What would I do?" answer on faqs.html (see _data/faqs.yml,
+# the item with "projects: true"). Each entry is one project card.
+# They're numbered automatically in the order listed here.
+#
+#   title: project name (kept short — the years are shown separately)
+#   years: e.g. "2026–2027"
+#   aim:   plain text/markdown, same rules as faqs.yml answers
+#   why_it_matters:
+#     pwle_label / pwle_text:           the "For PWLE & carers" column
+#     clinician_label / clinician_text: the "For clinicians & researchers" column
+#   what_you_will_do: plain text/markdown
+# ===================================================================
+
+- title: "Conversations with science: helping AI to unlock the biology of mental health for public understanding"
+  years: "2026–2027"
+  aim: >
+    We want to help AI-powered conversational search tools (like ChatGPT, Claude, open source
+    Large Language Models, etc) be able provide accurate answers specifically for mental health
+    science questions, to help people instantly explore the biology of psychiatry without needing
+    to understand complex data systems. But an AI is only as smart as the questions we teach it to
+    answer.
+  why_it_matters:
+    pwle_label: "For PWLE & carers"
+    pwle_text: >
+      It ensures the AI answers real, human questions (e.g., "How does stress alter inflammation
+      in depression?") rather than just clinical jargon.
+    clinician_label: "For clinicians & researchers"
+    clinician_text: >
+      It helps map out how advanced biological data can be surfaced quickly during patient care or
+      discovery sessions.
+  what_you_will_do: >
+    You will help us decide what people actually want to ask about the biology of mental health,
+    test early AI prototypes, and define what a "good, trustworthy, and understandable answer"
+    looks like.
+
+- title: "Clues in the records: deciding what matters most in hospital & GP data"
+  years: "2027–2028"
+  aim: >
+    Hospital and GP health records are packed with rich, hidden clues about mental health, but the
+    data is messy and disorganized. Instead of trying to clean everything, we want to focus our
+    engineering efforts on cleaning the measurements that matter most to real people and real
+    clinical outcomes.
+  why_it_matters:
+    pwle_label: "For patients & carers"
+    pwle_text: >
+      It ensures the resource tracks symptoms and life events that deeply impact day-to-day
+      quality of life (like sleep disruption or emergency admissions), not just standard blood
+      counts.
+    clinician_label: "For clinicians & researchers"
+    clinician_text: >
+      We will build a clean, standardised blueprint for extracting high-value data patterns from
+      chaotic real-world medical notes.
+  what_you_will_do: >
+    You will review types of real-world health data (from prescription histories to hospital
+    admissions) and help prioritize which specific measures are meaningful enough to invest time
+    in unlocking.
+
+- title: "The co-pilot study: directing a patient-led mental health analysis"
+  years: "2029"
+  aim: >
+    Traditionally, professional scientists choose the research questions. In this project, we are
+    flipping the script. A group led by people with lived experience will completely design,
+    control, and run custom data analyses across multiple secure UK databases using the Open
+    Psychiatry federated data platform.
+  why_it_matters:
+    pwle_label: "For PWLE & carers"
+    pwle_text: >
+      It represents true equity, allowing public participants to transition from passive advisors
+      to the lead investigators who lead the science.
+    clinician_label: "For clinicians & researchers"
+    clinician_text: >
+      It provides a front-row seat to an innovative, completely secure way of doing decentralized,
+      multi-site privacy-preserving research.
+  what_you_will_do: >
+    You will join a collaborative team to pitch research ideas, design a custom study protocol,
+    and test run the secure analysis within the federated data platform.

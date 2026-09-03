@@ -1,0 +1,9 @@
+# ===================================================================
+# Reusable end-of-page CTA band (_includes/register-band.html), shown
+# on every page except the home page.
+# ===================================================================
+
+heading: "Want to help shape this?"
+body: "We&rsquo;re looking for people with lived experience, clinicians, researchers and industry partners."
+cta: "Register your interest"
+note: "5 minutes &middot; secure University form"

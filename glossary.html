@@ -14,13 +14,13 @@ description: "Plain-language definitions for the technical terms used across the
   <div class="container">
 
     <div class="glossary-header">
-      <h1 id="glossary-heading">Glossary</h1>
-      <p class="glossary-intro">Plain-language definitions for the technical terms used across the Open Psychiatry Project. Missing something? <a href="mailto:{{ site.data.site.contact_email }}">Tell us</a> and we&rsquo;ll add it.</p>
+      <h1 id="glossary-heading">{{ site.data.glossary_page.header.heading }}</h1>
+      <p class="glossary-intro">{{ site.data.glossary_page.header.intro }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.glossary_page.header.intro_link_text }}</a> {{ site.data.glossary_page.header.intro_after_link }}</p>
     </div>
 
     <div class="glossary-search">
-      <label class="sr-only" for="glossary-search-input">Search glossary terms</label>
-      <input type="text" id="glossary-search-input" autocomplete="off" placeholder="Search terms or definitions&hellip;">
+      <label class="sr-only" for="glossary-search-input">{{ site.data.glossary_page.search.label }}</label>
+      <input type="text" id="glossary-search-input" autocomplete="off" placeholder="{{ site.data.glossary_page.search.placeholder }}">
     </div>
 
     {% assign terms = site.data.glossary | sort: "term" %}
@@ -31,7 +31,7 @@ description: "Plain-language definitions for the technical terms used across the
     <div class="glossary-layout">
 
       <aside class="glossary-rail" aria-label="Jump to letter">
-        <span class="glossary-rail-label" aria-hidden="true">Jump to</span>
+        <span class="glossary-rail-label" aria-hidden="true">{{ site.data.glossary_page.rail.label }}</span>
         <nav>
           {% for L in alphabet %}
             {% if present contains L %}
@@ -67,13 +67,12 @@ description: "Plain-language definitions for the technical terms used across the
         {% endfor %}
 
         <div class="glossary-empty" hidden>
-          <p>No terms match <span class="glossary-empty-q"></span>.</p>
-          <p>Try a different word, or <a href="mailto:{{ site.data.site.contact_email }}">suggest one we&rsquo;re missing</a>.</p>
+          <p>{{ site.data.glossary_page.empty_state.no_match }} <span class="glossary-empty-q"></span>.</p>
+          <p>{{ site.data.glossary_page.empty_state.suggestion_prefix }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.glossary_page.empty_state.suggestion_link_text }}</a>{{ site.data.glossary_page.empty_state.suggestion_suffix }}</p>
         </div>
 
         <p class="glossary-suggest">
-          Missing a term, or think a definition could be clearer? We write these with
-          people with lived experience &mdash; <a href="mailto:{{ site.data.site.contact_email }}">suggest a term</a>.
+          {{ site.data.glossary_page.footer_suggest.text_before_link }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.glossary_page.footer_suggest.link_text }}</a>{{ site.data.glossary_page.footer_suggest.text_after_link }}
         </p>
 
       </div>

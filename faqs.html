@@ -7,305 +7,98 @@ description: "Frequently asked questions about co-producing the Open Psychiatry 
 
 <!-- ═══════════════════════════════════════════════════════════════
      FAQs
-     Edit: questions and answers below (accordion — see _accordion.scss)
+     Edit: questions and answers live in _data/faqs.yml (plain text,
+     no HTML needed). The "What would I do?" project breakdown lives
+     in _data/faq_projects.yml. This file just renders them.
      Layout: sticky index + grouped sections — see _faqs.scss
+     Accordion behaviour — see _accordion.scss / assets/js/accordion.js
      ═══════════════════════════════════════════════════════════════ -->
 <section class="faqs" id="faqs" aria-labelledby="faqs-heading">
   <div class="container">
 
     <div class="faqs-header">
-      <h1 id="faqs-heading">Frequently Asked Questions</h1>
-      <p class="faqs-intro">What co-producing the Open Psychiatry Project involves, how much time it takes, and how we look after people and data. If your question isn&rsquo;t here, email <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>.</p>
+      <h1 id="faqs-heading">{{ site.data.faqs_page.header.heading }}</h1>
+      <p class="faqs-intro">{{ site.data.faqs_page.header.intro_before_email }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>.</p>
     </div>
 
     <div class="faqs-layout">
 
       <aside class="faqs-toc">
         <nav aria-label="On this page">
-          <p class="faqs-toc-label">On this page</p>
+          <p class="faqs-toc-label">{{ site.data.faqs_page.sidebar.on_this_page_label }}</p>
           <ul role="list">
-            <li><a href="#getting-involved">Getting involved</a></li>
-            <li><a href="#time-payment">Time &amp; payment</a></li>
-            <li><a href="#safety-conduct">Safety &amp; conduct</a></li>
-            <li><a href="#input-impact">Your input &amp; impact</a></li>
-            <li><a href="#data-privacy">Data &amp; privacy</a></li>
+            {% for group in site.data.faqs %}
+            <li><a href="#{{ group.id }}">{{ group.title }}</a></li>
+            {% endfor %}
           </ul>
         </nav>
         <div class="faqs-toc-card">
-          <p>Still not sure whether it&rsquo;s for you?</p>
-          <a href="mailto:{{ site.data.site.contact_email }}">Ask the team &rarr;</a>
+          <p>{{ site.data.faqs_page.sidebar.card_text }}</p>
+          <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.faqs_page.sidebar.card_link_text }}</a>
         </div>
       </aside>
 
       <div class="faqs-body">
-
-        <div class="faqs-group" id="getting-involved">
-          <h2>Getting involved</h2>
+        {% for group in site.data.faqs %}
+        <div class="faqs-group" id="{{ group.id }}">
+          <h2>{{ group.title }}</h2>
           <div class="findout-accordion">
-
+            {% for item in group.items %}
+            {% if item.id %}
+              {% assign item_id = item.id %}
+            {% else %}
+              {% assign item_id = item.question | slugify | prepend: "faq-" %}
+            {% endif %}
             <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-why-are-we-doing-this-co-production" aria-expanded="false">
-                <span class="findout-item-title">Why are we doing this co-production?</span>
+              <button type="button" class="findout-item-trigger" id="{{ item_id }}" aria-expanded="false">
+                <span class="findout-item-title">{{ item.question }}</span>
                 <span class="findout-item-icon" aria-hidden="true"></span>
               </button>
               <div class="findout-item-panel">
                 <div class="findout-item-body">
-                  <p>We want to design a digital tool that helps the public, researchers, and patients easily explore mental health data. Instead of experts building something in isolation, we want to build it with you so that it actually answers the questions you care about, in plain language that makes sense.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-do-i-need-a-background" aria-expanded="false">
-                <span class="findout-item-title">Do I need a background in science, coding, or statistics?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>Absolutely not! We need you to help us figure out what questions matter most, what words feel clear, and how the tool should look and feel. However, if you have a background in the above let us know in the interest form and we will try to match you with certain tasks.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-what-would-i-do" aria-expanded="false">
-                <span class="findout-item-title">What would I do?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-
+                  {% if item.projects %}
                   <div class="faq-projects">
-                    <p class="faq-projects-lede">We have divided the main tasks into 3 different projects:</p>
-
+                    <p class="faq-projects-lede">{{ site.data.faqs_page.project_breakdown.lede | replace: "%%count%%", site.data.faq_projects.size }}</p>
+                    {% for project in site.data.faq_projects %}
                     <article class="faq-project">
-                      <h4>1. Conversations with science: helping AI to unlock the biology of mental health for public understanding (2026&ndash;2027)</h4>
+                      <h4>{{ forloop.index }}. {{ project.title }} ({{ project.years }})</h4>
 
                       <div class="faq-project-field">
-                        <span class="faq-field-label">Aim</span>
-                        <p>We are building an AI-powered conversational search tool (like a ChatGPT specifically for mental health science) to help people instantly explore the biology of psychiatry without needing to understand complex data systems. But an AI is only as smart as the questions we teach it to answer.</p>
+                        <span class="faq-field-label">{{ site.data.faqs_page.project_breakdown.aim_label }}</span>
+                        {{ project.aim | markdownify }}
                       </div>
 
                       <div class="faq-project-field">
-                        <span class="faq-field-label">Why it matters</span>
+                        <span class="faq-field-label">{{ site.data.faqs_page.project_breakdown.why_it_matters_label }}</span>
                         <div class="faq-audience-split">
                           <div class="faq-audience faq-audience--pwle">
-                            <span class="faq-audience-label">For PWLE &amp; carers</span>
-                            <p>It ensures the AI answers real, human questions (e.g., &ldquo;How does stress alter inflammation in depression?&rdquo;) rather than just clinical jargon.</p>
+                            <span class="faq-audience-label">{{ project.why_it_matters.pwle_label }}</span>
+                            {{ project.why_it_matters.pwle_text | markdownify }}
                           </div>
                           <div class="faq-audience faq-audience--clinician">
-                            <span class="faq-audience-label">For clinicians &amp; researchers</span>
-                            <p>It helps map out how advanced biological data can be surfaced quickly during patient care or discovery sessions.</p>
+                            <span class="faq-audience-label">{{ project.why_it_matters.clinician_label }}</span>
+                            {{ project.why_it_matters.clinician_text | markdownify }}
                           </div>
                         </div>
                       </div>
 
                       <div class="faq-project-field">
-                        <span class="faq-field-label">What you will do</span>
-                        <p>You will help us decide what people actually want to ask about the biology of mental health, test early AI prototypes, and define what a &ldquo;good, trustworthy, and understandable answer&rdquo; looks like.</p>
+                        <span class="faq-field-label">{{ site.data.faqs_page.project_breakdown.what_you_will_do_label }}</span>
+                        {{ project.what_you_will_do | markdownify }}
                       </div>
                     </article>
-
-                    <article class="faq-project">
-                      <h4>2. Clues in the records: deciding what matters most in hospital &amp; GP data (2027&ndash;2028)</h4>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">Aim</span>
-                        <p>Hospital and GP health records are packed with rich, hidden clues about mental health, but the data is messy and disorganized. Instead of trying to clean everything, we want to focus our engineering efforts on cleaning the measurements that matter most to real people and real clinical outcomes.</p>
-                      </div>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">Why it matters</span>
-                        <div class="faq-audience-split">
-                          <div class="faq-audience faq-audience--pwle">
-                            <span class="faq-audience-label">For patients &amp; carers</span>
-                            <p>It ensures the platform tracks symptoms and life events that deeply impact day-to-day quality of life (like sleep disruption or emergency admissions), not just standard blood counts.</p>
-                          </div>
-                          <div class="faq-audience faq-audience--clinician">
-                            <span class="faq-audience-label">For clinicians &amp; researchers</span>
-                            <p>It builds a clean, standardized blueprint for extracting high-value data patterns from chaotic real-world medical notes.</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">What you will do</span>
-                        <p>You will review types of real-world health data (from prescription histories to hospital admissions) and help prioritize which specific measures are meaningful enough to invest time in unlocking.</p>
-                      </div>
-                    </article>
-
-                    <article class="faq-project">
-                      <h4>3. The co-pilot study: directing a patient-led mental health analysis (2029)</h4>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">Aim</span>
-                        <p>Traditionally, professional scientists choose the research questions. In this project, we are flipping the script. A group led by people with lived experience will completely design, control, and run a custom data analysis across multiple secure UK databases using the Open Psychiatry platform.</p>
-                      </div>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">Why it matters</span>
-                        <div class="faq-audience-split">
-                          <div class="faq-audience faq-audience--pwle">
-                            <span class="faq-audience-label">For PWLE &amp; carers</span>
-                            <p>It represents true equity, allowing public participants to transition from passive advisors to the lead investigators who control the science.</p>
-                          </div>
-                          <div class="faq-audience faq-audience--clinician">
-                            <span class="faq-audience-label">For clinicians &amp; researchers</span>
-                            <p>It provides a front-row seat to an innovative, completely secure way of doing decentralized, multi-site privacy-preserving research.</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="faq-project-field">
-                        <span class="faq-field-label">What you will do</span>
-                        <p>You will join a collaborative team to pitch research ideas, design a custom study protocol, and test run the secure analysis on the platform.</p>
-                      </div>
-                    </article>
+                    {% endfor %}
                   </div>
-
+                  {% else %}
+                  {{ item.answer | markdownify }}
+                  {% endif %}
                 </div>
               </div>
             </div>
-
+            {% endfor %}
           </div>
         </div>
-
-        <div class="faqs-group" id="time-payment">
-          <h2>Time &amp; payment</h2>
-          <div class="findout-accordion">
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-how-much-time-is-required" aria-expanded="false">
-                <span class="findout-item-title">How much time is required?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>The tasks we would like help with run over discrete time periods. We are recruiting to a network and will call upon people to respond at different times during the project. We estimate that each task would take the form of a half day workshop with 2-3 follow-up meetings.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-will-i-get-paid" aria-expanded="false">
-                <span class="findout-item-title">Will I get paid?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>We follow the NIHR guidelines and will offer payment according to the time and preparation needed for each task. For more information, see the <a href="https://www.nihr.ac.uk/about-us/who-we-are/policies-and-guidelines/public-contributor-reward-policy/payment-public-considering-involvement" target="_blank" rel="noopener noreferrer">NIHR public contributor reward policy</a>. We will arrange for a bank transfer to your bank account.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="faqs-group" id="safety-conduct">
-          <h2>Safety &amp; conduct</h2>
-          <div class="findout-accordion">
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-safe-respectful-environment" aria-expanded="false">
-                <span class="findout-item-title">How will you make sure the working environment is safe and respectful for people helping to co-produce OPP?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>Everyone involved in co-producing the Open Psychiatry Project &mdash; staff, researchers and people with lived experience alike &mdash; will work to a shared code of conduct, agreed together with our lived experience group. This sets out what respectful, safe collaboration looks like, and applies equally to every member of the team.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-inappropriate-behaviour" aria-expanded="false">
-                <span class="findout-item-title">What happens if someone behaves inappropriately?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>Any concern about someone&rsquo;s behaviour will be taken seriously and acted on straight away. You&rsquo;ll always know who to contact if something happens or doesn&rsquo;t feel right, for example, our PWLE facilitator or a named member of the executive committee. If a breach of the code of conduct is confirmed, the person responsible will be removed from the team or task group.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-confidential" aria-expanded="false">
-                <span class="findout-item-title">Is what I share in meetings or workshops confidential?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>What&rsquo;s discussed within the group stays within the group. You can contribute fully to co-production without disclosing details of your own experience if you&rsquo;d rather not.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="faqs-group" id="input-impact">
-          <h2>Your input &amp; impact</h2>
-          <div class="findout-accordion">
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-know-my-impact" aria-expanded="false">
-                <span class="findout-item-title">How will I know what difference my input made?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>We keep a project-wide impact register that logs the suggestions and ideas that came from people with lived experience and what happened as a result: whether that&rsquo;s a change we made, a change still in progress, or something we weren&rsquo;t able to take forward and why. We&rsquo;ll share this back with the group regularly, so there&rsquo;s always a visible line from what you said to what we did.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-personal-reflection" aria-expanded="false">
-                <span class="findout-item-title">Is there a way to reflect on what being involved meant to me personally, not just what changed in the project?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>Yes, alongside the project&rsquo;s impact register, we&rsquo;ll offer a short, optional reflection template you can fill in at the end of each task or task group, with a few simple prompts (like what you learned, what felt difficult, and whether you&rsquo;d want to do it again). It&rsquo;s entirely up to you whether you complete it, and whether you share it with the whole group at the follow-up meeting, just with your facilitator, or keep it private &mdash; there&rsquo;s no expectation either way.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="faqs-group" id="data-privacy">
-          <h2>Data &amp; privacy</h2>
-          <div class="findout-accordion">
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-functional-genomics" aria-expanded="false">
-                <span class="findout-item-title">What is &ldquo;functional genomics&rdquo; (Open Targets)?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>Genomics looks at how genes might influence mental health. Tools like Open Targets combine biological research to show which genes or biological pathways might be linked to specific conditions or drug targets. We want to know: what questions would you want to ask a dataset like this? (e.g., &ldquo;Which genes are linked to depression?&rdquo; or &ldquo;Are there existing medicines targeting this biological pathway?&rdquo;)</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="faq-personal-data-privacy" aria-expanded="false">
-                <span class="findout-item-title">Will researchers be able to see my personal data directly?</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
-              <div class="findout-item-panel">
-                <div class="findout-item-body">
-                  <p>No. Researchers using the Open Psychiatry Project will never see or download individual-level data. Instead, a researcher submits a question they want answered, which is run automatically by secure software, either a data container or privacy-preserving federation software (Bitfount), at the location where the data is already stored. Only an anonymised summary result is sent back to the researcher; the underlying data itself never leaves its secure environment and is never viewed by anyone running the analysis.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        {% endfor %}
 
       </div>
     </div>

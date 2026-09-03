@@ -1,0 +1,34 @@
+# ===================================================================
+# Site navigation (_includes/nav.html)
+# Brand name comes from _data/site.yml (title). Active-page highlighting
+# stays in the template since it depends on page.url, not content.
+# ===================================================================
+
+toggle_label: "Menu"
+
+about_menu:
+  trigger: "About"
+  jump_heading: "Jump to a section"
+  jump_links:
+    - anchor: "/#about"
+      label: "Overview"
+    - anchor: "/#how-it-works"
+      label: "How it works"
+    - anchor: "/#partners"
+      label: "Partners"
+  read_heading: "Read in full"
+  read_links:
+    - url: "/team/"
+      label: "Team"
+    - url: "/glossary/"
+      label: "Glossary"
+
+links:
+  - url: "/faqs/"
+    label: "FAQs"
+  - url: "/more/"
+    label: "Find out more"
+  - url: "/industry/"
+    label: "For industry"
+
+cta_label: "Register interest"

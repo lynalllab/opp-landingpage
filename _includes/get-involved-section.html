@@ -1,33 +1,32 @@
 <!-- ═══════════════════════════════════════════════════════════════
      GET INVOLVED (external Qualtrics form)
+     Edit: all copy lives in _data/get_involved.yml
      The form itself lives at site.qualtrics_form_url and opens in
      register-modal.html — nothing here controls its questions.
      ═══════════════════════════════════════════════════════════════ -->
 <div class="register-layout">
 
   <div class="register-pitch">
-    <h3 class="register-pitch-heading reveal">We would love for you to get involved</h3>
-    <p class="register-lead reveal reveal--delay-1">We are building this platform for and with the people who will use it. Whether you are a researcher, clinician, industry partner, or someone with lived experience of mental health conditions, we want to hear from you. Register your interest below and we will be in touch.</p>
+    <h3 class="register-pitch-heading reveal">{{ site.data.get_involved.pitch.heading }}</h3>
+    <p class="register-lead reveal reveal--delay-1">{{ site.data.get_involved.pitch.lead }}</p>
 
     <div class="register-action reveal reveal--delay-2">
-      <a href="{{ site.data.site.qualtrics_form_url }}" class="btn btn--primary js-register-open" target="_blank" rel="noopener">Register your interest</a>
-      <p class="register-action-note">Opens the University of Cambridge&rsquo;s secure form &middot; about 5 minutes</p>
+      <a href="{{ site.data.site.qualtrics_form_url }}" class="btn btn--primary js-register-open" target="_blank" rel="noopener">{{ site.data.get_involved.pitch.cta }}</a>
+      <p class="register-action-note">{{ site.data.get_involved.pitch.cta_note }}</p>
     </div>
   </div>
 
   <div class="register-preview reveal reveal--delay-2">
-    <span class="register-preview-label">What it asks</span>
+    <span class="register-preview-label">{{ site.data.get_involved.preview.label }}</span>
     <ol>
-      <li><span class="register-preview-num">01</span> <span>Your name, email and where you are</span></li>
-      <li><span class="register-preview-num">02</span> <span>A little about you</span></li>
-      <li><span class="register-preview-num">03</span> <span>Why you want to contribute &mdash; three short questions</span></li>
-      <li><span class="register-preview-num">04</span> <span>Which workstream interests you</span></li>
-      <li><span class="register-preview-num">05</span> <span>Allow us to collect your data and contact you</span></li>
+      {% for step in site.data.get_involved.preview.steps %}
+      <li><span class="register-preview-num">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span> <span>{{ step }}</span></li>
+      {% endfor %}
     </ol>
     <div class="register-preview-trust">
-      <div><span class="register-tick" aria-hidden="true">&check;</span> <span>Hosted and stored by the University of Cambridge</span></div>
-      <div><span class="register-tick" aria-hidden="true">&check;</span> <span>You choose what you hear about, and how often</span></div>
-      <div><span class="register-tick" aria-hidden="true">&check;</span> <span>No commitment &mdash; registering interest is not signing up</span></div>
+      {% for point in site.data.get_involved.preview.trust_points %}
+      <div><span class="register-tick" aria-hidden="true">&check;</span> <span>{{ point }}</span></div>
+      {% endfor %}
     </div>
   </div>
 

@@ -1,0 +1,16 @@
+# ===================================================================
+# Team page (team.html) copy — NOT the member list.
+# Member list lives in _data/team.yml (a separate file since it's a
+# plain array looped over directly as site.data.team).
+# ===================================================================
+
+intro:
+  heading: "The team"
+  lead: "The Open Psychiatry Project is led from the University of Cambridge Department of Psychiatry and delivered with partners across Open Targets, DATAMIND, Generation Scotland and the UK Longitudinal Linkage Collaboration."
+
+lived_experience:
+  eyebrow: "Co-production core team"
+  heading: "People with lived experience"
+  body: "People with lived experience of mental illness sit in the core team, shaping the questions OPP asks, how data is governed, and how findings are shared."
+  cta: "Get involved"
+  note: "We are recruiting contributors for the next phase of co-production."

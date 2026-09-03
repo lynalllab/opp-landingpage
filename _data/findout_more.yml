@@ -1,0 +1,148 @@
+# ===================================================================
+# Find Out More
+# Single source of truth for findout_more.html — edit copy here, no
+# HTML needed. The register card stays in findout_more.html itself;
+# everything else — page header and body sections — is here.
+#
+# header: the page <h1> and standfirst paragraph at the top of the page.
+#
+# sections: a list of sections, in the order they should appear (this
+# also sets the order of the "On this page" index). Each section needs:
+#
+#   title:      heading text
+#   nav_title:  optional. Only set this if you want the "On this
+#               page" index to show shorter/different text than the
+#               heading itself (used below on "platform"/"fedomics",
+#               whose headings are long). Otherwise the index just
+#               uses "title".
+#   paragraphs: a list of paragraphs — plain text/markdown, one list
+#               entry per paragraph (use "text" for bold, no need for
+#               blank lines)
+#   id:         anchor + index entry — every kind below needs one
+#               EXCEPT "intro" (see below)
+#   kind:       optional, controls how the section is laid out:
+#                 (leave out)  a plain section — title + paragraphs
+#                 intro        a short lead-in with no anchor and no
+#                               entry in the index (used for "Our approach")
+#                 strand       a numbered strand block — also needs
+#                               "eyebrow" (e.g. "Strand 01")
+#                 group        wraps several sub-sections that each
+#                               get their own anchor + index entry —
+#                               needs "items" (each with id/title/
+#                               paragraphs) instead of "paragraphs"
+#
+#   callout:    optional, plain text/markdown. Adds a highlighted
+#               "In essence" box at the end of the section (used on
+#               "Why it matters" only).
+# ===================================================================
+
+header:
+  title: "The Open Psychiatry Project (OPP): connecting UK mental health data safely and openly"
+  standfirst: >
+    The OPP aims to improve secure access to these siloed data sets, enhance drug repurposing,
+    increase the opportunity of finding new drug targets as well as increasing the public
+    understanding of the use and significance of mental health biomarkers.
+
+sections:
+- id: problem
+  title: "The problem"
+  paragraphs:
+    - >
+      Psychiatric conditions have a strong genetic and biological basis, and "omics" technologies
+      (proteomics, metabolomics) could vastly improve diagnosis, prediction, and treatment of
+      mental health conditions. However, relevant datasets are held in dozens of separate secure
+      environments ("trusted research environments," or TREs) across the UK, each with different
+      formats and limited discoverability. Existing meta-analyses often fail to account for
+      important environmental factors because health data cannot easily be linked or shared. The
+      result being that predictive models built from genetics and biomarkers remain poorly
+      generalisable and rarely inform clinical translation.
+
+- kind: intro
+  title: "Our approach"
+  paragraphs:
+    - "OPP tackles this problem through two connected strands of work:"
+
+- kind: strand
+  id: platform
+  eyebrow: "Strand 01"
+  title: "An open, interactive web resource"
+  nav_title: "The platform"
+  paragraphs:
+    - >
+      Building on the internationally-used Open Targets Platform, the project will integrate
+      real-world mental health data such as genetic, proteomic, and metabolomic findings from UK
+      cohorts into a single searchable interface. This will allow researchers and industry to
+      explore which genes, proteins, and molecules are implicated in specific conditions,
+      supporting drug target discovery. A parallel "second skin" layer, co-designed with people
+      with lived experience (PWLE), will make the same information accessible and understandable
+      to patients and the public, including plain-language explanations, and exploratory
+      conversational tools.
+
+- kind: strand
+  id: fedomics
+  eyebrow: "Strand 02"
+  title: "A privacy-preserving data federation network (“FedOMICS”)"
+  nav_title: "FedOMICS"
+  paragraphs:
+    - >
+      Rather than moving sensitive individual-level data around, OPP will connect existing secure
+      TREs, initially linking the Generation Scotland cohort and the Early Intervention
+      Mission/ImmunoMind psychosis cohort using Bitfount's federated analysis technology.
+      Researchers can submit bespoke queries (e.g., testing whether genetic risk in a particular
+      biological pathway relates to treatment outcomes) that run locally within each secure
+      environment; only non-identifiable summary results are ever returned. Two layers of
+      independent governance (a FedOMICS Data Access Committee plus each data custodian's own
+      committee) oversee every request.
+
+- kind: group
+  id: run
+  title: "How it will be run"
+  items:
+    - id: delivery
+      title: "Delivery"
+      paragraphs:
+        - >
+          The project is led by a multi-institution team spanning the University of Cambridge,
+          EMBL-EBI/Open Targets, Swansea University, and the University of Edinburgh, drawing on
+          established infrastructure (DATAMIND, the Psychiatric Genomics Consortium, COSGAP
+          containers, CADRE) rather than building from scratch. The award runs for 3 years and
+          during this time the project will be fully delivered.
+
+    - id: governance
+      title: "Governance"
+      paragraphs:
+        - >
+          Open Psychiatry Project governance is being designed around the same principles used by
+          established UK resources (such as DATAMIND TRE): independent review by a panel that
+          includes people with lived experience, clear approval pathways before any access is
+          granted, internationally recognised security certification, legally binding
+          data-sharing agreements with every contributing dataset, and checks on all outputs
+          before release.
+
+    - id: access
+      title: "Data access"
+      paragraphs:
+        - >
+          Unlike TRE models where approved researchers work directly with the data,
+          individual-level data will never be accessible to researchers at all. All analyses run
+          via software containers or Bitfount's privacy-preserving federation software, with only
+          non-identifiable summary results returned. Non-sensitive summary data will remain freely
+          available throughout, while the exact process for approving these federated queries is
+          still to be agreed and will be developed with our patient and public involvement
+          community and data custodians.
+
+- id: why
+  title: "Why it matters"
+  paragraphs:
+    - >
+      By lowering the barriers between siloed datasets, OPP aims to give researchers meaningfully
+      larger, more diverse samples (improving statistical power for under-represented groups),
+      accelerate identification of viable drug targets, and for the first time give patients themselves
+      a direct route into asking research questions that matter to them. The infrastructure created is
+      intended to outlast the funding period, and designed as a template that could later extend to
+      other disease areas beyond mental health.
+  callout: >
+    **In essence.** By combining privacy-preserving data federation with intuitive, co-produced
+    interfaces, the OPP provides a secure gateway that allows patients, academics, and industry to
+    safely analyze diverse datasets and accelerate the development of personalized psychiatric
+    treatments.

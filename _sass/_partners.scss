@@ -77,6 +77,15 @@
       color: inherit;
     }
 
-    img { max-height: 48px; max-width: 140px; width: auto; margin: 0 auto; }
+    img {
+      max-height: calc(48px * var(--logo-scale, 1));
+      max-width: calc(140px * var(--logo-scale, 1));
+      width: auto;
+      margin: 0 auto;
+    }
+
+    // Swansea's only public lockup is white-on-transparent; invert to black until
+    // a dark/colour version is sourced from their marketing toolkit.
+    img.partner-logo--invert { filter: invert(1); }
   }
 }

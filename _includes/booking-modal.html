@@ -1,0 +1,23 @@
+<!-- Booking modal — rendered once on the industry page, opened by any
+     .js-booking-open trigger. iframe src is set on first open by
+     assets/js/booking-modal.js, not here (see that file for why).
+     Copy: _data/booking_modal.yml -->
+<div class="booking-modal" hidden>
+  <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" tabindex="-1">
+    <header>
+      <div>
+        <h2 id="booking-modal-title">{{ site.data.booking_modal.title }}</h2>
+        <p>{{ site.data.booking_modal.subtitle }}</p>
+      </div>
+      <button type="button" class="booking-modal-close" aria-label="{{ site.data.booking_modal.close_label }}">&times;</button>
+    </header>
+    <div class="booking-modal-body">
+      <p class="booking-modal-loading" role="status">{{ site.data.booking_modal.loading_text }}</p>
+      <iframe data-src="{{ site.data.site.booking_url }}" title="{{ site.data.booking_modal.iframe_title }}"></iframe>
+    </div>
+    <footer>
+      <a href="{{ site.data.site.booking_url }}" target="_blank" rel="noopener">{{ site.data.booking_modal.trouble_link_text }}</a>
+      <span>{{ site.data.booking_modal.esc_hint }}</span>
+    </footer>
+  </div>
+</div>

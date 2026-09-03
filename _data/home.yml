@@ -1,0 +1,69 @@
+# ===================================================================
+# Home page (index.html)
+# Single source of truth for all copy on the homepage. index.html just
+# renders this — no HTML needed to change wording.
+#
+# Sections below map 1:1 to the sections on the page: hero, about,
+# how_it_works, partners, audience, timeline, register.
+# ===================================================================
+
+hero:
+  badge: "UKRI MRC &amp; NIHR Funded"
+  heading: "Open Psychiatry Project"
+  tagline: "Open science for mental health &mdash; connecting molecular data with real-world impact."
+  register_cta: "Register Your Interest &rarr;"
+  learn_more_cta: "Learn more"
+  stats:
+    - value_prefix: "&pound;"
+      target: "2.3"
+      decimal: "1"
+      suffix: "M"
+      label: "UKRI Funding"
+    - target: "8"
+      label: "Partner Institutions"
+    - value: "2"
+      label: "Lead Institutions"
+  funding_line: "<strong>Funded by</strong> UKRI&rsquo;s Medical Research Council (MRC) and the National Institute for Health and Care Research (NIHR)"
+
+about:
+  heading: "What is the Open Psychiatry Project?"
+  lead: "The Open Psychiatry Project is a &pound;2.3M initiative building the UK&rsquo;s first open, publicly accessible resource for exploring how genes, cells, and molecules influence mental health conditions."
+  paragraphs:
+    - "Led by Dr Mary-Ellen Lynall at the University of Cambridge in partnership with Dr Ellen McDonagh at EMBL-EBI, the project extends the globally used Open Targets resource &mdash; a major hub for drug and target discovery &mdash; to integrate a wide range of mental-health&ndash;relevant molecular datasets."
+    - "The project also involves establishing links between existing UK mental health patient cohorts, to enable a safe, federated data analysis framework to unify these valuable resources and glean new insights into the biology of mental health using real world data. This will ultimately feed into enhancing the Open Targets resource to provide evidence of potential biomarkers, drug targets, and treatments for mental health conditions."
+    - "Our interactive website will become the hub for mental health - presenting links to these resources and clear, accessible information designed for everyone: researchers advancing the science, clinicians seeking new insights, industry partners identifying opportunities, and people with direct lived experience of mental illness"
+    - "Our goal is to speed up the discovery of better, more personalised treatments for mental health conditions."
+  callout: "Mental health biomarker data is currently fragmented across many resources and secure environments, making it difficult to assess how genes and molecules affect mental health. This project changes that."
+
+how_it_works:
+  heading: "How it works"
+
+partners:
+  heading: "Our Partners"
+
+audience:
+  heading: "Built for everyone"
+  intro: "Whether you approach mental health from the bench, the clinic, industry, or your own lived experience &mdash; this resource hub will be built for you."
+  cards:
+    - icon: researchers
+      heading: "Researchers"
+      description: "Access curated molecular datasets, explore drug targets, and build on existing biomarker evidence to advance mental health science."
+    - icon: professionals
+      heading: "Health Professionals"
+      description: "Discover emerging evidence on genetic and molecular factors that may inform clinical decision-making and patient care."
+    - icon: industry
+      heading: "Industry Partners"
+      description: "Identify validated drug targets and biomarkers to support R&amp;D pipelines in mental health therapeutics and diagnostics."
+    - icon: lived-experience
+      heading: "People with Lived Experience"
+      description: "Access plain-language summaries of the science and help shape how the resource evolves to meet your needs."
+
+timeline:
+  heading: "What you&rsquo;d be part of"
+  lede: "We have divided the main tasks into 3 different projects, running across the life of the award."
+  index_label: "Project"
+  task_label: "What you will do"
+  more_note: "Each project is described in full &mdash; aims, why it matters, and what taking part involves &mdash; on the [FAQs page](/faqs/)."
+
+register:
+  heading: "Help shape this"

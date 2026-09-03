@@ -11,8 +11,8 @@ description: "Thank you for registering your interest in the Open Psychiatry Pro
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     </div>
-    <h1 id="thankyou-heading">Thank you for registering your interest!</h1>
-    <p>We have received your details and will be in touch soon. We appreciate your support for the open psychiatry project in mental health research.</p>
-    <a href="{{ '/' | relative_url }}" class="btn btn--primary">&larr; Back to Home</a>
+    <h1 id="thankyou-heading">{{ site.data.thank_you.heading }}</h1>
+    <p>{{ site.data.thank_you.body }}</p>
+    <a href="{{ '/' | relative_url }}" class="btn btn--primary">{{ site.data.thank_you.back_link_text }}</a>
   </div>
 </section>

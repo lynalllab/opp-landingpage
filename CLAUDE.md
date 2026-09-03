@@ -23,19 +23,36 @@ This is a Jekyll static site with **no theme** — all layouts and styles are bu
 
 ### Content vs. structure separation
 
+**No page copy is hardcoded in HTML/Markdown templates — every string of visible text lives in a `_data/*.yml` file.** Templates (`index.html`, `*.html` pages, `_includes/`) only contain markup, Liquid loops, and references into `site.data`. When adding a new visible string, add a key to the relevant data file below rather than writing text directly into a template.
+
 | Editable content | Location |
 |---|---|
-| All landing page text | `index.md` (HTML sections with comments) |
+| Home page copy (hero, about, audience cards, timeline heading/lede) | `_data/home.yml` |
 | Feature cards ("How It Works") | `_data/features.yml` |
 | Partner list and logos | `_data/partners.yml` |
-| Site name, contact, footer links, Qualtrics form URL | `_data/site.yml` |
-| Get Involved pitch copy | `_includes/get-involved-section.html` |
+| Project timeline entries | `_data/projects.yml` |
+| Get Involved pitch copy (homepage register section) | `_data/get_involved.yml` |
+| Reusable end-of-page CTA band | `_data/register_band.yml` |
+| Register-interest modal copy | `_data/register_modal.yml` |
+| Booking modal copy (industry page) | `_data/booking_modal.yml` |
+| Site nav labels/links | `_data/nav.yml` |
+| Team page intro + lived-experience callout | `_data/team_page.yml` |
+| Team member list | `_data/team.yml` |
+| Glossary page chrome (header, search, empty state) | `_data/glossary_page.yml` |
+| Glossary term list | `_data/glossary.yml` |
+| FAQs page chrome (header, sidebar, project-breakdown labels) | `_data/faqs_page.yml` |
+| FAQ questions/answers | `_data/faqs.yml` |
+| FAQ "what would I do" project breakdown | `_data/faq_projects.yml` |
+| Industry page copy | `_data/industry.yml` |
+| Find Out More page copy | `_data/findout_more.yml` |
+| Thank-you page copy | `_data/thank_you.yml` |
+| Site name, contact, footer links/copy, Qualtrics form URL, booking URL | `_data/site.yml` |
 
 Layout HTML lives in `_layouts/default.html` and `_includes/`. The SCSS lives in a single file: `assets/css/main.scss` (compiled by Jekyll; requires the empty `---` front matter at the top).
 
 ### Single-page structure
 
-`index.md` is a single scrolling page with five anchor-linked sections: `#home`, `#about`, `#how-it-works`, `#partners`, `#register`. There is no navigation bar.
+`index.html` is a single scrolling page with five anchor-linked sections: `#home`, `#about`, `#how-it-works`, `#partners`, `#register`. `_includes/nav.html` (site-wide top nav, data in `_data/nav.yml`) links into these anchors from other pages.
 
 ### Register interest (external Qualtrics form)
 

@@ -1,0 +1,29 @@
+# ===================================================================
+# Glossary page (glossary.html) copy — NOT the term list.
+# Term list lives in _data/glossary.yml (a separate file since it's a
+# plain array looped/sorted directly as site.data.glossary).
+# ===================================================================
+
+header:
+  heading: "Glossary"
+  intro: "Plain-language definitions for the technical terms used across the Open Psychiatry Project. Missing something?"
+  intro_link_text: "Tell us"
+  intro_after_link: "and we&rsquo;ll add it."
+
+search:
+  label: "Search glossary terms"
+  placeholder: "Search terms or definitions&hellip;"
+
+rail:
+  label: "Jump to"
+
+empty_state:
+  no_match: "No terms match"
+  suggestion_prefix: "Try a different word, or"
+  suggestion_link_text: "suggest one we&rsquo;re missing"
+  suggestion_suffix: "."
+
+footer_suggest:
+  text_before_link: "Missing a term, or think a definition could be clearer? We write these with people with lived experience &mdash;"
+  link_text: "suggest a term"
+  text_after_link: "."

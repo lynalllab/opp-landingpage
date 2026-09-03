@@ -1,0 +1,12 @@
+# ===================================================================
+# Booking modal (_includes/booking-modal.html), shown only on the
+# industry page. The booking URL itself is _data/site.yml: booking_url
+# ===================================================================
+
+title: "Book intro call"
+close_label: "Close"
+subtitle: "20 minutes with Dr Birgitta Olofsson, Programme Manager for OPP"
+loading_text: "Loading the calendar&hellip;"
+iframe_title: "Book intro call &mdash; Open Psychiatry Project"
+trouble_link_text: "Trouble with the calendar? Open it in a new tab &#8599;"
+esc_hint: "Press Esc to close"

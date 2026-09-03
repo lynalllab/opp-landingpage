@@ -1,0 +1,19 @@
+# ===================================================================
+# FAQs page (faqs.html) chrome copy — NOT the questions/answers.
+# Questions/answers live in _data/faqs.yml and _data/faq_projects.yml.
+# ===================================================================
+
+header:
+  heading: "Frequently Asked Questions"
+  intro_before_email: "What co-producing the Open Psychiatry Project involves, how much time it takes, and how we look after people and data. If your question isn&rsquo;t here, email"
+
+sidebar:
+  on_this_page_label: "On this page"
+  card_text: "Still not sure whether it&rsquo;s for you?"
+  card_link_text: "Ask the team &rarr;"
+
+project_breakdown:
+  lede: "We have divided the main tasks into %%count%% different projects:"
+  aim_label: "Aim"
+  why_it_matters_label: "Why it matters"
+  what_you_will_do_label: "What you will do"

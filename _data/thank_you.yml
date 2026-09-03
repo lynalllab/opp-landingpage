@@ -1,0 +1,8 @@
+# ===================================================================
+# Thank You page (thank-you.html) — shown after the Qualtrics form
+# redirects back here on submit.
+# ===================================================================
+
+heading: "Thank you for registering your interest!"
+body: "We have received your details and will be in touch soon. We appreciate your support for the open psychiatry project in mental health research."
+back_link_text: "&larr; Back to Home"

@@ -3,7 +3,7 @@
     <div class="timeline-row">
       <div class="timeline-when" data-anim>
         <span class="timeline-years">{{ p.years }}</span>
-        <span class="timeline-index">Project {{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+        <span class="timeline-index">{{ site.data.home.timeline.index_label }} {{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
       </div>
       <div class="timeline-rail" aria-hidden="true">
         <span class="timeline-line" data-anim></span>
@@ -12,16 +12,16 @@
       <div class="timeline-body" data-anim>
         <div class="timeline-when timeline-when--mobile">
           <span class="timeline-years">{{ p.years }}</span>
-          <span class="timeline-index">Project {{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+          <span class="timeline-index">{{ site.data.home.timeline.index_label }} {{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
         </div>
         <h3>{{ p.title }}</h3>
         <p>{{ p.subtitle }}</p>
         <div class="timeline-task">
-          <span class="timeline-task-label">What you will do</span>
+          <span class="timeline-task-label">{{ site.data.home.timeline.task_label }}</span>
           <p>{{ p.task }}</p>
         </div>
       </div>
     </div>
   {% endfor %}
 </div>
-<p class="timeline-more" data-anim>Each project is described in full &mdash; aims, why it matters, and what taking part involves &mdash; on the <a href="{{ '/faqs/' | relative_url }}">FAQs page</a>.</p>
+<div class="timeline-more" data-anim>{{ site.data.home.timeline.more_note | markdownify }}</div>

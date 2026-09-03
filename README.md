@@ -6,12 +6,34 @@ Jekyll site for the Open Psychiatry Project, deployed via GitHub Pages.
 
 ## Editing page content
 
-All section text lives in **`index.md`**. Open it and find the section you want to edit — each section has a comment block like `<!-- ═══ ABOUT ═══ -->` to help you navigate.
+**No page text is written directly into the HTML files.** Every heading, paragraph, button label, and list item lives in a YAML file under **`_data/`**. The page templates (`index.html`, the other `*.html` pages, `_includes/`) just lay out structure and pull the words in from there — so to change what a page *says*, you only ever need to edit a `_data/*.yml` file, never the HTML.
 
-- Edit the heading, paragraphs, and callout text directly in the HTML within `index.md`.
-- **Do not** remove the `{% include ... %}` tags — they pull in the Get Involved pitch, feature cards, and partner grid from separate files.
+Each YAML file has a comment block at the top explaining its fields. Find the page below, open the listed file(s), and edit the plain text.
 
-Site-wide data (project name, contact email, footer links, funding note) is in **`_data/site.yml`**.
+| Page | Content file(s) |
+|---|---|
+| Home (`/`) — hero, about, "built for everyone" cards, timeline heading | `_data/home.yml` |
+| Home — "How It Works" feature cards | `_data/features.yml` |
+| Home — partner logos | `_data/partners.yml` |
+| Home — project timeline entries | `_data/projects.yml` |
+| Home — "Get involved" register pitch | `_data/get_involved.yml` |
+| Team (`/team/`) — intro + lived-experience callout | `_data/team_page.yml` |
+| Team — the people grid | `_data/team.yml` |
+| Glossary (`/glossary/`) — header, search box, empty-state text | `_data/glossary_page.yml` |
+| Glossary — the terms themselves | `_data/glossary.yml` |
+| FAQs (`/faqs/`) — header, sidebar, "what would I do" labels | `_data/faqs_page.yml` |
+| FAQs — the questions and answers | `_data/faqs.yml` |
+| FAQs — the 3-project breakdown inside "What would I do?" | `_data/faq_projects.yml` |
+| For Industry (`/industry/`) | `_data/industry.yml` |
+| Find Out More (`/more/`) | `_data/findout_more.yml` |
+| Thank You page (after the form submits) | `_data/thank_you.yml` |
+| Site navigation bar (labels and links) | `_data/nav.yml` |
+| End-of-page "Register your interest" banner (every page but Home) | `_data/register_band.yml` |
+| Register-interest popup/modal | `_data/register_modal.yml` |
+| Booking-call popup/modal (Industry page) | `_data/booking_modal.yml` |
+| Site name, contact email, footer, funding note, form/booking URLs | `_data/site.yml` |
+
+If you can't find a piece of text in any of these files, it's most likely a small structural label (an icon's accessibility description, for example) still in the template — search the relevant `.html` file for the exact words as a last resort.
 
 ---
 
@@ -67,4 +89,4 @@ The interest form is hosted externally on Qualtrics — this site does not own o
 
 To point the site at a different form, update `qualtrics_form_url` in `_data/site.yml` — nothing else needs to change.
 
-> **Note:** the "What it asks" summary in `_includes/get-involved-section.html` describes the Qualtrics question set from the outside. If the survey's questions change, re-check those four lines and the "about 5 minutes" estimate against the live form.
+> **Note:** the "What it asks" summary in `_data/get_involved.yml` describes the Qualtrics question set from the outside. If the survey's questions change, re-check that list and the "about 5 minutes" estimate against the live form.

@@ -19,45 +19,46 @@
   <div class="container">
     <div class="nav-inner">
       <a href="{{ '/' | relative_url }}" class="nav-brand">
-        <img src="{{ '/assets/images/logo/opp-mark.png' | relative_url }}" alt="" width="160" height="160" class="nav-logo">
-        <span>Open Psychiatry Project</span>
+        <img src="{{ '/assets/images/logo/opp-mark.png' | relative_url }}" alt="" width="200" height="200" class="nav-logo">
+        <span>{{ site.data.site.title }}</span>
       </a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-panel">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
-        <span class="sr-only">Menu</span>
+        <span class="sr-only">{{ site.data.nav.toggle_label }}</span>
       </button>
       <div class="nav-panel" id="site-nav-panel">
       <ul class="nav-links" role="list">
                 <li class="has-menu">
           <button type="button" class="nav-menu-trigger{% if menu_active %} is-active{% endif %}" aria-expanded="false" aria-controls="menu-project">
-            About
+            {{ site.data.nav.about_menu.trigger }}
           </button>
           <div id="menu-project" class="nav-menu">
             <div>
-            <p class="menu-heading" id="mh-jump">Jump to a section</p>
+            <p class="menu-heading" id="mh-jump">{{ site.data.nav.about_menu.jump_heading }}</p>
             <ul role="list" aria-labelledby="mh-jump">
-              <li><a href="{{ '/#about' | relative_url }}">Overview</a></li>
-              <li><a href="{{ '/#how-it-works' | relative_url }}">How it works</a></li>
-              <li><a href="{{ '/#partners' | relative_url }}">Partners</a></li>
+              {% for link in site.data.nav.about_menu.jump_links %}
+              <li><a href="{{ link.anchor | relative_url }}">{{ link.label }}</a></li>
+              {% endfor %}
             </ul>
             </div>
             <div>
-            <p class="menu-heading" id="mh-read">Read in full</p>
+            <p class="menu-heading" id="mh-read">{{ site.data.nav.about_menu.read_heading }}</p>
             <ul role="list" aria-labelledby="mh-read">
-              <li><a href="{{ '/team/' | relative_url }}"{% if is_team %} class="is-active" aria-current="page"{% endif %}>Team</a></li>
-              <li><a href="{{ '/glossary/' | relative_url }}"{% if is_glossary %} class="is-active" aria-current="page"{% endif %}>Glossary</a></li>
+              {% for link in site.data.nav.about_menu.read_links %}
+              <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} class="is-active" aria-current="page"{% endif %}>{{ link.label }}</a></li>
+              {% endfor %}
             </ul>
             </div>
           </div>
         </li>
-        <li><a href="{{ '/faqs/' | relative_url }}"{% if is_faqs %} class="is-active" aria-current="page"{% endif %}>FAQs</a></li>
-        <li><a href="{{ '/more/' | relative_url }}"{% if is_more %} class="is-active" aria-current="page"{% endif %}>Find out more</a></li>
-        <li><a href="{{ '/industry/' | relative_url }}"{% if is_industry %} class="is-active" aria-current="page"{% endif %}>For industry</a></li>
+        {% for link in site.data.nav.links %}
+        <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} class="is-active" aria-current="page"{% endif %}>{{ link.label }}</a></li>
+        {% endfor %}
 
       </ul>
-      <a href="{{ site.data.site.qualtrics_form_url }}" class="nav-cta js-register-open" target="_blank" rel="noopener">Register interest</a>
+      <a href="{{ site.data.site.qualtrics_form_url }}" class="nav-cta js-register-open" target="_blank" rel="noopener">{{ site.data.nav.cta_label }}</a>
       </div>
     </div>
   </div>
