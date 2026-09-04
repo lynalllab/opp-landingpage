@@ -22,7 +22,7 @@ report_heading: "Found something you cannot use?"
 report_body: "Tell us and we will fix it. Describe what you were trying to do and what happened, and include the page address if you have it."
 report_response_days: 5
 
-detail_heading: "The detail"
+detail_heading: "The details"
 expand_all_label: "Expand all"
 collapse_all_label: "Collapse all"
 
