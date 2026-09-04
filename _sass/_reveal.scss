@@ -18,3 +18,11 @@
   &.reveal--delay-2 { transition-delay: 0.24s; }
   &.reveal--delay-3 { transition-delay: 0.36s; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

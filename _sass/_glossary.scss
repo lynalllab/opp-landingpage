@@ -57,7 +57,7 @@
 
     .glossary-rail-label {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #8d859c;
+      text-transform: uppercase; color: $muted;
     }
 
     nav { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -75,7 +75,7 @@
   // ---- list ----------------------------------------------------------
   .glossary-list { max-width: 780px; display: flex; flex-direction: column; gap: 2.25rem; }
 
-  .glossary-count { margin: 0; font-size: 0.875rem; color: #8d859c; }
+  .glossary-count { margin: 0; font-size: 0.875rem; color: $muted; }
 
   .glossary-group {
     display: flex; flex-direction: column; gap: 1.25rem;
@@ -101,7 +101,7 @@
   }
 
   .glossary-see {
-    font-size: 0.875rem !important; line-height: 1.5 !important; color: #8d859c !important;
+    font-size: 0.875rem !important; line-height: 1.5 !important; color: $muted !important;
     a { font-weight: 600; }
   }
 

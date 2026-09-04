@@ -11,6 +11,7 @@ footer_tagline: "Building open science for mental health."
 footer_links_heading: "Links"
 copyright: "© 2025 Open Psychiatry Project"
 skip_link_text: "Skip to main content"
+accessibility_link_label: "Accessibility"
 
 footer_links:
   - name: Open Targets Platform

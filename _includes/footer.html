@@ -28,6 +28,7 @@
     </div>
     <div class="footer-bottom">
       <p>{{ site.data.site.copyright }}</p>
+      <a href="{{ '/accessibility/' | relative_url }}"{% if page.url == '/accessibility/' %} aria-current="page"{% endif %}>{{ site.data.site.accessibility_link_label }}</a>
     </div>
   </div>
 </footer>

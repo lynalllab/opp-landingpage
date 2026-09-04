@@ -38,7 +38,7 @@
     -webkit-appearance: none;
     font-family: inherit;
 
-    &:hover .findout-item-title { color: $teal; }
+    &:hover .findout-item-title { color: $teal-text; }
   }
 
   .findout-item-title {
@@ -68,15 +68,20 @@
     &::after  { width: 12px; height: 2px; }
   }
 
+  // grid-template-rows: 0fr does not reliably collapse — the implicit
+  // minmax(auto, 0fr) keeps the row at content height. max-height with
+  // a ceiling above the tallest panel is the reliable version. visibility
+  // is delayed on the way in and instant on the way out so a collapsed
+  // panel's links are never keyboard-reachable (see build spec §7).
   .findout-item-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0s linear 0.3s;
   }
 
   .findout-item-body {
-    overflow: hidden;
-    min-height: 0;
     padding: 0 1.5rem;
     transition: padding 0.3s ease;
 
@@ -89,7 +94,15 @@
   }
 
   &.is-open {
-    .findout-item-panel { grid-template-rows: 1fr; }
+    // 1400px is generous headroom above the longest panel on any page
+    // that uses this component (~360px). Raise it if a future panel's
+    // content exceeds it — content clips silently past the ceiling.
+    .findout-item-panel {
+      max-height: 1400px;
+      opacity: 1;
+      visibility: visible;
+      transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0s;
+    }
     .findout-item-body  { padding: 0 1.5rem 1.5rem; }
   }
 }

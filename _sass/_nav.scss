@@ -105,6 +105,7 @@
 
       &.is-active {
         color: $plum;
+        font-weight: 700;
       }
     }
   }
@@ -151,6 +152,7 @@
 
     &.is-active {
       color: $plum;
+      font-weight: 700;
     }
   }
 
@@ -170,7 +172,7 @@
 
     .menu-heading {
       margin: 0 0 0.6rem;
-      color: rgba($dark, 0.4);
+      color: rgba($dark, 0.6);
       font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -203,7 +205,7 @@
   .nav-cta {
     display: inline-block;
     padding: 0.5rem 1.25rem;
-    background: $green;
+    background: $green-text;
     color: $white;
     font-size: 0.875rem;
     font-weight: 700;
@@ -213,7 +215,7 @@
     flex-shrink: 0;
     transition: background 0.2s, transform 0.15s;
     &:hover {
-      background: #419f53;
+      background: darken($green-text, 7%);
       color: $white;
       transform: translateY(-1px);
     }

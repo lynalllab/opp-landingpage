@@ -30,7 +30,7 @@
 
     .findout-toc-label {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #8d859c;
+      text-transform: uppercase; color: $muted;
     }
 
     nav { display: flex; flex-direction: column; gap: 2px; border-left: 1px solid rgba($dark, 0.12); }
@@ -84,7 +84,7 @@
 
     .findout-strand-eyebrow {
       font-size: 0.69rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: $teal;
+      text-transform: uppercase; color: $teal-text;
     }
   }
 
@@ -99,7 +99,7 @@
     border-radius: 0 6px 6px 0;
 
     p { font-size: 0.97rem; color: #3d5d5e; }
-    strong { color: $teal; }
+    strong { color: $teal-text; }
   }
 
   .findout-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.25rem; }

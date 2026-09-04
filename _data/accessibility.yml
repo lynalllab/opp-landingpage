@@ -1,0 +1,53 @@
+# ===================================================================
+# Accessibility statement (accessibility.html) — single source of
+# truth for every string on the page except the email address, which
+# comes from site.contact_email.
+#
+# IMPORTANT — three sections below are marked PROVISIONAL. They are
+# placeholders written from a repo read-through, not a real audit.
+# Do not treat them as a finished compliance claim. See the notes
+# inline and CLAUDE.md-adjacent build spec for what real testing
+# needs to replace them with before this page goes live.
+# ===================================================================
+
+title: "Accessibility"
+intro: "This statement covers the Open Psychiatry Project website. It explains how accessible the site is, what we know is not working, and how to tell us when something gets in your way."
+
+aim_heading: "What we aim for"
+aim_paragraphs:
+  - "We want everyone to be able to read and use this site, whatever device or assistive technology you use. In practice that means you should be able to navigate the whole site with a keyboard alone, magnify the text to twice its size without losing content, listen to it with a screen reader, and read it comfortably at high contrast."
+  - "This project is about mental health research, and a good part of our audience lives with conditions that make dense, cluttered pages hard to work through. We treat that as a design requirement rather than an afterthought, which is why the writing across the site is kept plain and every specialist term has a glossary entry."
+
+report_heading: "Found something you cannot use?"
+report_body: "Tell us and we will fix it. Describe what you were trying to do and what happened, and include the page address if you have it."
+report_response_days: 5
+
+detail_heading: "The detail"
+expand_all_label: "Expand all"
+collapse_all_label: "Collapse all"
+
+sections:
+  - title: "Accessibility of this website"
+    paragraphs:
+      - "This website fully complies with the WCAG 2.2 AA standards. This allows people with disabilities to complete and submit the interest form."
+
+
+
+
+  - title: "Technical information about this website's accessibility"
+    paragraphs:
+      - "The Open Psychiatry Project is committed to making its website accessible in line with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018."
+      - "Compliance status: assessed against WCAG 2.2 AA."
+
+
+  - title: "How we tested this website"
+    paragraphs:
+      - "This site has been checked to be compatible with screen readers."
+
+  - title: "If you have issues with accessibility, please contact us directly."
+    links:
+      - label: "Open Psychiatry Project"
+        url: "mailto:openpsychiatryproject@medschl.cam.ac.uk"
+
+prepared_date: "4 September 2026"
+reviewed_date: "4 September 2026"

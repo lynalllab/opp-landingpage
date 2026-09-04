@@ -50,10 +50,12 @@ description: "Frequently asked questions about co-producing the Open Psychiatry 
               {% assign item_id = item.question | slugify | prepend: "faq-" %}
             {% endif %}
             <div class="findout-item">
-              <button type="button" class="findout-item-trigger" id="{{ item_id }}" aria-expanded="false">
-                <span class="findout-item-title">{{ item.question }}</span>
-                <span class="findout-item-icon" aria-hidden="true"></span>
-              </button>
+              <h3>
+                <button type="button" class="findout-item-trigger" id="{{ item_id }}" aria-expanded="false">
+                  <span class="findout-item-title">{{ item.question }}</span>
+                  <span class="findout-item-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
               <div class="findout-item-panel">
                 <div class="findout-item-body">
                   {% if item.projects %}

@@ -26,10 +26,10 @@ img { max-width: 100%; height: auto; display: block; }
 p { margin-bottom: 1.2rem; &:last-child { margin-bottom: 0; } }
 
 a {
-  color: $teal;
+  color: $teal-text;
   text-decoration: none;
   transition: color 0.2s ease;
-  &:hover { color: $green; }
+  &:hover { color: $green-text; }
 }
 
 h1, h2, h3, h4 {

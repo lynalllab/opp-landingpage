@@ -57,7 +57,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba($white, 0.78);
+    color: rgba($white, 0.85);
     margin-bottom: 1.75rem;
   }
 
@@ -79,7 +79,7 @@
 
   .hero-sub {
     font-size: 0.975rem;
-    color: rgba($white, 0.68);
+    color: rgba($white, 0.85);
     max-width: 550px;
     margin-bottom: 2.75rem;
     line-height: 1.62;
@@ -129,13 +129,13 @@
     font-weight: 700;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: rgba($white, 0.5);
+    color: rgba($white, 0.85);
   }
 
   .hero-funding {
     font-size: 0.83rem;
-    color: rgba($white, 0.45);
+    color: rgba($white, 0.8);
     margin-top: 1.25rem;
-    strong { color: rgba($white, 0.65); font-weight: 600; }
+    strong { color: rgba($white, 0.95); font-weight: 600; }
   }
 }

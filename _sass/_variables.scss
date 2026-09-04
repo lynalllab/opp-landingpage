@@ -33,6 +33,10 @@ $muted:     #6b6478;   // supporting text. NOT #8d859c — that measures 3.25:1 
                        // $off-white and 2.99:1 on $lilac, both below AA for small text.
 $teal-text: #35696b;   // $teal for small text only; $teal itself is 4.15:1 and fails
                        // under ~18px. Keep $teal for fills, borders and large type.
+$green-text: #3e754d;  // $green for text/button-fill only; $green itself is only 3.07:1
+                       // against white (fails AA for white button text and green text
+                       // alike). This measures 5.45:1 either direction. Keep $green for
+                       // decorative fills, icons and the focus ring (3:1 is enough there).
 
 // Wave SVG data URIs — fill matches the NEXT section's background
 $wave-offwhite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C480,0 960,90 1440,50 L1440,80 L0,80 Z' fill='%23f7f5f9'/%3E%3C/svg%3E");

@@ -60,10 +60,10 @@
 
   .work-with-us-btn--outline {
     background: transparent;
-    color: $green;
-    border-color: $green;
+    color: $green-text;
+    border-color: $green-text;
 
-    &:hover { background: rgba($green, 0.08); border-color: $green; color: $green; }
+    &:hover { background: rgba($green-text, 0.08); border-color: $green-text; color: $green-text; }
   }
 
   .work-with-us-icon {

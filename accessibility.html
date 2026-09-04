@@ -1,0 +1,81 @@
+---
+layout: default
+title: Accessibility
+permalink: /accessibility/
+description: "How accessible the Open Psychiatry Project website is, what we already know is not working, and how to tell us when something gets in your way."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ACCESSIBILITY STATEMENT
+     Edit: all copy lives in _data/accessibility.yml. This file just
+     renders it. Footer-level page — deliberately not in the nav
+     (see _data/nav.yml) or _data/site.yml footer_links.
+     Accordion renders open-by-default here — see _accordion.scss /
+     assets/js/accordion.js for the shared-component changes that
+     make that possible without forking the component.
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="accessibility" id="accessibility" aria-labelledby="a11y-heading">
+  <div class="container">
+
+    <div class="a11y-header">
+      <h1 id="a11y-heading">{{ site.data.accessibility.title }}</h1>
+      <p class="a11y-intro">{{ site.data.accessibility.intro }}</p>
+    </div>
+
+    <div class="a11y-aim">
+      <h2>{{ site.data.accessibility.aim_heading }}</h2>
+      {% for p in site.data.accessibility.aim_paragraphs %}
+      <p>{{ p }}</p>
+      {% endfor %}
+
+      <div class="a11y-report">
+        <h3>{{ site.data.accessibility.report_heading }}</h3>
+        <p>{{ site.data.accessibility.report_body }}</p>
+        <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>
+      </div>
+    </div>
+
+    <div class="a11y-detail">
+      <div class="a11y-detail-head">
+        <h2>{{ site.data.accessibility.detail_heading }}</h2>
+        <button type="button" class="a11y-toggle-all" hidden>{{ site.data.accessibility.collapse_all_label }}</button>
+      </div>
+
+      <div class="findout-accordion" data-expand-label="{{ site.data.accessibility.expand_all_label }}" data-collapse-label="{{ site.data.accessibility.collapse_all_label }}">
+        {% for section in site.data.accessibility.sections %}
+        <div class="findout-item is-open">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="a11y-{{ section.title | slugify }}" aria-expanded="true">
+              <span class="findout-item-title">{{ section.title }}</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              {% for p in section.paragraphs %}
+              <p>{{ p }}</p>
+              {% endfor %}
+              {% if section.links %}
+              <ul class="a11y-links" role="list">
+                {% for link in section.links %}
+                <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="a11y-meta">
+      <p>Statement prepared {{ site.data.accessibility.prepared_date }}. Last reviewed {{ site.data.accessibility.reviewed_date }}.
+        {% if site.data.accessibility.university_statement_url and site.data.accessibility.university_statement_url != "" %}
+        See also the <a href="{{ site.data.accessibility.university_statement_url }}">University of Cambridge accessibility statement</a>.
+        {% endif %}
+      </p>
+    </div>
+
+  </div>
+</section>

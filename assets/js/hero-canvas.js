@@ -6,6 +6,10 @@
   var canvas = document.getElementById('hero-canvas');
   if (!canvas || !canvas.getContext) return;
 
+  // Purely decorative and continuous (see aria-hidden in index.html) — honor
+  // prefers-reduced-motion by never starting the animation loop at all.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   var ctx       = canvas.getContext('2d');
   var COUNT     = window.innerWidth < 768 ? 35 : 70;
   var CONNECT   = 130;

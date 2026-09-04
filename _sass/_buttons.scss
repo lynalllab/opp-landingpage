@@ -21,10 +21,10 @@
   &:active { transform: translateY(0); }
 
   &--primary {
-    background: $green;
+    background: $green-text;
     color: $white;
-    border-color: $green;
-    &:hover { background: #419f53; border-color: #419f53; color: $white; }
+    border-color: $green-text;
+    &:hover { background: darken($green-text, 7%); border-color: darken($green-text, 7%); color: $white; }
   }
 
   &--outline-light {
