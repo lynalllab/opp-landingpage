@@ -26,7 +26,7 @@
     pwle_text: >
       It ensures the AI answers real, human questions (e.g., "How does stress alter inflammation
       in depression?") rather than just clinical jargon.
-    clinician_label: "For clinicians & researchers"
+    clinician_label: "For Health professionals & researchers"
     clinician_text: >
       It helps map out how advanced biological data can be surfaced quickly during patient care or
       discovery sessions.
@@ -48,7 +48,7 @@
       It ensures the resource tracks symptoms and life events that deeply impact day-to-day
       quality of life (like sleep disruption or emergency admissions), not just standard blood
       counts.
-    clinician_label: "For clinicians & researchers"
+    clinician_label: "For Health professionals & researchers"
     clinician_text: >
       We will build a clean, standardised blueprint for extracting high-value data patterns from
       chaotic real-world medical notes.
@@ -69,7 +69,7 @@
     pwle_text: >
       It represents true equity, allowing public participants to transition from passive advisors
       to the lead investigators who lead the science.
-    clinician_label: "For clinicians & researchers"
+    clinician_label: "For Health professionals & researchers"
     clinician_text: >
       It provides a front-row seat to an innovative, completely secure way of doing decentralized,
       multi-site privacy-preserving research.
