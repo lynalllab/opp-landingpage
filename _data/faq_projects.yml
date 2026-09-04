@@ -61,8 +61,8 @@
   years: "2029"
   aim: >
     Traditionally, professional scientists choose the research questions. In this project, we are
-    flipping the script. A group led by people with lived experience will completely design,
-    control, and run custom data analyses across multiple secure UK databases using the Open
+    flipping the script. A group led by people with lived experience will completely design
+    and run custom data analyses across multiple secure UK databases using the Open
     Psychiatry federated data platform.
   why_it_matters:
     pwle_label: "For PWLE & carers"

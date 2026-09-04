@@ -73,10 +73,9 @@ sections:
       real-world mental health data such as genetic, proteomic, and metabolomic findings from UK
       cohorts into a single searchable interface. This will allow researchers and industry to
       explore which genes, proteins, and molecules are implicated in specific conditions,
-      supporting drug target discovery. A parallel "second skin" layer, co-designed with people
-      with lived experience (PWLE), will make the same information accessible and understandable
-      to patients and the public, including plain-language explanations, and exploratory
-      conversational tools.
+      supporting drug target discovery. A parallel layer, co-designed with people with lived experience (PWLE),
+      will make the same information accessible and understandable to patients and the public,
+      including plain-language explanations, and exploratory conversational tools.
 
 - kind: strand
   id: fedomics
