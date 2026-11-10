@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.remove('no-js');
+    if (!('IntersectionObserver' in window)) {
+      document.documentElement.classList.add('no-io');
+    }
+  </script>
+  <title>Accessibility | Open Psychiatry Project</title>
+  <meta name="description" content="How accessible the Open Psychiatry Project website is, what we already know is not working, and how to tell us when something gets in your way.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/opp-landingpage/assets/css/main.css">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Accessibility | Open Psychiatry Project</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Accessibility" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How accessible the Open Psychiatry Project website is, what we already know is not working, and how to tell us when something gets in your way." />
+<meta property="og:description" content="How accessible the Open Psychiatry Project website is, what we already know is not working, and how to tell us when something gets in your way." />
+<link rel="canonical" href="https://carcruz.github.io/opp-landingpage/accessibility/" />
+<meta property="og:url" content="https://carcruz.github.io/opp-landingpage/accessibility/" />
+<meta property="og:site_name" content="Open Psychiatry Project" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Accessibility" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"How accessible the Open Psychiatry Project website is, what we already know is not working, and how to tell us when something gets in your way.","headline":"Accessibility","url":"https://carcruz.github.io/opp-landingpage/accessibility/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="site-nav" id="site-nav" aria-label="Site navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/opp-landingpage/" class="nav-brand">
+        <img src="/opp-landingpage/assets/images/logo/opp-mark.png" alt="" width="200" height="200" class="nav-logo">
+        <span>Open Psychiatry Project</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav-panel" id="site-nav-panel">
+      <ul class="nav-links" role="list">
+                <li class="has-menu">
+          <button type="button" class="nav-menu-trigger" aria-expanded="false" aria-controls="menu-project">
+            About
+          </button>
+          <div id="menu-project" class="nav-menu">
+            <div>
+            <p class="menu-heading" id="mh-jump">Jump to a section</p>
+            <ul role="list" aria-labelledby="mh-jump">
+              
+              <li><a href="/opp-landingpage/#about">Overview</a></li>
+              
+              <li><a href="/opp-landingpage/#how-it-works">How it works</a></li>
+              
+              <li><a href="/opp-landingpage/#partners">Partners</a></li>
+              
+            </ul>
+            </div>
+            <div>
+            <p class="menu-heading" id="mh-read">Read in full</p>
+            <ul role="list" aria-labelledby="mh-read">
+              
+              <li><a href="/opp-landingpage/team/">Team</a></li>
+              
+              <li><a href="/opp-landingpage/glossary/">Glossary</a></li>
+              
+            </ul>
+            </div>
+          </div>
+        </li>
+        
+        <li><a href="/opp-landingpage/faqs/">FAQs</a></li>
+        
+        <li><a href="/opp-landingpage/more/">Find out more</a></li>
+        
+        <li><a href="/opp-landingpage/industry/">For industry</a></li>
+        
+
+      </ul>
+      <a href="https://cambridge.eu.qualtrics.com/jfe/form/SV_3wJB8ngOU37H0ou" class="nav-cta js-register-open" target="_blank" rel="noopener">Register interest</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <main id="main-content">
+    <!-- ═══════════════════════════════════════════════════════════════
+     ACCESSIBILITY STATEMENT
+     Edit: all copy lives in _data/accessibility.yml. This file just
+     renders it. Footer-level page — deliberately not in the nav
+     (see _data/nav.yml) or _data/site.yml footer_links.
+     Accordion renders open-by-default here — see _accordion.scss /
+     assets/js/accordion.js for the shared-component changes that
+     make that possible without forking the component.
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="accessibility" id="accessibility" aria-labelledby="a11y-heading">
+  <div class="container">
+
+    <div class="a11y-header">
+      <h1 id="a11y-heading">Accessibility</h1>
+      <p class="a11y-intro">This statement covers the Open Psychiatry Project website. It explains how accessible the site is, what we know is not working, and how to tell us when something gets in your way.</p>
+    </div>
+
+    <div class="a11y-aim">
+      <h2>What we aim for</h2>
+      
+      <p>We want everyone to be able to read and use this site, whatever device or assistive technology you use. In practice that means you should be able to navigate the whole site with a keyboard alone, magnify the text to twice its size without losing content, listen to it with a screen reader, and read it comfortably at high contrast.</p>
+      
+      <p>This project is about mental health research, and a good part of our audience lives with conditions that make dense, cluttered pages hard to work through. We treat that as a design requirement rather than an afterthought, which is why the writing across the site is kept plain and every specialist term has a glossary entry.</p>
+      
+
+      <div class="a11y-report">
+        <h3>Found something you cannot use?</h3>
+        <p>Tell us and we will fix it. Describe what you were trying to do and what happened, and include the page address if you have it.</p>
+        <a href="mailto:openpsychiatryproject@medschl.cam.ac.uk">openpsychiatryproject@medschl.cam.ac.uk</a>
+      </div>
+    </div>
+
+    <div class="a11y-detail">
+      <div class="a11y-detail-head">
+        <h2>The details</h2>
+        <button type="button" class="a11y-toggle-all" hidden>Collapse all</button>
+      </div>
+
+      <div class="findout-accordion" data-expand-label="Expand all" data-collapse-label="Collapse all">
+        
+        <div class="findout-item is-open">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="a11y-accessibility-of-this-website" aria-expanded="true">
+              <span class="findout-item-title">Accessibility of this website</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              
+              <p>This website fully complies with the WCAG 2.2 AA standards. This allows people with disabilities to complete and submit the interest form.</p>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="findout-item is-open">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="a11y-technical-information-about-this-website-s-accessibility" aria-expanded="true">
+              <span class="findout-item-title">Technical information about this website's accessibility</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              
+              <p>The Open Psychiatry Project is committed to making its website accessible in line with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+              
+              <p>Compliance status: assessed against WCAG 2.2 AA.</p>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="findout-item is-open">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="a11y-how-we-tested-this-website" aria-expanded="true">
+              <span class="findout-item-title">How we tested this website</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              
+              <p>This site has been checked to be compatible with screen readers.</p>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="findout-item is-open">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="a11y-if-you-have-issues-with-accessibility-please-contact-us-directly" aria-expanded="true">
+              <span class="findout-item-title">If you have issues with accessibility, please contact us directly.</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              
+              
+              <ul class="a11y-links" role="list">
+                
+                <li><a href="mailto:openpsychiatryproject@medschl.cam.ac.uk" target="_blank" rel="noopener noreferrer">Open Psychiatry Project</a></li>
+                
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="a11y-meta">
+      <p>Statement prepared 4 September 2026. Last reviewed 4 September 2026.
+        
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <span class="footer-project-name">Open Psychiatry Project</span>
+        <p class="footer-tagline">Building open science for mental health.</p>
+      </div>
+
+      <div class="footer-info">
+        <p>University of Cambridge, Department of Psychiatry</p>
+        <p>
+          Lead PI: <a href="mailto:openpsychiatryproject@medschl.cam.ac.uk">Dr Mary-Ellen Lynall</a>
+          &mdash; <a href="mailto:openpsychiatryproject@medschl.cam.ac.uk">openpsychiatryproject@medschl.cam.ac.uk</a>
+        </p>
+        <p class="footer-funding">Supported by UKRI MRC and NIHR (award £2,311,368)</p>
+      </div>
+
+      <div class="footer-links">
+        <p class="footer-links-heading">Links</p>
+        <ul class="footer-link-list">
+          
+          <li><a href="https://platform.opentargets.org" target="_blank" rel="noopener noreferrer">Open Targets Platform</a></li>
+          
+          <li><a href="https://www.ukri.org/news/data-platform-could-accelerate-care-for-mental-health-conditions/" target="_blank" rel="noopener noreferrer">UKRI Announcement</a></li>
+          
+          <li><a href="https://www.psychiatry.cam.ac.uk" target="_blank" rel="noopener noreferrer">Cambridge Psychiatry</a></li>
+          
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Open Psychiatry Project</p>
+      <a href="/opp-landingpage/accessibility/" aria-current="page">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Register-interest modal — rendered once per page, opened by any
+     .js-register-open trigger. iframe src is set on first open by
+     assets/js/register-modal.js, not here (see that file for why).
+     Copy: _data/register_modal.yml -->
+<div class="register-modal" hidden>
+  <div class="register-modal-panel" role="dialog" aria-modal="true" aria-labelledby="register-modal-title" tabindex="-1">
+    <header>
+      <div>
+        <h2 id="register-modal-title">Register your interest</h2>
+        <p>Secure form hosted by the University of Cambridge &middot; about 5 minutes</p>
+      </div>
+      <button type="button" class="register-modal-close" aria-label="Close">&times;</button>
+    </header>
+    <div class="register-modal-body">
+      <p class="register-modal-loading" role="status">Loading the form&hellip;</p>
+      <iframe data-src="https://cambridge.eu.qualtrics.com/jfe/form/SV_3wJB8ngOU37H0ou" title="Register your interest &mdash; Open Psychiatry Project"></iframe>
+    </div>
+    <footer>
+      <a href="https://cambridge.eu.qualtrics.com/jfe/form/SV_3wJB8ngOU37H0ou" target="_blank" rel="noopener">Trouble with the form? Open it in a new tab &#8599;</a>
+      <span>Press Esc to close</span>
+    </footer>
+  </div>
+</div>
+
+  
+  <!-- Shared/reusable across every page -->
+  <script src="/opp-landingpage/assets/js/scrollspy.js" defer></script>
+  <script src="/opp-landingpage/assets/js/nav.js" defer></script>
+  <script src="/opp-landingpage/assets/js/nav-scrollspy.js" defer></script>
+  <script src="/opp-landingpage/assets/js/reveal.js" defer></script>
+  <script src="/opp-landingpage/assets/js/stat-counters.js" defer></script>
+  <script src="/opp-landingpage/assets/js/accordion.js" defer></script>
+  <script src="/opp-landingpage/assets/js/smooth-scroll.js" defer></script>
+  <script src="/opp-landingpage/assets/js/register-modal.js" defer></script>
+  <!-- Page-specific -->
+  <script src="/opp-landingpage/assets/js/hero-canvas.js" defer></script>
+  
+  
+  
+  
+</body>
+</html>
