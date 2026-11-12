@@ -105,7 +105,7 @@
         
         <li><a href="/opp-landingpage/pr-preview/pr-5/more/">Find out more</a></li>
         
-        <li><a href="/opp-landingpage/pr-preview/pr-5/get-involved/" class="nav-link--muted is-active" aria-current="page">For patients, carers and public</a></li>
+        <li><a href="/opp-landingpage/pr-preview/pr-5/get-involved/" class="nav-link--muted is-active" aria-current="page">Patients, carers &amp; public</a></li>
         
         <li><a href="/opp-landingpage/pr-preview/pr-5/industry/">For industry</a></li>
         
@@ -118,83 +118,179 @@
   <main id="main-content">
     <!-- ═══════════════════════════════════════════════════════════════
      GET INVOLVED — for patients, carers and public
-     Edit: all copy lives in _data/get_involved_page.yml. Task cards
-     come from _data/projects.yml, the FAQ accordion from
-     _data/faqs.yml and the "What would I do?" breakdown from
-     _data/faq_projects.yml. This file just renders them.
+     Edit: all copy lives in _data/get_involved_page.yml. The register
+     card reads _data/get_involved.yml (preview:), the task timeline
+     reads _data/projects.yml, the FAQ accordion reads _data/faqs.yml
+     and the "What would I do?" breakdown reads _data/faq_projects.yml
+     (+ projects.yml for the task text). This file just renders them.
      Styles — see _get-involved.scss
+     Timeline reveal — assets/js/gi-timeline.js
      Accordion behaviour — see _accordion.scss / assets/js/accordion.js
      ═══════════════════════════════════════════════════════════════ -->
 
 
+
+
+
+<!-- ── Hero: text stack left, watercolour right ─────────────────── -->
 <section class="gi-hero" id="gi-hero" aria-labelledby="gi-heading">
-  <div class="container">
-    <h1 id="gi-heading">Could your experience help unlock better mental health treatments?</h1>
-    <p class="gi-subtitle">Help us open up mental health data</p>
+  <div class="container gi-hero-grid">
+    <div class="gi-hero-text">
+      <div class="gi-hero-head">
+        <span class="gi-eyebrow">Help us open up mental health data</span>
+        <h1 id="gi-heading">Could your experience help unlock better mental health treatments?</h1>
+      </div>
+      <div class="gi-ps">
+        <div class="gi-ps-item">
+          <span class="gi-ps-label gi-ps-label--problem">The problem</span>
+          <p>Mental health data in the UK is fragmented across many separate resources and secure environments. That makes it hard to connect what we know about genes, cells and molecules with what happens to real people, and it slows down the search for better treatments.</p>
+        </div>
+        <div class="gi-ps-item">
+          <span class="gi-ps-label">Our solution</span>
+          <p>The Open Psychiatry Project is building an open, publicly accessible resource that links these datasets safely, so researchers, health professionals and the public can explore the biology of mental health in one place. We want to build it with the people it is meant to serve.</p>
+        </div>
+      </div>
+    </div>
     
-    <figure class="gi-image">
-      <img src="/opp-landingpage/pr-preview/pr-5/assets/images/get-involved-watercolour.webp" alt="Watercolour illustration of seven people of different ages and backgrounds working together around a table with laptops, charts and checklists, under a board titled Open Psychiatry Project." width="1439" height="1176">
-    </figure>
+    <img class="gi-hero-img" src="/opp-landingpage/pr-preview/pr-5/assets/images/get-involved-watercolour.webp" alt="Watercolour illustration of seven people of different ages and backgrounds working together around a table with laptops, charts and checklists, under a board titled Open Psychiatry Project." width="1439" height="1176">
     
   </div>
 </section>
 
-<section class="gi-pitch" id="gi-pitch">
+<!-- ── Recruitment ask ──────────────────────────────────────────── -->
+<div class="gi-ask">
   <div class="container">
-    <div class="gi-pitch-inner">
-      <div class="gi-ps">
-        <span class="gi-ps-label gi-ps-label--problem">Problem</span>
-        <p>Mental health data in the UK is fragmented across many separate resources and secure environments. That makes it hard to connect what we know about genes, cells and molecules with what happens to real people, and it slows down the search for better treatments.</p>
-      </div>
-      <div class="gi-ps">
-        <span class="gi-ps-label">Solution</span>
-        <p>The Open Psychiatry Project is building an open, publicly accessible resource that links these datasets safely, so researchers, health professionals and the public can explore the biology of mental health in one place. We want to build it with the people it is meant to serve.</p>
-      </div>
-      <hr>
+    <div class="gi-ask-inner">
       
-      <p>We're looking for people with lived experience of mental illness, and people who care for them, to help shape what we build and how we build it.</p>
+      <p class="gi-lede">We're looking for people with lived experience of mental illness, and people who care for them, to help shape what we build and how we build it.</p>
       
       <p>We are looking at recruiting 12–16 people with lived experience across our workshop series, including a core group of 3–4 who will stay involved throughout.</p>
       
+      <p>There are three tasks to choose from, running one after another between 2027 and 2029. You can join one or all of them.</p>
+      
+      <a class="gi-jump" href="#gi-tasks">See the three tasks &darr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Register your interest (form opens directly) ─────────────── -->
+<section class="gi-register" id="gi-register" aria-labelledby="gi-register-heading">
+  <div class="container gi-register-grid">
+    <div class="gi-register-text">
+      <h2 id="gi-register-heading">Register your interest</h2>
+      <p>A short form hosted by the University of Cambridge. It takes about 5 minutes, and registering interest is not signing up &mdash; it just lets us get in touch.</p>
+      <div class="gi-register-cta">
+        <a href="https://cambridge.eu.qualtrics.com/jfe/form/SV_3wJB8ngOU37H0ou" class="btn btn--primary" target="_blank" rel="noopener">Open the form &rarr;</a>
+        <span class="btn-note">Opens in a new tab</span>
+      </div>
+    </div>
+    <div class="gi-register-card">
+      <div class="gi-register-col">
+        <span class="gi-card-label">What it asks</span>
+        <ol>
+          
+          <li><span class="gi-num">01</span> <span>Your name, email and where you are</span></li>
+          
+          <li><span class="gi-num">02</span> <span>A little about you</span></li>
+          
+          <li><span class="gi-num">03</span> <span>Why you want to contribute &mdash; three short questions</span></li>
+          
+          <li><span class="gi-num">04</span> <span>Which tasks interest you</span></li>
+          
+          <li><span class="gi-num">05</span> <span>Allow us to collect your data and contact you</span></li>
+          
+        </ol>
+      </div>
+      <div class="gi-register-col">
+        <span class="gi-card-label">How we look after it</span>
+        <ul>
+          
+          <li><span class="gi-tick" aria-hidden="true">&check;</span> <span>Hosted and stored by the University of Cambridge</span></li>
+          
+          <li><span class="gi-tick" aria-hidden="true">&check;</span> <span>You choose what you hear about, and how often</span></li>
+          
+          <li><span class="gi-tick" aria-hidden="true">&check;</span> <span>The contact details you provide will be handled in accordance with UK GDPR.</span></li>
+          
+          <li><span class="gi-tick" aria-hidden="true">&check;</span> <span>You can ask to have your details removed at any time by contacting us.</span></li>
+          
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ── The tasks: timeline ──────────────────────────────────────── -->
 <section class="gi-tasks" id="gi-tasks" aria-labelledby="gi-tasks-heading">
   <div class="container">
-    <h2 id="gi-tasks-heading">The tasks</h2>
-    <ol class="gi-task-grid">
+    <div class="gi-tasks-head">
+      <h2 id="gi-tasks-heading">The tasks</h2>
+      <p>Three projects, one after another across the life of the award, from 2027 to 2029. Each one needs people with lived experience at the table.</p>
+    </div>
+    <ol class="gi-timeline">
       
-      <li class="gi-task">
-        <span class="gi-task-eyebrow">Project 1 &middot; 2027</span>
-        <h3>Conversations with science</h3>
-        <p>Helping AI to unlock the biology of mental health for public understanding.</p>
+      <li class="gi-tl-row">
+        <div class="gi-tl-date" data-anim>
+          <span class="gi-tl-years">2027</span>
+          <span class="gi-tl-project">Project 1</span>
+        </div>
+        <div class="gi-tl-spine" aria-hidden="true">
+          <span class="gi-tl-line" data-anim></span>
+          <span class="gi-tl-dot" data-anim></span>
+        </div>
+        <div class="gi-tl-body" data-anim>
+          <h3>Conversations with science</h3>
+          <p>Helping AI to unlock the biology of mental health for public understanding.</p>
+          <div class="gi-tl-task">
+            <span class="gi-tl-task-label">What you will do</span>
+            <p>You will help us decide what people actually want to ask about the biology of mental health, test early AI prototypes, and define what a “good, trustworthy, and understandable answer” looks like.</p>
+          </div>
+        </div>
       </li>
       
-      <li class="gi-task">
-        <span class="gi-task-eyebrow">Project 2 &middot; 2027–2028</span>
-        <h3>Clues in the records</h3>
-        <p>Deciding what matters most in hospital & GP data.</p>
+      <li class="gi-tl-row">
+        <div class="gi-tl-date" data-anim>
+          <span class="gi-tl-years">2027–2028</span>
+          <span class="gi-tl-project">Project 2</span>
+        </div>
+        <div class="gi-tl-spine" aria-hidden="true">
+          <span class="gi-tl-line" data-anim></span>
+          <span class="gi-tl-dot" data-anim></span>
+        </div>
+        <div class="gi-tl-body" data-anim>
+          <h3>Clues in the records</h3>
+          <p>Deciding what matters most in hospital & GP data.</p>
+          <div class="gi-tl-task">
+            <span class="gi-tl-task-label">What you will do</span>
+            <p>You will review types of real-world health data (from prescription histories to hospital admissions) and help prioritize which specific measures are meaningful enough to invest time in unlocking.</p>
+          </div>
+        </div>
       </li>
       
-      <li class="gi-task">
-        <span class="gi-task-eyebrow">Project 3 &middot; 2029</span>
-        <h3>The Co-Pilot Study</h3>
-        <p>Leading a team-based mental health analysis, with questions driven by lived experience.</p>
+      <li class="gi-tl-row">
+        <div class="gi-tl-date" data-anim>
+          <span class="gi-tl-years">2029</span>
+          <span class="gi-tl-project">Project 3</span>
+        </div>
+        <div class="gi-tl-spine" aria-hidden="true">
+          <span class="gi-tl-line" data-anim></span>
+          <span class="gi-tl-dot" data-anim></span>
+        </div>
+        <div class="gi-tl-body" data-anim>
+          <h3>The Co-Pilot Study</h3>
+          <p>Leading a team-based mental health analysis, with questions driven by lived experience.</p>
+          <div class="gi-tl-task">
+            <span class="gi-tl-task-label">What you will do</span>
+            <p>You will join a collaborative team to pitch research ideas, design a custom study protocol, and test run the secure analysis on the resource.</p>
+          </div>
+        </div>
       </li>
       
     </ol>
-    <p class="gi-tasks-note">The workshops will be very hands-on. Each task takes the form of a half-day workshop with 2–3 follow-up meetings, and most sessions will be held online.</p>
+    <p class="gi-workshops" data-anim>The workshops will be very hands-on. Each task takes the form of a half-day workshop with 2–3 follow-up meetings, and most sessions will be held online. Never at any time will you be expected to share your own life history &mdash; you engage in a way that is comfortable for you.</p>
   </div>
 </section>
 
-<section class="gi-cta" id="gi-cta">
-  <div class="container">
-    <a href="/opp-landingpage/pr-preview/pr-5/register/" class="btn btn--primary">Register your interest</a>
-    <p class="btn-note">Takes you to a short page about how we use your details, then the University of Cambridge's secure form &middot; about 5 minutes</p>
-  </div>
-</section>
-
+<!-- ── FAQs ─────────────────────────────────────────────────────── -->
 <section class="gi-faqs" id="gi-faqs" aria-labelledby="gi-faqs-heading">
   <div class="container">
     <div class="gi-faqs-inner">
@@ -232,6 +328,7 @@
               
               <p>We have divided the main tasks into 3 different projects:</p>
               
+              
               <article class="gi-project">
                 <h4>1. Conversations with science: helping AI to unlock the biology of mental health for public understanding (2027)</h4>
 
@@ -250,9 +347,9 @@
                 <div class="gi-project-field">
                   <span class="gi-field-label">What you will do</span>
                   <p>You will help us decide what people actually want to ask about the biology of mental health, test early AI prototypes, and define what a “good, trustworthy, and understandable answer” looks like.</p>
-
                 </div>
               </article>
+              
               
               <article class="gi-project">
                 <h4>2. Clues in the records: deciding what matters most in hospital & GP data (2027–2028)</h4>
@@ -272,9 +369,9 @@
                 <div class="gi-project-field">
                   <span class="gi-field-label">What you will do</span>
                   <p>You will review types of real-world health data (from prescription histories to hospital admissions) and help prioritize which specific measures are meaningful enough to invest time in unlocking.</p>
-
                 </div>
               </article>
+              
               
               <article class="gi-project">
                 <h4>3. The co-pilot study: directing a patient-led mental health analysis (2029)</h4>
@@ -293,8 +390,7 @@
 
                 <div class="gi-project-field">
                   <span class="gi-field-label">What you will do</span>
-                  <p>You will join a collaborative team to pitch research ideas, design a custom study protocol, and test run the secure analysis within the federated data platform.</p>
-
+                  <p>You will join a collaborative team to pitch research ideas, design a custom study protocol, and test run the secure analysis on the resource.</p>
                 </div>
               </article>
               
@@ -362,6 +458,7 @@
   </div>
 </section>
 
+<!-- ── Contact ──────────────────────────────────────────────────── -->
 <section class="gi-contact" id="gi-contact">
   <div class="container">
     <div class="gi-contact-inner">
@@ -422,6 +519,9 @@
   <script src="/opp-landingpage/pr-preview/pr-5/assets/js/smooth-scroll.js" defer></script>
   <!-- Page-specific -->
   <script src="/opp-landingpage/pr-preview/pr-5/assets/js/hero-canvas.js" defer></script>
+  
+  
+    <script src="/opp-landingpage/pr-preview/pr-5/assets/js/gi-timeline.js" defer></script>
   
   
   
