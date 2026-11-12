@@ -1,8 +1,7 @@
 # ===================================================================
 # Find Out More
 # Single source of truth for findout_more.html — edit copy here, no
-# HTML needed. The register card stays in findout_more.html itself;
-# everything else — page header and body sections — is here.
+# HTML needed. Page header and body sections are all here.
 #
 # header: the page <h1> and standfirst paragraph at the top of the page.
 #

@@ -1,20 +1,25 @@
 # ===================================================================
 # FAQ project breakdown
-# Feeds the "What would I do?" answer on faqs.html (see _data/faqs.yml,
-# the item with "projects: true"). Each entry is one project card.
-# They're numbered automatically in the order listed here.
+# Feeds the "What would I do?" answer on get-involved.html (see
+# _data/faqs.yml, the item with "projects: true"). Each entry is one
+# project. They're numbered automatically in the order listed here.
 #
 #   title: project name (kept short — the years are shown separately)
-#   years: e.g. "2026–2027"
+#   years: e.g. "2027–2028"
 #   aim:   plain text/markdown, same rules as faqs.yml answers
 #   why_it_matters:
-#     pwle_label / pwle_text:           the "For PWLE & carers" column
-#     clinician_label / clinician_text: the "For clinicians & researchers" column
-#   what_you_will_do: plain text/markdown
+#     pwle_label / pwle_text:           the "For PWLE & carers" column —
+#                                       only pwle_text is rendered on
+#                                       get-involved.html (no label)
+#     clinician_label / clinician_text: kept in data for reference but
+#                                       NOT shown on the page
+#   (the "What you will do" text comes from _data/projects.yml › task,
+#    matched by position, so it is written once for the timeline and
+#    the FAQ breakdown)
 # ===================================================================
 
 - title: "Conversations with science: helping AI to unlock the biology of mental health for public understanding"
-  years: "2026–2027"
+  years: "2027"
   aim: >
     We want to help AI-powered conversational search tools (like ChatGPT, Claude, open source
     Large Language Models, etc) be able provide accurate answers specifically for mental health
@@ -30,10 +35,6 @@
     clinician_text: >
       It helps map out how advanced biological data can be surfaced quickly during patient care or
       discovery sessions.
-  what_you_will_do: >
-    You will help us decide what people actually want to ask about the biology of mental health,
-    test early AI prototypes, and define what a "good, trustworthy, and understandable answer"
-    looks like.
 
 - title: "Clues in the records: deciding what matters most in hospital & GP data"
   years: "2027–2028"
@@ -52,10 +53,6 @@
     clinician_text: >
       We will build a clean, standardised blueprint for extracting high-value data patterns from
       chaotic real-world medical notes.
-  what_you_will_do: >
-    You will review types of real-world health data (from prescription histories to hospital
-    admissions) and help prioritize which specific measures are meaningful enough to invest time
-    in unlocking.
 
 - title: "The co-pilot study: directing a patient-led mental health analysis"
   years: "2029"
@@ -73,6 +70,3 @@
     clinician_text: >
       It provides a front-row seat to an innovative, completely secure way of doing decentralized,
       multi-site privacy-preserving research.
-  what_you_will_do: >
-    You will join a collaborative team to pitch research ideas, design a custom study protocol,
-    and test run the secure analysis within the federated data platform.

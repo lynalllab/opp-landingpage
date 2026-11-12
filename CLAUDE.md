@@ -27,22 +27,21 @@ This is a Jekyll static site with **no theme** — all layouts and styles are bu
 
 | Editable content | Location |
 |---|---|
-| Home page copy (hero, about, audience cards, timeline heading/lede) | `_data/home.yml` |
+| Home page copy (hero, about, audience cards) | `_data/home.yml` |
 | Feature cards ("How It Works") | `_data/features.yml` |
 | Partner list and logos | `_data/partners.yml` |
-| Project timeline entries | `_data/projects.yml` |
-| Get Involved pitch copy (homepage register section) | `_data/get_involved.yml` |
-| Reusable end-of-page CTA band | `_data/register_band.yml` |
-| Register-interest modal copy | `_data/register_modal.yml` |
+| Get Involved page copy (`/get-involved/`: hero, pitch, ask, register section, task/FAQ labels, contact) | `_data/get_involved_page.yml` |
+| Get Involved task timeline (years / title / subtitle / task) — also feeds the FAQ breakdown's "What you will do" | `_data/projects.yml` |
+| Get Involved register card: "What it asks" steps + "How we look after it" points | `_data/get_involved.yml` |
 | Booking modal copy (industry page) | `_data/booking_modal.yml` |
 | Site nav labels/links | `_data/nav.yml` |
-| Team page intro + lived-experience callout | `_data/team_page.yml` |
-| Team member list | `_data/team.yml` |
+| Team page intro + placeholder label | `_data/team_page.yml` |
+| Team lists (`research` and `coproduction` groups) | `_data/team.yml` |
 | Glossary page chrome (header, search, empty state) | `_data/glossary_page.yml` |
 | Glossary term list | `_data/glossary.yml` |
-| FAQs page chrome (header, sidebar, project-breakdown labels) | `_data/faqs_page.yml` |
-| FAQ questions/answers | `_data/faqs.yml` |
-| FAQ "what would I do" project breakdown | `_data/faq_projects.yml` |
+| Get Involved FAQ questions/answers (flat list of five) | `_data/faqs.yml` |
+| FAQ "what would I do" project breakdown (only the PWLE column renders) | `_data/faq_projects.yml` |
+| Parked FAQs for the unbuilt `/good-experience/` page | `_data/good_experience_faqs.yml` |
 | Industry page copy | `_data/industry.yml` |
 | Find Out More page copy | `_data/findout_more.yml` |
 | Thank-you page copy | `_data/thank_you.yml` |
@@ -52,11 +51,11 @@ Layout HTML lives in `_layouts/default.html` and `_includes/`. The SCSS lives in
 
 ### Single-page structure
 
-`index.html` is a single scrolling page with five anchor-linked sections: `#home`, `#about`, `#how-it-works`, `#partners`, `#register`. `_includes/nav.html` (site-wide top nav, data in `_data/nav.yml`) links into these anchors from other pages.
+`index.html` is a single scrolling page with five anchor-linked sections: `#home`, `#about`, `#how-it-works`, `#partners`, `#audience`. `_includes/nav.html` (site-wide top nav, data in `_data/nav.yml`) links into these anchors from other pages.
 
 ### Register interest (external Qualtrics form)
 
-The interest form is hosted externally on Qualtrics — this site doesn't own or style its questions. `_data/site.yml`'s `qualtrics_form_url` is the single source of truth for the URL. Every "Register your interest" trigger (`.js-register-open`, in `get-involved-section.html`, `register-band.html`, and `nav.html`) is a real `<a href>` to that URL, upgraded by `assets/js/register-modal.js` into a trigger that opens `_includes/register-modal.html` — a dialog with the form in an iframe, rendered once per page from `_layouts/default.html`. Without JS the link just opens Qualtrics directly. `register-band.html` is a reusable end-of-page CTA included on every page except the home page (which has the full pitch section instead).
+The interest form is hosted externally on Qualtrics — this site doesn't own or style its questions. `_data/site.yml`'s `qualtrics_form_url` is the single source of truth for the URL. There is exactly **one** recruitment route and no other register prompts anywhere on the site: nav item "For patients, carers and public" (`muted: true` in `nav.yml`, rendered grey via `.nav-link--muted`) → `/get-involved/` (`get-involved.html`: two-column hero, recruitment ask, an inline "Register your interest" section listing what the form asks from `get_involved.yml › preview`, a task timeline from `projects.yml` with a scroll-in reveal in `assets/js/gi-timeline.js`, and a five-item FAQ accordion from `faqs.yml` + `faq_projects.yml`) → green "Open the form" button → Qualtrics in a new tab. `/faqs/` redirects to `/get-involved/`. The `/good-experience/` page linked from the get-involved page does not exist yet; its parked FAQ content is in `_data/good_experience_faqs.yml`. The industry page keeps its own booking modal (`_includes/booking-modal.html`).
 
 ### Diagonal section dividers
 

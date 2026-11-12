@@ -9,7 +9,7 @@ description: "The Open Psychiatry Project (OPP): connecting UK mental health dat
      FIND OUT MORE
      Edit: all copy (page header + section content) lives in
      _data/findout_more.yml (plain text, no HTML needed). This file
-     just renders it, plus the register card around it.
+     just renders it.
      Layout: sticky index + open sections (no accordion) — see _findout-more.scss
      ═══════════════════════════════════════════════════════════════ -->
 <section class="findout-more" id="findout-more" aria-labelledby="findout-heading">
@@ -37,10 +37,6 @@ description: "The Open Psychiatry Project (OPP): connecting UK mental health dat
           {% endif %}
           {% endfor %}
         </nav>
-        <div class="findout-toc-card">
-          <p>Want to hear when the resource opens?</p>
-          <a href="{{ site.data.site.qualtrics_form_url }}" class="js-register-open" target="_blank" rel="noopener">Register your interest &rarr;</a>
-        </div>
       </aside>
 
       <div class="findout-body">
@@ -86,11 +82,5 @@ description: "The Open Psychiatry Project (OPP): connecting UK mental health dat
         {% endfor %}
       </div>
     </div>
-  </div>
-</section>
-
-<section class="register-band-section">
-  <div class="container">
-    {% include register-band.html %}
   </div>
 </section>

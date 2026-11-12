@@ -1,0 +1,515 @@
+// ===================================================================
+// GET INVOLVED PAGE (/get-involved/)
+// get-involved.html only — for patients, carers and public.
+// Order: gi-hero (white) → gi-ask (white) → gi-register (off-white)
+//   → gi-tasks timeline (white, ruled) → gi-faqs (white) → gi-contact
+//   (off-white). Every section uses 3.5rem (56px) vertical padding.
+// Accordion markup/behaviour is the shared component in
+// _accordion.scss / assets/js/accordion.js. Timeline reveal is driven
+// by assets/js/gi-timeline.js. Responsive rules live here.
+// ===================================================================
+
+$gi-pad: 3.5rem;                 // 56px section rhythm
+$gi-measure: 760px;              // text column cap
+$gi-text: #4a3a48;               // body copy tone already used on subpages
+$gi-text-soft: #4a4060;          // secondary copy tone already used on subpages
+
+// Small supporting line under a primary button.
+.btn-note {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: $muted;
+}
+
+.gi-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $indigo;
+}
+
+// ---- hero: text left, watercolour right ------------------------------
+.gi-hero {
+  background: $white;
+  padding: calc(#{$gi-pad} + 80px) 0 $gi-pad;   // clears the fixed nav (see .team-intro)
+
+  .gi-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $gi-pad;
+    align-items: center;
+  }
+
+  .gi-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .gi-hero-head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  h1 {
+    color: $plum;
+    margin: 0;
+    font-size: clamp(2rem, 3.4vw, 2.6rem);
+    line-height: 1.14;
+  }
+
+  // Problem / Solution, stacked
+  .gi-ps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .gi-ps-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    p {
+      margin: 0;
+      font-size: 1.09rem;
+      line-height: 1.65;
+      color: $gi-text;
+      text-wrap: pretty;
+    }
+  }
+
+  .gi-ps-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $teal-text;
+
+    &--problem { color: $orange-text; }   // "The problem" in deep orange, "Our solution" stays teal
+  }
+
+  // Raw watercolour — no frame, radius or shadow; sits on the page ground.
+  .gi-hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// ---- recruitment ask ---------------------------------------------------
+.gi-ask {
+  background: $white;
+  padding: 0 0 $gi-pad;
+
+  .gi-ask-inner {
+    max-width: $gi-measure;
+    border-top: 1px solid rgba($dark, 0.12);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.03rem;
+    line-height: 1.65;
+    color: $muted;
+    text-wrap: pretty;
+  }
+
+  .gi-lede {
+    font-size: 1.3125rem;
+    line-height: 1.5;
+    color: $dark;
+  }
+
+  // Text link, not a button
+  .gi-jump {
+    align-self: flex-start;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $plum;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba($plum, 0.4);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+    &:hover { border-bottom-color: $plum; }
+  }
+}
+
+// ---- register your interest ---------------------------------------------
+.gi-register {
+  background: $off-white;
+  padding: $gi-pad 0;
+
+  .gi-register-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: $gi-pad;
+    align-items: start;
+  }
+
+  .gi-register-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+
+    h2 {
+      margin: 0;
+      color: $indigo;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: $muted;
+      text-wrap: pretty;
+    }
+  }
+
+  .gi-register-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+
+    .btn--primary { padding: 1rem 1.875rem; font-size: 1.03rem; }
+  }
+
+  // White card with two internal columns
+  .gi-register-card {
+    background: $white;
+    border: 1px solid rgba($dark, 0.09);
+    border-radius: 8px;
+    padding: 1.875rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2.25rem;
+  }
+
+  .gi-register-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  .gi-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $teal-text;
+  }
+
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8125rem;
+  }
+
+  li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    color: $gi-text-soft;
+  }
+
+  .gi-num  { flex: none; font-size: 0.8rem; font-weight: 700; color: $plum; }
+  .gi-tick { flex: none; color: $teal-text; }
+}
+
+// ---- the tasks: timeline ------------------------------------------------
+.gi-tasks {
+  background: $white;
+  border-top: 1px solid rgba($dark, 0.1);
+  border-bottom: 1px solid rgba($dark, 0.1);
+  padding: $gi-pad 0;
+
+  .gi-tasks-head {
+    max-width: $gi-measure;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+
+    h2 {
+      margin: 0;
+      color: $indigo;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.2;
+    }
+    p {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.65;
+      color: $gi-text;
+      text-wrap: pretty;
+    }
+  }
+
+  .gi-timeline {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+  }
+
+  .gi-tl-row { display: flex; align-items: stretch; }
+
+  // date column
+  .gi-tl-date {
+    flex: none;
+    width: 140px;                 // fits "2027–2028" on one line
+    box-sizing: border-box;
+    padding-right: 1.5rem;
+    text-align: right;
+
+    .gi-tl-years {
+      display: block;
+      font-family: $serif;
+      font-size: 1.3125rem;
+      line-height: 1.15;
+      color: $plum;
+      white-space: nowrap;
+    }
+    .gi-tl-project {
+      display: block;
+      margin-top: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $muted;
+    }
+  }
+
+  // spine
+  .gi-tl-spine { flex: none; width: 16px; position: relative; }
+
+  .gi-tl-line {
+    position: absolute;
+    left: 7px; top: 10px; bottom: 0;
+    width: 2px;
+    background: rgba($plum, 0.28);
+    transform-origin: top;
+  }
+
+  .gi-tl-dot {
+    position: absolute;
+    left: 0; top: 3px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: $plum;
+    box-shadow: 0 0 0 4px $white;
+  }
+
+  .gi-tl-row:last-child {
+    .gi-tl-line { display: none; }
+    .gi-tl-body { padding-bottom: 0; }
+  }
+
+  // content
+  .gi-tl-body {
+    flex: 1;
+    min-width: 0;
+    padding: 0 0 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    h3 { margin: 0; font-size: 1.4375rem; line-height: 1.3; color: $dark; }
+    p  { margin: 0; max-width: 640px; font-size: 1.03rem; line-height: 1.6; color: $muted; text-wrap: pretty; }
+  }
+
+  .gi-tl-task {
+    margin-top: 0.375rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid rgba($dark, 0.12);
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375rem;
+
+    .gi-tl-task-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $teal-text;
+    }
+    p { font-size: 0.97rem; color: $gi-text-soft; }
+  }
+
+  // workshops callout
+  .gi-workshops {
+    margin: 2.25rem 0 0;
+    max-width: $gi-measure;
+    padding: 1.375rem 1.625rem;
+    background: $off-white;
+    border-left: 3px solid $plum;
+    border-radius: 0 6px 6px 0;
+    font-size: 1.03rem;
+    line-height: 1.65;
+    color: $gi-text;
+    text-wrap: pretty;
+  }
+}
+
+// ---- timeline entry animation -------------------------------------------
+// One-shot, paused until gi-timeline.js sets it running (IntersectionObserver
+// on #gi-tasks, with a 4s fallback). The paused start state applies only
+// once JS has removed html.no-js, so without JS everything is simply shown.
+@keyframes gi-rise { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes gi-draw { from { transform: scaleY(0) } to { transform: scaleY(1) } }
+@keyframes gi-pop  { from { transform: scale(0) } to { transform: scale(1) } }
+
+html:not(.no-js):not(.no-io) .gi-tasks {
+  [data-anim] { animation-play-state: paused; }
+
+  @for $i from 1 through 3 {
+    .gi-tl-row:nth-child(#{$i}) {
+      $base: ($i - 1) * 240ms;
+      .gi-tl-dot  { animation: gi-pop  320ms cubic-bezier(.2,.8,.3,1) $base both; }
+      .gi-tl-date,
+      .gi-tl-body { animation: gi-rise 500ms cubic-bezier(.2,.7,.3,1) ($base + 80ms) both; }
+      .gi-tl-line { animation: gi-draw 620ms cubic-bezier(.4,.1,.3,1) ($base + 160ms) both; }
+    }
+  }
+
+  .gi-workshops { animation: gi-rise 500ms cubic-bezier(.2,.7,.3,1) 620ms both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gi-tasks [data-anim] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+// ---- FAQs -------------------------------------------------------------------
+.gi-faqs {
+  background: $white;
+  padding: $gi-pad 0;
+
+  .gi-faqs-inner { max-width: 860px; }
+
+  h2 {
+    color: $indigo;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 2rem;
+  }
+
+  // The "What would I do?" panel holds three full project write-ups
+  // and runs well past the shared 1400px ceiling in _accordion.scss
+  // (content past the ceiling clips silently). Raise it for this page.
+  .findout-item.is-open .findout-item-panel { max-height: 5000px; }
+
+  .findout-item-body p + p { margin-top: 0.875rem; }
+
+  // Project breakdown inside the "What would I do?" panel
+  .gi-project {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($dark, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h4 {
+      font-family: $serif;
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.35;
+      color: $indigo;
+      margin: 0;
+    }
+  }
+
+  .gi-project-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    p + p { margin-top: 0.5rem; }
+  }
+
+  .gi-field-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $teal-text;
+  }
+}
+
+// ---- contact / further info ---------------------------------------------
+.gi-contact {
+  background: $off-white;
+  padding: 2.25rem 0 2.75rem;
+
+  .gi-contact-inner {
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $gi-text-soft;
+  }
+
+  a {
+    color: $plum;
+    font-weight: 600;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ---- responsive -------------------------------------------------------------
+@media (max-width: 760px) {
+  .gi-hero .gi-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .gi-hero .gi-hero-img { max-width: 520px; }
+
+  .gi-register .gi-register-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .gi-register .gi-register-card { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  // Date block moves above the body; spine keeps its column.
+  .gi-tasks .gi-tl-row {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    grid-template-rows: auto auto;
+  }
+  .gi-tasks .gi-tl-date {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    text-align: left;
+    padding: 0 0 0.5rem 1.25rem;
+
+    .gi-tl-years, .gi-tl-project { display: inline; }
+    .gi-tl-project { margin: 0 0 0 0.625rem; }
+  }
+  .gi-tasks .gi-tl-spine { grid-column: 1; grid-row: 1 / 3; }
+  .gi-tasks .gi-tl-body  { grid-column: 2; grid-row: 2; padding-left: 1.25rem; }
+  .gi-tasks .gi-tl-row:last-child .gi-tl-body { padding-bottom: 0; }
+}

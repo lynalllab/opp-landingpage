@@ -4,14 +4,13 @@
 # renders this — no HTML needed to change wording.
 #
 # Sections below map 1:1 to the sections on the page: hero, about,
-# how_it_works, partners, audience, timeline, register.
+# how_it_works, partners, audience.
 # ===================================================================
 
 hero:
   badge: "UKRI MRC &amp; NIHR Funded"
   heading: "Open Psychiatry Project"
   tagline: "Open science for mental health &mdash; connecting molecular data with real-world impact."
-  register_cta: "Register Your Interest &rarr;"
   learn_more_cta: "Learn more"
   stats:
     - value_prefix: "&pound;"
@@ -57,13 +56,3 @@ audience:
     - icon: lived-experience
       heading: "People with Lived Experience"
       description: "Access plain-language summaries of the science and help shape how the resource evolves to meet your needs."
-
-timeline:
-  heading: "What you&rsquo;d be part of"
-  lede: "We have divided the main tasks into 3 different projects, running across the life of the award."
-  index_label: "Project"
-  task_label: "What you will do"
-  more_note: "Each project is described in full &mdash; aims, why it matters, and what taking part involves &mdash; on the [FAQs page](/faqs/)."
-
-register:
-  heading: "Help shape this"

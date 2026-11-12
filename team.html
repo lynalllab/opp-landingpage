@@ -17,46 +17,48 @@ description: "The team behind the Open Psychiatry Project."
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     TEAM — GRID
-     Edit: people in _data/team.yml — this markup does not need to change
+     TEAM — GROUPS (research, then co-production)
+     Edit: headings, copy and people in _data/team.yml — one section
+     per group, rendered by the single loop below so the two cannot
+     drift apart. A group with no people renders four empty
+     placeholder cards. The "portrait needed" label lives in
+     _data/team_page.yml (placeholder_label:). No CTA on this page.
      ═══════════════════════════════════════════════════════════════ -->
-<section class="team-grid-section" aria-label="Team members">
-  <div class="container team-grid">
-    {% for person in site.data.team %}
-    <article class="team-card">
-      {% if person.photo %}
-        <div class="team-photo">
-          <img src="{{ '/assets/images/team/' | append: person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy" width="400" height="400">
-        </div>
-      {% else %}
-        <div class="team-photo team-photo--empty" aria-hidden="true">portrait needed</div>
-      {% endif %}
-      <div class="team-card-text">
-        <h3>{{ person.name }}</h3>
-        <span class="team-role-label">{{ person.title }}</span>
-        <p class="team-role">{{ person.role }}</p>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     TEAM — LIVED EXPERIENCE CALLOUT
-     Edit: copy in _data/team_page.yml (lived_experience:)
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="team-lived" aria-labelledby="lived-heading">
+{% assign groups = "research,coproduction" | split: "," %}
+{% for key in groups %}
+{% assign group = site.data.team[key] %}
+<section class="team-group team-group--{{ key }}" aria-labelledby="team-{{ key }}-heading">
   <div class="container">
-    <div class="team-lived-box">
-      <div class="team-lived-text">
-        <span class="team-role-label">{{ site.data.team_page.lived_experience.eyebrow }}</span>
-        <h2 id="lived-heading">{{ site.data.team_page.lived_experience.heading }}</h2>
-        <p>{{ site.data.team_page.lived_experience.body }}</p>
-      </div>
-      <div class="team-lived-actions">
-        <a class="btn btn--primary" href="mailto:{{ site.data.site.contact_email }}">{{ site.data.team_page.lived_experience.cta }}</a>
-        <p class="team-lived-note">{{ site.data.team_page.lived_experience.note }}</p>
-      </div>
+    <h2 id="team-{{ key }}-heading">{{ group.heading }}</h2>
+    {% if group.subheading %}<h3 class="team-group-subheading">{{ group.subheading }}</h3>{% endif %}
+    {% if group.intro and group.intro != "" %}<p class="team-group-intro">{{ group.intro }}</p>{% endif %}
+    {% for p in group.paragraphs %}<p class="team-group-intro">{{ p }}</p>{% endfor %}
+    <div class="team-grid">
+      {% if group.people.size > 0 %}
+        {% for person in group.people %}
+        <article class="team-card">
+          {% if person.photo and person.photo != "" %}
+            <div class="team-photo">
+              <img src="{{ '/assets/images/team/' | append: person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy" width="400" height="400">
+            </div>
+          {% else %}
+            <div class="team-photo team-photo--empty" aria-hidden="true">{{ site.data.team_page.placeholder_label }}</div>
+          {% endif %}
+          <div class="team-card-text">
+            <h3>{{ person.name }}</h3>
+            <span class="team-role-label">{{ person.title }}</span>
+            <p class="team-role">{{ person.role }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+        <div class="team-card team-card--placeholder" aria-hidden="true">
+          <div class="team-photo team-photo--empty">{{ site.data.team_page.placeholder_label }}</div>
+        </div>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>
+{% endfor %}

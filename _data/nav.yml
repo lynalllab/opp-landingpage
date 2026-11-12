@@ -24,11 +24,10 @@ about_menu:
       label: "Glossary"
 
 links:
-  - url: "/faqs/"
-    label: "FAQs"
   - url: "/more/"
     label: "Find out more"
+  - url: "/get-involved/"
+    label: "Patients, carers &amp; public"
+    muted: true
   - url: "/industry/"
     label: "For industry"
-
-cta_label: "Register interest"

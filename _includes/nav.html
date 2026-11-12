@@ -1,8 +1,8 @@
 {% assign is_team = false %}
 {% if page.url == '/team/' %}{% assign is_team = true %}{% endif %}
 
-{% assign is_faqs = false %}
-{% if page.url == '/faqs/' %}{% assign is_faqs = true %}{% endif %}
+{% assign is_get_involved = false %}
+{% if page.url == '/get-involved/' %}{% assign is_get_involved = true %}{% endif %}
 
 {% assign is_glossary = false %}
 {% if page.url == '/glossary/' %}{% assign is_glossary = true %}{% endif %}
@@ -15,7 +15,9 @@
 
 {% assign menu_active = false %}
 {% if is_team or is_glossary %}{% assign menu_active = true %}{% endif %}
-<nav class="site-nav" id="site-nav" aria-label="Site navigation">
+{% assign over_hero = false %}
+{% if page.url == '/' %}{% assign over_hero = true %}{% endif %}
+<nav class="site-nav{% if over_hero %} site-nav--over-hero{% endif %}" id="site-nav" aria-label="Site navigation">
   <div class="container">
     <div class="nav-inner">
       <a href="{{ '/' | relative_url }}" class="nav-brand">
@@ -54,11 +56,15 @@
           </div>
         </li>
         {% for link in site.data.nav.links %}
-        <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} class="is-active" aria-current="page"{% endif %}>{{ link.label }}</a></li>
+        {%- assign link_active = false -%}
+        {%- if page.url == link.url %}{% assign link_active = true %}{% endif -%}
+        {%- if link.url == '/get-involved/' and is_get_involved %}{% assign link_active = true %}{% endif -%}
+        {%- assign link_classes = '' -%}
+        {%- if link.muted %}{% assign link_classes = 'nav-link--muted' %}{% endif -%}
+        {%- if link_active %}{% assign link_classes = link_classes | append: ' is-active' | strip %}{% endif %}
+        <li><a href="{{ link.url | relative_url }}"{% if link_classes != '' %} class="{{ link_classes }}"{% endif %}{% if link_active %} aria-current="page"{% endif %}>{{ link.label }}</a></li>
         {% endfor %}
-
       </ul>
-      <a href="{{ site.data.site.qualtrics_form_url }}" class="nav-cta js-register-open" target="_blank" rel="noopener">{{ site.data.nav.cta_label }}</a>
       </div>
     </div>
   </div>

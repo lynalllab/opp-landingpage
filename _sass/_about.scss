@@ -21,7 +21,7 @@
 
   h2 { color: $plum; margin-bottom: 1.5rem; }
 
-  .about-inner { max-width: 800px; }
+  .about-inner { max-width: 800px; margin: 0 auto; text-align: center; }
 
   .about-lead {
     font-size: 1.15rem;
@@ -36,6 +36,7 @@
     background: rgba($teal, 0.07);
     border-left: 3px solid $teal;
     border-radius: 0 4px 4px 0;
+    text-align: left;
 
     p { font-style: italic; color: #3d5d5e; margin: 0; }
   }

@@ -6,6 +6,9 @@
 #
 # `see_also` (optional) must exactly match another entry's `term` —
 # the template slugifies it into an anchor link.
+#
+# Entries marked "# DRAFT — needs review" were written by the site
+# team and await sign-off from the research team.
 # ===================================================================
 
 - term: "Biobank"
@@ -20,9 +23,22 @@
   definition: "The federated analysis software OPP uses to run research queries inside secure data environments. It lets a researcher's question travel to the data instead of the data travelling to the researcher."
   see_also: "Federated analysis"
 
+# DRAFT — needs review
+- term: "CADRE"
+  definition: "Children and Adolescents Data REsource: a linked, pseudonymised data resource for children and young people's mental health research, bringing together NHS, school and social-care records inside a secure data environment. Funded through DATAMIND, the NIHR Mental Health Mission and partners."
+  see_also: "DATAMIND"
+
 - term: "Co-production"
   definition: "Designing research and tools together with the people they're meant to serve, rather than for them. On OPP this means people with lived experience of mental illness help shape what gets built and how, from the start."
   see_also: "People with Lived Experience (PWLE)"
+
+- term: "Container"
+  definition: "A pre-packaged, self-contained digital toolkit that holds all the precise software, coding languages, and configurations needed to run complex genetic analyses."
+  see_also: "COSGAP"
+
+- term: "COSGAP"
+  definition: "COntainerized Statistical Genetics Analysis Pipelines: software containers for processing genotyping and health data."
+  see_also: "Container"
 
 - term: "Data Access Committee"
   definition: "The independent group that reviews and approves requests to run analyses through FedOMICS. OPP has two layers of this oversight: a project-wide committee plus each data custodian's own committee."
@@ -36,12 +52,26 @@
   definition: "An approach to combining insight from datasets held in different places without moving or pooling the underlying data itself. Analysis runs locally at each site; only summary results travel."
   see_also: "Federated analysis"
 
+# DRAFT — needs review
+- term: "DATAMIND"
+  definition: "The UK's national data hub for mental health research, part of Health Data Research UK and the UKRI Mental Health Platform. It makes mental health datasets easier to find, access and use, and provides data infrastructure that OPP builds on."
+  see_also: "UK LLC TRE"
+
 - term: "Drug repurposing"
   definition: "Finding a new use for a medicine that's already approved for a different condition — faster and cheaper than developing a drug from scratch, because its safety is already established."
   see_also: "Drug target"
 
 - term: "Drug target"
   definition: "A specific gene, protein, or biological pathway that a medicine could act on to treat a disease. Identifying strong drug targets is a key step before any new treatment can be developed."
+  see_also: "Open Targets Platform"
+
+- term: "EHR"
+  definition: "Electronic health records."
+  see_also: "Real-world data"
+
+# DRAFT — needs review
+- term: "EMBL-EBI"
+  definition: "The European Bioinformatics Institute, part of the European Molecular Biology Laboratory, based near Cambridge. It is home to the Open Targets Platform and a lead partner on OPP, bringing expertise in curating and sharing large-scale biological data."
   see_also: "Open Targets Platform"
 
 - term: "FedOMICS"
@@ -53,12 +83,22 @@
   see_also: "Trusted Research Environment (TRE)"
 
 - term: "Functional genomics"
-  definition: "The study of how genes and biological pathways influence disease, going beyond simply reading a gene sequence to understand what that gene actually does in the body."
+  definition: "Genomics looks at how genes and variation in our genes might influence mental health. There are different functional genomics experiments and analyses that help us understand how a genetic variant or gene works and contributes to disease mechanisms. Tools like the Open Targets Platform combine biological research to show which genes or biological pathways might be linked to specific conditions or drug targets. We want to know: what questions would you want to ask a resource like this? (e.g., “Which genes are linked to depression?” or “Are there existing medicines targeting this biological pathway?”)"
   see_also: "Omics"
 
 - term: "Generation Scotland"
   definition: "A large Scottish family-based health research cohort, and one of the first datasets connected into FedOMICS."
   see_also: "Biobank"
+
+# DRAFT — needs review
+- term: "Genomics"
+  definition: "The study of a person's complete set of genes (their genome) and how variation in those genes relates to health and disease. In mental health, genomics looks for genetic differences that change the risk of developing a condition or how someone responds to treatment."
+  see_also: "Functional genomics"
+
+# DRAFT — needs review
+- term: "GWAS"
+  definition: "Genome-Wide Association Study: a study that scans the genomes of many thousands of people to find genetic variants that are more common in those with a condition. GWAS results are a starting point for working out which genes and pathways are involved."
+  see_also: "Genomics"
 
 - term: "Metabolomics"
   definition: "The large-scale study of metabolites — the small molecules produced when the body breaks down food, drugs, and its own tissues. Changes in these molecules can signal how a condition is developing."
@@ -76,9 +116,19 @@
   definition: "People who have personally experienced a mental health condition, or who care for someone who has. PWLE co-design OPP's resource and research questions alongside researchers and Health professionals."
   see_also: "Co-production"
 
+# DRAFT — needs review
+- term: "PGC"
+  definition: "Psychiatric Genomics Consortium: an international collaboration of researchers pooling genetic data from hundreds of thousands of participants to identify genetic variants linked to psychiatric conditions. Many of the GWAS results OPP draws on come from the PGC."
+  see_also: "GWAS"
+
 - term: "Proteomics"
   definition: "The large-scale study of proteins — which ones are present, how much of each, and how they change — since proteins carry out most of the work inside cells."
   see_also: "Omics"
+
+# DRAFT — needs review
+- term: "R&D"
+  definition: "Research and development: the work companies and institutions do to discover, test and bring new treatments or diagnostics into use. Industry R&D partners can use the OPP resource to identify and validate drug targets."
+  see_also: "Drug target"
 
 - term: "Real-world data"
   definition: "Health data generated during everyday care — GP records, hospital admissions, prescriptions — rather than collected in a controlled clinical trial."
@@ -87,3 +137,8 @@
 - term: "Trusted Research Environment (TRE)"
   definition: "A secure computing space where approved researchers can work with sensitive health data. Nothing enters or leaves without checks. UK health data is spread across dozens of separate TREs, which is why they are hard to study together."
   see_also: "Federated analysis"
+
+# DRAFT — needs review
+- term: "UK LLC TRE"
+  definition: "The UK Longitudinal Linkage Collaboration's Trusted Research Environment: a national secure environment that links participants from UK longitudinal population studies to their NHS and other administrative records, so approved researchers can analyse them without the data ever leaving the secure setting."
+  see_also: "Trusted Research Environment (TRE)"

@@ -1,0 +1,186 @@
+---
+layout: default
+title: For patients, carers and public
+permalink: /get-involved/
+description: "How people with lived experience of mental illness, and those who care for them, can help co-produce the Open Psychiatry Project (OPP)."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GET INVOLVED — for patients, carers and public
+     Edit: all copy lives in _data/get_involved_page.yml. The register
+     card reads _data/get_involved.yml (preview:), the task timeline
+     reads _data/projects.yml, the FAQ accordion reads _data/faqs.yml
+     and the "What would I do?" breakdown reads _data/faq_projects.yml
+     (+ projects.yml for the task text). This file just renders them.
+     Styles — see _get-involved.scss
+     Timeline reveal — assets/js/gi-timeline.js
+     Accordion behaviour — see _accordion.scss / assets/js/accordion.js
+     ═══════════════════════════════════════════════════════════════ -->
+{% assign gi = site.data.get_involved_page %}
+{% assign projects = site.data.projects %}
+{% assign first_year = projects.first.years | slice: 0, 4 %}
+{% assign last_year = projects.last.years | slice: -4, 4 %}
+
+<!-- ── Hero: text stack left, watercolour right ─────────────────── -->
+<section class="gi-hero" id="gi-hero" aria-labelledby="gi-heading">
+  <div class="container gi-hero-grid">
+    <div class="gi-hero-text">
+      <div class="gi-hero-head">
+        <span class="gi-eyebrow">{{ gi.hero.eyebrow }}</span>
+        <h1 id="gi-heading">{{ gi.hero.heading }}</h1>
+      </div>
+      <div class="gi-ps">
+        <div class="gi-ps-item">
+          <span class="gi-ps-label gi-ps-label--problem">{{ gi.pitch.problem_label }}</span>
+          <p>{{ gi.pitch.problem }}</p>
+        </div>
+        <div class="gi-ps-item">
+          <span class="gi-ps-label">{{ gi.pitch.solution_label }}</span>
+          <p>{{ gi.pitch.solution }}</p>
+        </div>
+      </div>
+    </div>
+    {% if gi.hero_image.file != "" %}
+    <img class="gi-hero-img" src="{{ '/assets/images/' | append: gi.hero_image.file | relative_url }}" alt="{{ gi.hero_image.alt }}"{% if gi.hero_image.width %} width="{{ gi.hero_image.width }}" height="{{ gi.hero_image.height }}"{% endif %}>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ── Recruitment ask ──────────────────────────────────────────── -->
+<div class="gi-ask">
+  <div class="container">
+    <div class="gi-ask-inner">
+      {% for p in gi.ask.paragraphs %}
+      <p{% if forloop.first %} class="gi-lede"{% endif %}>{{ p | replace: "%%first%%", first_year | replace: "%%last%%", last_year }}</p>
+      {% endfor %}
+      <a class="gi-jump" href="#gi-tasks">{{ gi.ask.jump_label }}</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Register your interest (form opens directly) ─────────────── -->
+<section class="gi-register" id="gi-register" aria-labelledby="gi-register-heading">
+  <div class="container gi-register-grid">
+    <div class="gi-register-text">
+      <h2 id="gi-register-heading">{{ gi.register.heading }}</h2>
+      <p>{{ gi.register.intro }}</p>
+      <div class="gi-register-cta">
+        <a href="{{ site.data.site.qualtrics_form_url }}" class="btn btn--primary" target="_blank" rel="noopener">{{ gi.register.cta_label }}</a>
+        <span class="btn-note">{{ gi.register.cta_note }}</span>
+      </div>
+    </div>
+    <div class="gi-register-card">
+      <div class="gi-register-col">
+        <span class="gi-card-label">{{ site.data.get_involved.preview.steps_label }}</span>
+        <ol>
+          {% for step in site.data.get_involved.preview.steps %}
+          <li><span class="gi-num">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span> <span>{{ step }}</span></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="gi-register-col">
+        <span class="gi-card-label">{{ site.data.get_involved.preview.trust_label }}</span>
+        <ul>
+          {% for point in site.data.get_involved.preview.trust_points %}
+          <li><span class="gi-tick" aria-hidden="true">&check;</span> <span>{{ point }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The tasks: timeline ──────────────────────────────────────── -->
+<section class="gi-tasks" id="gi-tasks" aria-labelledby="gi-tasks-heading">
+  <div class="container">
+    <div class="gi-tasks-head">
+      <h2 id="gi-tasks-heading">{{ gi.tasks.heading }}</h2>
+      <p>{{ gi.tasks.intro | replace: "%%first%%", first_year | replace: "%%last%%", last_year }}</p>
+    </div>
+    <ol class="gi-timeline">
+      {% for project in projects %}
+      <li class="gi-tl-row">
+        <div class="gi-tl-date" data-anim>
+          <span class="gi-tl-years">{{ project.years }}</span>
+          <span class="gi-tl-project">{{ gi.tasks.eyebrow_prefix }} {{ forloop.index }}</span>
+        </div>
+        <div class="gi-tl-spine" aria-hidden="true">
+          <span class="gi-tl-line" data-anim></span>
+          <span class="gi-tl-dot" data-anim></span>
+        </div>
+        <div class="gi-tl-body" data-anim>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.subtitle }}</p>
+          <div class="gi-tl-task">
+            <span class="gi-tl-task-label">{{ gi.tasks.task_label }}</span>
+            <p>{{ project.task }}</p>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="gi-workshops" data-anim>{{ gi.tasks.workshops_note }}</p>
+  </div>
+</section>
+
+<!-- ── FAQs ─────────────────────────────────────────────────────── -->
+<section class="gi-faqs" id="gi-faqs" aria-labelledby="gi-faqs-heading">
+  <div class="container">
+    <div class="gi-faqs-inner">
+      <h2 id="gi-faqs-heading">{{ gi.faqs.heading }}</h2>
+      <div class="findout-accordion">
+        {% for item in site.data.faqs %}
+        {% assign item_id = item.question | slugify | prepend: "faq-" %}
+        <div class="findout-item{% if forloop.first %} is-open{% endif %}">
+          <h3>
+            <button type="button" class="findout-item-trigger" id="{{ item_id }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+              <span class="findout-item-title">{{ item.question }}</span>
+              <span class="findout-item-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="findout-item-panel">
+            <div class="findout-item-body">
+              {% if item.projects %}
+              <p>{{ item.intro }}</p>
+              {% for project in site.data.faq_projects %}
+              {% assign task_source = projects[forloop.index0] %}
+              <article class="gi-project">
+                <h4>{{ forloop.index }}. {{ project.title }} ({{ project.years }})</h4>
+
+                <div class="gi-project-field">
+                  <span class="gi-field-label">{{ gi.faqs.aim_label }}</span>
+                  {{ project.aim | markdownify }}
+                </div>
+
+                <div class="gi-project-field">
+                  <span class="gi-field-label">{{ gi.faqs.why_label }}</span>
+                  {{ project.why_it_matters.pwle_text | markdownify }}
+                </div>
+
+                <div class="gi-project-field">
+                  <span class="gi-field-label">{{ gi.faqs.what_label }}</span>
+                  <p>{{ task_source.task }}</p>
+                </div>
+              </article>
+              {% endfor %}
+              {% else %}
+              {{ item.answer | markdownify }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────────────────────────── -->
+<section class="gi-contact" id="gi-contact">
+  <div class="container">
+    <div class="gi-contact-inner">
+      <p>{{ gi.contact.good_experience_text_before_link }} <a href="{{ '/good-experience/' | relative_url }}">{{ gi.contact.good_experience_link_text }}</a></p>
+      <p>{{ gi.contact.email_text_before_link }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>.</p>
+    </div>
+  </div>
+</section>

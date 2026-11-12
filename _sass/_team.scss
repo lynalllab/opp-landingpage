@@ -1,6 +1,9 @@
 // ===================================================================
 // TEAM PAGE
-// team.html only. Grid is fluid via auto-fit — no breakpoints needed.
+// team.html only. Two sibling `.team-group` sections (research, then
+// co-production) with alternating backgrounds; each holds a heading,
+// optional copy, and a fluid auto-fit grid of cards. A group with no
+// people renders empty placeholder cards. No breakpoints needed.
 // ===================================================================
 
 .team-intro {
@@ -22,9 +25,51 @@
   }
 }
 
-.team-grid-section {
+.team-group {
+  padding: clamp(40px, 6vw, 64px) 0;
+
+  h2 {
+    font-family: $serif;
+    // Same size the old lived-experience callout heading used — the base
+    // h2 scale (up to 3.4rem) is larger than this page's h1.
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    color: $plum;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-grid {
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+
+  &:last-of-type {
+    padding-bottom: clamp(56px, 9vw, 104px);
+  }
+}
+
+.team-group--research {
   background: $off-white;
-  padding: clamp(40px, 6vw, 64px) 0 clamp(24px, 4vw, 40px);
+}
+
+.team-group--coproduction {
+  background: $white;
+}
+
+.team-group-subheading {
+  font-family: $serif;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.25;
+  color: $indigo;
+  margin-bottom: 1rem;
+}
+
+.team-group-intro {
+  max-width: 720px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a3a48;
+  margin-bottom: 1rem;
 }
 
 .team-grid {
@@ -37,6 +82,12 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+// Empty card used when a group has no people yet — same box as a real
+// card, just the photo slot with no text beneath.
+.team-card--placeholder {
+  gap: 0;
 }
 
 .team-photo {
@@ -87,57 +138,5 @@
 .team-role {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #6b5f74;
-}
-
-.team-lived {
-  background: $white;
-  padding: clamp(24px, 4vw, 40px) 0 clamp(56px, 9vw, 104px);
-}
-
-.team-lived-box {
-  border: 1px solid rgba($plum, 0.28);
-  border-radius: 4px;
-  padding: clamp(28px, 4.5vw, 48px) clamp(22px, 3.6vw, 40px);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: clamp(28px, 4.5vw, 56px);
-}
-
-.team-lived-text {
-  flex: 1 1 380px;
-  max-width: 520px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  h2 {
-    font-family: $serif;
-    font-weight: 400;
-    font-size: clamp(1.7rem, 3vw, 2.2rem);
-    color: $plum;
-    line-height: 1.2;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #4a3a48;
-  }
-}
-
-.team-lived-actions {
-  flex: 0 1 320px;
-  min-width: min(100%, 280px);
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.team-lived-note {
-  font-size: 0.85rem;
-  line-height: 1.5;
   color: #6b5f74;
 }

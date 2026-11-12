@@ -1,0 +1,49 @@
+# ===================================================================
+# Good experience FAQs (PARKED)
+# Questions moved out of _data/faqs.yml and parked here for a future
+# /good-experience/ page. NOT rendered anywhere yet — no template reads
+# this file. Same shape as faqs.yml:
+#   question: the FAQ question
+#   answer:   plain text / markdown
+#   id:       optional fixed anchor id for the question
+# ===================================================================
+
+- question: "How will you make sure the working environment is safe and respectful for people helping to co-produce OPP?"
+  id: faq-safe-respectful-environment
+  answer: >
+    Everyone involved in co-producing the Open Psychiatry Project — staff, researchers and
+    people with lived experience alike — will work to a shared code of conduct, agreed together
+    with our lived experience group. This sets out what respectful, safe collaboration looks
+    like, and applies equally to every member of the team.
+
+- question: "What happens if someone behaves inappropriately?"
+  answer: >
+    Any concern about someone's behaviour will be taken seriously and acted on straight away.
+    You'll always know who to contact if something happens or doesn't feel right, for example,
+    our PWLE facilitator or a named member of the executive committee. If a breach of the code
+    of conduct is confirmed, the person responsible will be removed from the team or task
+    group.
+
+- question: "Is what I share in meetings or workshops confidential?"
+  id: faq-confidential
+  answer: >
+    What's discussed within the group stays within the group. You can contribute fully to
+    co-production without disclosing details of your own experience if you'd rather not.
+
+- question: "Is there a way to reflect on what being involved meant to me personally, not just what changed in the project?"
+  answer: >
+    Yes, alongside the project's impact register, we'll offer a short, optional reflection
+    template you can fill in at the end of each task or task group, with a few simple prompts
+    (like what you learned, what felt difficult, and whether you'd want to do it again). It's
+    entirely up to you whether you complete it, and whether you share it with the whole group
+    at the follow-up meeting, just with your facilitator, or keep it private — there's no
+    expectation either way.
+
+- question: "Will researchers be able to see my personal data directly?"
+  answer: >
+    No. Researchers using the Open Psychiatry Project resources will never see or download
+    individual-level data. Instead, a researcher submits a question they want answered, which is
+    run automatically by secure software, either a data container or privacy-preserving federation
+    software (Bitfount), at the location where the data is already stored. Only an anonymised
+    summary result will be sent back to the researcher; the underlying data itself will never leave
+    its secure environment and will never be viewed by anyone running the analysis.

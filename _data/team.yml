@@ -1,37 +1,86 @@
-# Team members, in display order.
-# `photo` is the filename inside assets/images/team/. Leave blank to render
-# the "portrait needed" placeholder instead of a broken image.
-- name: Mary-Ellen Lynall
-  title: Principal lead
-  role: University of Cambridge, Department of Psychiatry
-  photo: mary-ellen-lynall.jpg
+# ===================================================================
+# Team members, in display order, in two named groups rendered by one
+# Liquid loop in team.html:
+#
+#   research      — the research team (university / partner leads)
+#   coproduction  — the co-production team (people with lived experience)
+#
+# Each group has a `heading`, optional `intro`/`subheading`/`paragraphs`
+# copy, and a `people` list. `photo` is the filename inside
+# assets/images/team/. Leave `photo` blank to render the "portrait
+# needed" placeholder instead of a broken image (label text lives in
+# _data/team_page.yml as `placeholder_label`).
+#
+# If a group's `people` list is empty, the page renders four empty
+# placeholder cards so the section still reads as a grid. Add the
+# co-production core group under `coproduction.people` once recruited,
+# using the same shape as `research.people`.
+# ===================================================================
 
-- name: Rudolf Cardinal
-  title: Co-lead
-  role: Non-executive director, CPFT; co-investigator for DATAMIND
-  photo: rudolf-cardinal.png
+research:
+  heading: "Research team"
+  intro: ""
+  people:
+    - name: Mary-Ellen Lynall
+      title: Principal lead
+      role: University of Cambridge, Department of Psychiatry
+      photo: mary-ellen-lynall.jpg
 
-- name: Ellen McDonagh
-  title: Co-lead
-  role: Translational Informatics Director of Open Targets
-  photo: ellen-mcdonagh.png
+    - name: Rudolf Cardinal
+      title: Co-lead
+      role: Non-executive director, CPFT; co-investigator for DATAMIND
+      photo: rudolf-cardinal.png
 
-- name: Andrew McIntosh
-  title: Co-lead
-  role: Director of the UKRI Mental Health Platform; Chief Scientist of DATAMIND
-  photo: andrew-mcIntosh.jpg
+    - name: Ellen McDonagh
+      title: Co-lead
+      role: Translational Informatics Director of Open Targets
+      photo: ellen-mcdonagh.png
 
-- name: Ann John
-  title: Co-lead
-  role: Co-Director of DATAMIND
-  photo: ann-john.jpeg
+    - name: Andrew McIntosh
+      title: Co-lead
+      role: Director of the UKRI Mental Health Platform; Chief Scientist of DATAMIND
+      photo: andrew-mcIntosh.jpg
 
-- name: Robin Flaig
-  title: Co-lead
-  role: Co-Director, UK Longitudinal Linkage Collaboration; COO, Generation Scotland
-  photo: robin-flaig.png
+    - name: Ann John
+      title: Co-lead
+      role: Co-Director of DATAMIND
+      photo: ann-john.jpeg
 
-- name: Birgitta Olofsson
-  title: Programme manager
-  role: University of Cambridge, Department of Psychiatry
-  photo: birgitta-olofsson.jpeg
+    - name: Robin Flaig
+      title: Co-lead
+      role: Co-Director, UK Longitudinal Linkage Collaboration; COO, Generation Scotland
+      photo: robin-flaig.png
+
+    - name: Birgitta Olofsson
+      title: Programme manager
+      role: University of Cambridge, Department of Psychiatry
+      photo: birgitta-olofsson.jpeg
+
+coproduction:
+  heading: "Co-production team"
+  subheading: "People with lived experience"
+  paragraphs:
+    - "People with lived experience of mental illness sit in the core team, shaping the questions OPP asks, how data is governed, and how findings are shared."
+    - "We aim to bring together 12–16 people with lived experience across our workshop series, including a core group of 3–4 who will stay involved throughout."
+  # Placeholder slots until the core group is recruited. Replace each
+  # with a real person (same shape as research.people, add `photo:`).
+  people:
+    - name: Core member
+      title: Lived experience
+      role: Joins throughout the workshop series
+      photo: ""
+
+    - name: Core member
+      title: Lived experience
+      role: Joins throughout the workshop series
+      photo: ""
+
+    - name: Core member
+      title: Lived experience
+      role: Joins throughout the workshop series
+      photo: ""
+
+    - name: PWLE facilitator
+      title: Facilitator
+      role: Named contact for the co-production group
+      photo: ""

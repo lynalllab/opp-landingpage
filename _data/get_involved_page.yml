@@ -1,0 +1,73 @@
+# ===================================================================
+# GET INVOLVED PAGE (/get-involved/) — for patients, carers and public
+# All copy for get-involved.html lives here. Other data it reads:
+#   _data/get_involved.yml (preview:)  the register card's steps + ticks
+#   _data/projects.yml                 the task timeline (years / title /
+#                                      subtitle / task)
+#   _data/faqs.yml                     the FAQ accordion
+#   _data/faq_projects.yml             the "What would I do?" breakdown
+# The green button opens the Qualtrics form directly — the URL is
+# _data/site.yml: qualtrics_form_url.
+#
+# %%first%% and %%last%% in a string are replaced with the first and
+# last year found in _data/projects.yml, so the dates never drift.
+# ===================================================================
+
+hero:
+  eyebrow: "Help us open up mental health data"
+  heading: "Could your experience help unlock better mental health treatments?"
+
+# Watercolour shown to the right of the hero text (below it on small
+# screens), rendered without a frame. Leave `file` empty and nothing
+# is rendered. Write a short descriptive `alt` when the image changes.
+hero_image:
+  file: "get-involved-watercolour.webp"
+  width: 1439      # intrinsic pixel size — lets the browser reserve space before the image loads
+  height: 1176
+  alt: "Watercolour illustration of seven people of different ages and backgrounds working together around a table with laptops, charts and checklists, under a board titled Open Psychiatry Project."
+
+pitch:
+  problem_label: "The problem"
+  # DRAFT — needs review (feedback doc copy not available at time of writing)
+  problem: "Mental health data in the UK is fragmented across many separate resources and secure environments. That makes it hard to connect what we know about genes, cells and molecules with what happens to real people, and it slows down the search for better treatments."
+  solution_label: "Our solution"
+  # DRAFT — needs review (feedback doc copy not available at time of writing)
+  solution: "The Open Psychiatry Project is building an open, publicly accessible resource that links these datasets safely, so researchers, health professionals and the public can explore the biology of mental health in one place. We want to build it with the people it is meant to serve."
+
+# Recruitment ask, under the hero. First paragraph is the lede.
+ask:
+  paragraphs:
+    # DRAFT — needs review (feedback doc copy not available at time of writing)
+    - "We're looking for people with lived experience of mental illness, and people who care for them, to help shape what we build and how we build it."
+    - "We are looking at recruiting 12–16 people with lived experience across our workshop series, including a core group of 3–4 who will stay involved throughout."
+    # DRAFT — needs review
+    - "There are three tasks to choose from, running one after another between %%first%% and %%last%%. You can join one or all of them."
+  jump_label: "See the three tasks &darr;"
+
+register:
+  heading: "Register your interest"
+  # DRAFT — absorbs the old "No commitment" trust point
+  intro: "A short form hosted by the University of Cambridge. It takes about 5 minutes, and registering interest is not signing up &mdash; it just lets us get in touch."
+  cta_label: "Open the form &rarr;"
+  cta_note: "Opens in a new tab"
+
+tasks:
+  heading: "The tasks"
+  # DRAFT — needs review
+  intro: "Three projects, one after another across the life of the award, from %%first%% to %%last%%. Each one needs people with lived experience at the table."
+  eyebrow_prefix: "Project"
+  task_label: "What you will do"
+  # Merges the feedback's sentence with the time-commitment detail from the FAQ
+  workshops_note: "The workshops will be very hands-on. Each task takes the form of a half-day workshop with 2–3 follow-up meetings, and most sessions will be held online. Never at any time will you be expected to share your own life history &mdash; you engage in a way that is comfortable for you."
+
+faqs:
+  heading: "FAQs"
+  # Field labels for the "What would I do?" project breakdown
+  aim_label: "Aim"
+  why_label: "Why it matters"
+  what_label: "What you will do"
+
+contact:
+  good_experience_text_before_link: "Here you find more information how we make sure that you have a good experience:"
+  good_experience_link_text: "Impact"
+  email_text_before_link: "If your question isn't here, email"

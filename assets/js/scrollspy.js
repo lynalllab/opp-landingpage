@@ -1,6 +1,6 @@
 // Shared scroll-spy: highlights the link (from linkSelector) whose target
 // section is the last one to have scrolled past `offset` from the top of
-// the viewport. Used by nav-scrollspy.js, findout-toc.js, and faqs-toc.js —
+// the viewport. Used by nav-scrollspy.js and findout-toc.js —
 // each just points it at its own link selector. No-ops if nothing matches.
 window.initScrollSpy = function (linkSelector, options) {
   'use strict';
