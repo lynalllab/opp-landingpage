@@ -1,0 +1,242 @@
+// ===================================================================
+// GOOD EXPERIENCE PAGE (/good-experience/)
+// good-experience.html only — child page of /get-involved/.
+// Order: ge-header (off-white) → ge-jump (white, ruled) → ge-group ×2
+//   (off-white / white alternating) → ge-next (off-white, ruled).
+// No accordion and no JS: every answer is open. Tokens ($gi-pad,
+// $gi-text, $gi-text-soft) come from _get-involved.scss so the two
+// pages match. Responsive rules live here.
+// ===================================================================
+
+$ge-rule: 1px solid rgba($dark, 0.1);
+$ge-nav-h: 74px;                 // fixed .site-nav: 60px logo + 0.8rem padding + 1px rule (same at every width)
+
+// ---- header -----------------------------------------------------------
+.ge-header {
+  background: $off-white;
+  padding: calc(#{$gi-pad} + 80px) 0 3rem;   // clears the fixed nav (see .gi-hero)
+
+  .ge-header-inner {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .ge-back {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $muted;
+    text-decoration: none;
+    transition: color 0.2s;
+    &:hover { color: $plum; }
+  }
+
+  h1 {
+    margin: 0;
+    font-family: $serif;
+    font-weight: 400;
+    font-size: 2.875rem;
+    line-height: 1.14;
+    color: $plum;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .ge-lede {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: $dark;
+  }
+}
+
+// ---- "On this page" jump bar (not sticky) -----------------------------
+.ge-jump {
+  background: $white;
+  border-top: $ge-rule;
+  border-bottom: $ge-rule;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.625rem 2rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .ge-jump-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $muted;
+  }
+
+  a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $plum;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ---- question groups --------------------------------------------------
+.ge-group {
+  background: $off-white;
+  padding: $gi-pad 0;
+  scroll-margin-top: $ge-nav-h + 16px;
+
+  &.ge-group--alt {
+    background: $white;
+    border-top: $ge-rule;
+    border-bottom: $ge-rule;
+  }
+
+  .ge-group-inner {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr);
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .ge-group-num {
+    display: block;
+    font-family: $serif;
+    font-size: 1.3125rem;
+    line-height: 1.15;
+    color: $plum;
+  }
+
+  h2 {
+    margin: 0.5rem 0 0;
+    font-family: $serif;
+    font-weight: 400;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    color: $indigo;
+  }
+
+  .ge-group-body { max-width: 720px; min-width: 0; }
+
+  .ge-qa {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.75rem 0;
+    border-top: $ge-rule;
+
+    &:first-child { border-top: 0; padding-top: 0; }
+    &:last-child  { padding-bottom: 0; }
+  }
+
+  h3 {
+    margin: 0;
+    font-family: $serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: $dark;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .ge-qa p {
+    margin: 0;
+    font-size: 1.03125rem;
+    line-height: 1.72;
+    color: $gi-text-soft;
+    text-wrap: pretty;
+  }
+}
+
+// ---- next steps -------------------------------------------------------
+.ge-next {
+  background: $off-white;
+  border-top: $ge-rule;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 2.25rem;
+    padding-bottom: 2.75rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.03125rem;
+    line-height: 1.65;
+    color: $gi-text-soft;
+  }
+
+  a {
+    color: $plum;
+    font-weight: 600;
+    &:hover { text-decoration: underline; }
+  }
+
+  a[href^="mailto:"] { overflow-wrap: anywhere; }
+}
+
+// ---- responsive -------------------------------------------------------
+@media (max-width: 860px) {
+  .ge-header {
+    padding: calc(2.75rem + 80px) 0 2.25rem;
+    h1 { font-size: 2.375rem; line-height: 1.16; }
+    .ge-lede { font-size: 1.1875rem; }
+
+    // 44px touch target without moving anything
+    .ge-back { padding: 0.75rem 0; margin: -0.75rem 0; }
+  }
+
+  .ge-jump {
+    .container { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    a { padding: 0.75rem 0; }
+  }
+
+  .ge-group {
+    padding: 2.75rem 0;
+
+    .ge-group-inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .ge-group-head  { display: flex; align-items: baseline; gap: 0.875rem; }   // "01" sits beside the h2
+    .ge-group-num   { font-size: 1.1875rem; }
+    h2              { margin: 0; font-size: 1.625rem; }
+    .ge-group-body  { max-width: none; }
+    .ge-qa          { padding: 1.5rem 0; }
+    h3              { font-size: 1.1875rem; }
+  }
+
+  .ge-next a { display: inline-block; padding: 0.75rem 0; margin: -0.75rem 0; }
+}
+
+@media (max-width: 520px) {
+  .ge-header, .ge-jump, .ge-group, .ge-next {
+    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+
+  .ge-header {
+    padding: calc(2rem + 80px) 0 1.75rem;
+    h1 { font-size: 1.875rem; line-height: 1.2; }
+    .ge-lede { font-size: 1.09375rem; }
+  }
+
+  .ge-jump {
+    .container { gap: 0.25rem 1.25rem; }
+    .ge-jump-label { flex-basis: 100%; padding-top: 0.5rem; }
+  }
+
+  .ge-group {
+    padding: 2.25rem 0;
+    .ge-group-num { font-size: 1.125rem; }
+    h2 { font-size: 1.5rem; }
+    .ge-qa { padding: 1.375rem 0; }
+    h3 { font-size: 1.125rem; }
+    .ge-qa p { font-size: 1rem; line-height: 1.7; }
+  }
+
+  .ge-next p { font-size: 1rem; }
+}

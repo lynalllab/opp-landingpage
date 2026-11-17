@@ -13,6 +13,7 @@
   --color-off-white: #f7f5f9;
   --color-lilac:     #f1eaf6;
   --color-dark:      #1a1220;
+  --color-orange:    #a63f0e;
 }
 
 $plum:      #89457f;
@@ -33,6 +34,10 @@ $muted:     #6b6478;   // supporting text. NOT #8d859c — that measures 3.25:1 
                        // $off-white and 2.99:1 on $lilac, both below AA for small text.
 $teal-text: #35696b;   // $teal for small text only; $teal itself is 4.15:1 and fails
                        // under ~18px. Keep $teal for fills, borders and large type.
+$orange-text: #a63f0e; // deep orange for small accent text (the "Problem" label on
+                       // /get-involved/). 5.8:1 on $off-white, 6.3:1 on white — AA for
+                       // small text. Added Nov 2026 at the team's request; the palette
+                       // had no orange before.
 $green-text: #3e754d;  // $green for text/button-fill only; $green itself is only 3.07:1
                        // against white (fails AA for white button text and green text
                        // alike). This measures 5.45:1 either direction. Keep $green for

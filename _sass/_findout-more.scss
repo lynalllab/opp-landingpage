@@ -45,14 +45,6 @@
       &:hover { color: $plum; }
       &.is-active { color: $dark; border-left-color: $plum; }
     }
-
-    .findout-toc-card {
-      margin-top: 0.625rem; padding: 1rem;
-      background: $lilac; border-radius: 6px;
-
-      p { margin: 0 0 0.5rem; font-size: 0.845rem; line-height: 1.5; color: #4a4060; }
-      a { padding: 0; border: none; font-weight: 600; color: $plum; }
-    }
   }
 
   // ---- body ---------------------------------------------------------

@@ -1,6 +1,9 @@
 // Sticky nav — reusable on every page via _includes/nav.html.
-// On the home page it reveals once you scroll past the hero; on pages
-// with no .hero (subpages) it's shown immediately.
+// On subpages it's the fixed white bar. On the home page it starts as a
+// transparent, absolutely-positioned bar that scrolls away with the hero
+// (.site-nav--over-hero, set server-side in nav.html so there is no
+// flash before this runs); once the hero has left the viewport it
+// becomes the fixed white bar and drops in (.site-nav--stuck).
 (function () {
   'use strict';
 
@@ -9,14 +12,17 @@
 
   var hero = document.querySelector('.hero');
   if (!hero) {
-    nav.classList.add('site-nav--visible');
+    nav.classList.remove('site-nav--over-hero');
   } else {
-    var threshold = hero.offsetHeight * 0.65;
-    var updateVisibility = function () {
-      nav.classList.toggle('site-nav--visible', window.scrollY > threshold);
+    var updateState = function () {
+      var threshold = hero.offsetHeight - nav.offsetHeight;
+      var overHero = window.scrollY < threshold;
+      nav.classList.toggle('site-nav--over-hero', overHero);
+      nav.classList.toggle('site-nav--stuck', !overHero);
     };
-    window.addEventListener('scroll', updateVisibility, { passive: true });
-    updateVisibility();
+    window.addEventListener('scroll', updateState, { passive: true });
+    window.addEventListener('resize', updateState);
+    updateState();
   }
 
   // Mobile hamburger toggle — shows/hides .nav-panel below the 900px

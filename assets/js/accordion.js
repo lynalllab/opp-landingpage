@@ -8,7 +8,7 @@
 // items closed.
 //
 // Also exposes window.openAccordionItemById(id) so other scripts
-// (e.g. faqs-toc.js) can open a specific item for a deep link without
+// (e.g. a page's table-of-contents script) can open a specific item for a deep link without
 // duplicating the toggle logic.
 (function () {
   'use strict';

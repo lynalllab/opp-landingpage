@@ -16,7 +16,6 @@ description: "Open science for mental health — connecting molecular data with 
     <p class="hero-tagline">{{ site.data.home.hero.tagline }}</p>
     <p class="hero-sub">{{ site.data.site.sub_tagline }}</p>
     <div class="hero-actions">
-      <a href="{{ site.data.site.qualtrics_form_url }}" class="btn btn--primary js-register-open" target="_blank" rel="noopener">{{ site.data.home.hero.register_cta }}</a>
       <a href="#about" class="btn btn--outline-light">{{ site.data.home.hero.learn_more_cta }}</a>
     </div>
 
@@ -118,31 +117,5 @@ description: "Open science for mental health — connecting molecular data with 
       </div>
       {% endfor %}
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PROJECT TIMELINE
-     Edit: heading, lede, labels and closing note in _data/home.yml (timeline:)
-     Edit each project's copy in _data/projects.yml
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="timeline" id="timeline" aria-labelledby="timeline-heading">
-  <div class="container">
-    <h2 id="timeline-heading" data-anim>{{ site.data.home.timeline.heading }}</h2>
-    <p class="timeline-lede" data-anim>{{ site.data.home.timeline.lede }}</p>
-    {% include timeline.html %}
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     GET INVOLVED (register)
-     Edit: heading in _data/home.yml (register:)
-     Edit pitch copy in _data/get_involved.yml
-     The form itself is external — see _data/site.yml: qualtrics_form_url
-     ═══════════════════════════════════════════════════════════════ -->
-<section id="register" aria-labelledby="register-heading">
-  <div class="container">
-    <h2 id="register-heading" class="reveal">{{ site.data.home.register.heading }}</h2>
-    {% include get-involved-section.html %}
   </div>
 </section>

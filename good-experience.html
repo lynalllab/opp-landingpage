@@ -1,0 +1,63 @@
+---
+layout: default
+title: "How we make sure that you have a good experience"
+permalink: /good-experience/
+description: "What people with lived experience can expect when taking part in the Open Psychiatry Project (OPP): safety and conduct, and how your input is tracked."
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GOOD EXPERIENCE — child page of /get-involved/
+     Edit: all copy lives in _data/good_experience.yml (the back-link
+     label comes from _data/nav.yml). This file just renders it.
+     Everything is open on purpose: no accordion, no JavaScript.
+     Styles — see _good-experience.scss
+     ═══════════════════════════════════════════════════════════════ -->
+{% assign ge = site.data.good_experience %}
+{% assign back_link = site.data.nav.links | where: "url", ge.back_url | first %}
+
+<section class="ge-header" aria-labelledby="ge-heading">
+  <div class="container">
+    <div class="ge-header-inner">
+      <a class="ge-back" href="{{ ge.back_url | relative_url }}">&larr;&nbsp;{{ back_link.label }}</a>
+      <span class="gi-eyebrow">{{ ge.eyebrow }}</span>
+      <h1 id="ge-heading">{{ ge.title }}</h1>
+      <p class="ge-lede">{{ ge.lede }}</p>
+    </div>
+  </div>
+</section>
+
+<nav class="ge-jump" aria-label="{{ ge.jump_label }}">
+  <div class="container">
+    <span class="ge-jump-label">{{ ge.jump_label }}</span>
+    {% for group in ge.groups %}
+    <a href="#{{ group.id }}">{{ group.heading }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+{% for group in ge.groups %}
+{% assign is_alt = forloop.index0 | modulo: 2 %}
+<section class="ge-group{% if is_alt == 1 %} ge-group--alt{% endif %}" id="{{ group.id }}" aria-labelledby="{{ group.id }}-h">
+  <div class="container ge-group-inner">
+    <div class="ge-group-head">
+      <span class="ge-group-num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+      <h2 id="{{ group.id }}-h">{{ group.heading }}</h2>
+    </div>
+    <div class="ge-group-body">
+      {% for item in group.items %}
+      <div class="ge-qa">
+        <h3>{{ item.question }}</h3>
+        <p>{{ item.answer | strip }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="ge-next" aria-label="{{ ge.next_label }}">
+  <div class="container">
+    <p>{{ ge.next_register_lead }} <a href="{{ ge.next_register_url | relative_url }}">{{ ge.next_register_label }}</a></p>
+    <p>{{ ge.next_contact_lead }} <a href="mailto:{{ site.data.site.contact_email }}">{{ site.data.site.contact_email }}</a>.</p>
+  </div>
+</section>

@@ -1,0 +1,75 @@
+# ===================================================================
+# GOOD EXPERIENCE PAGE (/good-experience/)
+# All copy for good-experience.html. Reached from the link at the
+# bottom of /get-involved/; not in the site nav.
+#
+# The "← back" link label is NOT stored here: it is read from
+# _data/nav.yml (the link whose url matches back_url) so the two
+# always read the same. The contact email is _data/site.yml:
+# contact_email.
+#
+# groups: each one becomes a numbered section (01, 02 — numbered
+# automatically in the order listed) and a link in the "On this page"
+# bar.
+#   id:       anchor id — must be unique, no spaces
+#   heading:  section heading (write & as &amp;)
+#   items:    question / answer pairs; answers are plain text
+# ===================================================================
+
+back_url: "/get-involved/"
+eyebrow: "Taking part"                                              # DRAFT
+title: "How we make sure that you have a good experience"            # DRAFT
+lede: "What you can expect from us when you take part: how the group works together and how we show what your input changed."   # DRAFT
+jump_label: "On this page"
+
+groups:
+  - id: "ge-safety"
+    heading: "Safety &amp; conduct"
+    items:
+      - question: "How will you make sure the working environment is safe and respectful for people helping to co-produce OPP?"
+        answer: >
+          Everyone involved in co-producing the Open Psychiatry Project — staff, researchers and
+          people with lived experience alike — will work to a shared code of conduct, agreed together
+          with our lived experience group. This sets out what respectful, safe collaboration looks
+          like, and applies equally to every member of the team.
+
+      - question: "What happens if someone behaves inappropriately?"
+        answer: >
+          Any concern about someone's behaviour will be taken seriously and acted on straight away.
+          You'll always know who to contact if something happens or doesn't feel right, for example,
+          our PWLE facilitator or a named member of the executive committee. If a breach of the code
+          of conduct is confirmed, the person responsible will be removed from the team or task
+          group.
+
+      - question: "Is what I share in meetings or workshops confidential?"
+        answer: >
+          What's discussed within the group stays within the group. You can contribute fully to
+          co-production without disclosing details of your own experience if you'd rather not.
+
+  - id: "ge-impact"
+    heading: "Your input &amp; impact"
+    items:
+      # Same question and answer as FAQ 4 in _data/faqs.yml — if one
+      # changes, change the other.
+      - question: "How will I know what difference my input made?"
+        answer: >
+          We keep a project-wide impact register that logs the suggestions and ideas that came from
+          people with lived experience and what happened as a result: whether that's a change we
+          made, a change still in progress, or something we weren't able to take forward and why.
+          We'll share this back with the group regularly, so there's always a visible line from what
+          you said to what we did.
+
+      - question: "Is there a way to reflect on what being involved meant to me personally, not just what changed in the project?"
+        answer: >
+          Yes, alongside the project's impact register, we'll offer a short, optional reflection
+          template you can fill in at the end of each task or task group, with a few simple prompts
+          (like what you learned, what felt difficult, and whether you'd want to do it again). It's
+          entirely up to you whether you complete it, and whether you share it with the whole group
+          at the follow-up meeting, just with your facilitator, or keep it private — there's no
+          expectation either way.
+
+next_label: "Next steps"            # screen-reader name of the closing section
+next_register_lead: "Ready to take part?"
+next_register_label: "Register your interest"
+next_register_url: "/get-involved/#gi-register"
+next_contact_lead: "If your question isn't here, email"

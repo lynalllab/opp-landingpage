@@ -5,7 +5,19 @@
   <div class="partner-card {{ delay_classes[delay_index] }}">
     <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ partner.name }} (opens in new tab)">
       {% if partner.logo != "" %}
-        <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" alt="{{ partner.name }} logo" loading="lazy"{% if partner.logo_invert %} class="partner-logo--invert"{% endif %}{% if partner.logo_scale %} style="--logo-scale: {{ partner.logo_scale }};"{% endif %}>
+        {% assign logo_ext = partner.logo | split: '.' | last %}
+        {% assign logo_base = partner.logo | remove: '.svg' | remove: '.png' %}
+        {% assign img_attrs = 'alt="' | append: partner.name | append: ' logo" loading="lazy" decoding="async"' %}
+        {% if partner.logo_invert %}{% assign img_attrs = img_attrs | append: ' class="partner-logo--invert"' %}{% endif %}
+        {% if partner.logo_scale %}{% assign img_attrs = img_attrs | append: ' style="--logo-scale: ' | append: partner.logo_scale | append: ';"' %}{% endif %}
+        {% if logo_ext == "png" %}
+        <picture>
+          <source srcset="{{ logo_base | prepend: '/assets/images/' | append: '.webp' | relative_url }}" type="image/webp">
+          <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" {{ img_attrs }}>
+        </picture>
+        {% else %}
+        <img src="{{ partner.logo | prepend: '/assets/images/' | relative_url }}" {{ img_attrs }}>
+        {% endif %}
       {% else %}
         <span class="partner-name">{{ partner.name }}</span>
       {% endif %}
